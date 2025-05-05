@@ -1,0 +1,35 @@
+.env
+
+*.pyc
+__pycache__/
+# Python
+__pycache__/
+*.py[cod]
+
+# Logs
+*.log
+outputs/
+output.log
+
+# Virtual environments
+biotaskvenv/
+.env/
+.venv/
+env/
+
+# VS Code
+.vscode/
+
+# System
+.DS_Store
+Thumbs.db
+*.zip
+*.pdb
+*.result.zip
+
+# Optional: ignore any large files in general
+*.tar.gz
+*.npz
+*.npy
+
+AF_Cluster/data_sep2022/colabfold_outputs/

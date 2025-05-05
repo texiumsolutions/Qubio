@@ -1,0 +1,14 @@
+platform:
+  accel: "cpu"  # Change from "gpu" since you're using CPU only
+  cache_dir: "/home/texsols/BioTasks/tasks/ThermoMPNN/cache"
+  thermompnn_dir: "/home/texsols/BioTasks/tasks/ThermoMPNN"
+
+data_loc:
+  megascale_csv: "/home/texsols/BioTasks/tasks/ThermoMPNN/data_all/megascale.csv"
+  megascale_splits: "/home/texsols/BioTasks/tasks/ThermoMPNN/dataset_splits/mega_splits.pkl"
+  megascale_pdbs: "/home/texsols/BioTasks/tasks/ThermoMPNN/data_all/megascale_pdbs/"
+
+  fireprot_csv: "/home/texsols/BioTasks/tasks/ThermoMPNN/data_all/fireprot.csv"
+  fireprot_splits: "/home/texsols/BioTasks/tasks/ThermoMPNN/dataset_splits/fireprot_splits.pkl"
+  fireprot_pdbs: "/home/texsols/BioTasks/tasks/ThermoMPNN/data_all/fireprot_pdbs/"
+
