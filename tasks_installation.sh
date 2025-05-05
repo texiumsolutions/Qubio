@@ -191,6 +191,33 @@ pip install -U pip
 pip install -r requirements.txt
 echo "ThermoMPNN-D setup complete."
 
+
+####### LocalColabFold Setup ########
+echo "=========================="
+echo "Setting up LocalColabFold..."
+echo "=========================="
+LOCALCOLABFOLD_DIR="$ROOT_DIR/LocalColabFold"
+cd $ROOT_DIR
+if [[ ! -d "LocalColabFold" ]]; then
+    git clone https://github.com/YoshitakaMo/localcolabfold.git LocalColabFold
+fi
+
+cd $LOCALCOLABFOLD_DIR
+if ! conda info --envs | grep -q "localcolabfold"; then
+    conda create --name localcolabfold python=3.10 -y
+fi
+conda activate localcolabfold
+
+pip install -U pip
+pip install -r requirements.txt
+python3 setup.py install
+
+# Download weights (optional, but often required)
+python3 colabfold/download.py
+
+echo "LocalColabFold setup complete."
+
+
 echo "=========================="
 echo "All installations completed successfully!"
 echo "=========================="
