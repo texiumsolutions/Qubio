@@ -33,3 +33,6 @@ Thumbs.db
 *.npy
 
 AF_Cluster/data_sep2022/colabfold_outputs/
+tasks/localcolabfold/
+outputs/
+uploads/
