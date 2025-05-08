@@ -9,6 +9,8 @@ from backend.database.azure_upload import upload_task_outputs
 
 antifold_bp = Blueprint("antifold", __name__)
 
+
+
 UPLOAD_FOLDER = "/home/texsols/BioTasks/uploads"
 OUTPUT_FOLDER = "/home/texsols/BioTasks/outputs/antifold_output"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
