@@ -56,9 +56,9 @@ def run_parasurf(params):
         --receptor "{params['pdb_file']}" \
         --model_weights "{MODEL_WEIGHTS}" \
         --device "cpu" \
-        --output_dir "{task_output_folder}" \
         > "{output_log}" 2>&1
     """
+
 
     logging.info(f"Executing ParaSurf command:\n{command}")
     subprocess.run(command, shell=True, executable="/bin/bash")
