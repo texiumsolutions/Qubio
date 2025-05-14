@@ -1,0 +1,7 @@
+sphinx>=6.0
+furo
+myst-parser
+sphinx-autodoc-typehints
+sphinx-rtd-theme
+sphinx-copybutton
+sphinx.ext.autodoc
