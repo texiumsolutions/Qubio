@@ -1,5 +1,8 @@
 flask
 werkzeug
 azure-storage-blob
-sphinx
+sphinx>=6.0
 furo
+myst-parser
+sphinx-autodoc-typehints
+sphinx-rtd-theme
