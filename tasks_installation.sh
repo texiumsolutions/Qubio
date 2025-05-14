@@ -202,6 +202,7 @@ if [[ ! -d "LocalColabFold" ]]; then
     git clone https://github.com/YoshitakaMo/localcolabfold.git LocalColabFold
 fi
 
+
 cd $LOCALCOLABFOLD_DIR
 if ! conda info --envs | grep -q "localcolabfold"; then
     conda create --name localcolabfold python=3.10 -y
