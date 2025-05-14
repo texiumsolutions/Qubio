@@ -23,4 +23,5 @@ python:
    install:
    - requirements: docs/requirements.txt
         
-
+# Optional: Force the theme
+formats: all
