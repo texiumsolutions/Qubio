@@ -3,5 +3,4 @@ werkzeug
 azure-storage-blob
 sphinx>=6.0
 myst-parser
-sphinx-autodoc-typehints
 sphinx-rtd-theme
