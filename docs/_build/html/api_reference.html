@@ -1,0 +1,711 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Documentation &mdash; Qubio 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Qubio documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Qubio
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#api-documentation-for-all-tasks">API Documentation for all Tasks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#available-tasks">Available Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#admet-ai-service">ADMET AI Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#antifold-service">AntiFold Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#colabdock-service">ColabDock Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#free-wilson-service">Free-Wilson Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#ligandmpnn-service">LigandMPNN Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#localcolabfold-api">LocalColabFold API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#parasurf-api">ParaSurf API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#proteinmpnn-api">ProteinMPNN API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#reinvent-api">REINVENT API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#thermompnn-api">ThermoMPNN API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#thompson-sampling-api">Thompson Sampling API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#general-information">General Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#last-updated">Last Updated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#logging">Logging</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qubio</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api_reference.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-documentation">
+<h1>API Documentation<a class="headerlink" href="#api-documentation" title="Link to this heading"></a></h1>
+<p>This document describes the API endpoints available for various services. Each service has its own set of routes, which allow users to upload files, run analysis, and check task statuses.</p>
+<p>—</p>
+<section id="api-documentation-for-all-tasks">
+<h2>API Documentation for all Tasks<a class="headerlink" href="#api-documentation-for-all-tasks" title="Link to this heading"></a></h2>
+<p>This section provides an overview of the available tasks and their API endpoints.</p>
+</section>
+</section>
+<section id="available-tasks">
+<h1>Available Tasks<a class="headerlink" href="#available-tasks" title="Link to this heading"></a></h1>
+<ol class="arabic">
+<li><p><strong>AntiFold</strong>
+- <strong>AntiFold Prediction</strong></p>
+<blockquote>
+<div><p><strong>Endpoint:</strong> <cite>/v1/api/antifold/predict</cite>
+<strong>Description:</strong> Predicts protein structures using AntiFold.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Check AntiFold Status</strong>
+<strong>Endpoint:</strong> <cite>/v1/api/antifold/check_status/&lt;task_id&gt;</cite>
+<strong>Description:</strong> Checks the prediction status of AntiFold.</p></li>
+</ul>
+</li>
+<li><p><strong>ProteinMPNN</strong>
+- <strong>ProteinMPNN ddG Prediction</strong></p>
+<blockquote>
+<div><p><strong>Endpoint:</strong> <cite>/v1/api/proteinmpnn/ddg</cite>
+<strong>Description:</strong> Predicts stability or binding affinity changes for mutations.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Check ProteinMPNN Status</strong>
+<strong>Endpoint:</strong> <cite>/v1/api/proteinmpnn/check_status/&lt;task_id&gt;</cite>
+<strong>Description:</strong> Checks the processing status of ProteinMPNN.</p></li>
+</ul>
+</li>
+<li><p><strong>Thompson Sampling</strong>
+- <strong>Run Thompson Sampling</strong></p>
+<blockquote>
+<div><p><strong>Endpoint:</strong> <cite>/v1/api/thompson_sampling/run_ts</cite>
+<strong>Description:</strong> Performs Thompson Sampling for reaction optimization.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Check Thompson Sampling Status</strong>
+<strong>Endpoint:</strong> <cite>/v1/api/thompson_sampling/check_status/&lt;task_id&gt;</cite>
+<strong>Description:</strong> Checks the status of a Thompson Sampling task.</p></li>
+</ul>
+</li>
+<li><p><strong>Free-Wilson</strong>
+- <strong>Run Free-Wilson Analysis</strong></p>
+<blockquote>
+<div><p><strong>Endpoint:</strong> <cite>/v1/api/freewilson/run_fw</cite>
+<strong>Description:</strong> Runs Free-Wilson analysis for molecular property prediction.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Check Free-Wilson Status</strong>
+<strong>Endpoint:</strong> <cite>/v1/api/freewilson/check_status/&lt;task_id&gt;</cite>
+<strong>Description:</strong> Checks Free-Wilson analysis task status.</p></li>
+</ul>
+</li>
+<li><p><strong>LigandMPNN</strong>
+- <strong>Run LigandMPNN</strong></p>
+<blockquote>
+<div><p><strong>Endpoint:</strong> <cite>/v1/api/ligandmpnn/run_lmpnn</cite>
+<strong>Description:</strong> Generates ligand mutations using LigandMPNN.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Check LigandMPNN Status</strong>
+<strong>Endpoint:</strong> <cite>/v1/api/ligandmpnn/check_status/&lt;task_id&gt;</cite>
+<strong>Description:</strong> Checks LigandMPNN task processing status.</p></li>
+</ul>
+</li>
+<li><p><strong>LocalColabFold</strong>
+- <strong>Run LocalColabFold</strong></p>
+<blockquote>
+<div><p><strong>Endpoint:</strong> <cite>/v1/api/localcolabfold/run_colabfold</cite>
+<strong>Description:</strong> Performs protein folding using LocalColabFold.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Check LocalColabFold Status</strong>
+<strong>Endpoint:</strong> <cite>/v1/api/localcolabfold/check_status/&lt;task_id&gt;</cite>
+<strong>Description:</strong> Checks the status of LocalColabFold folding tasks.</p></li>
+</ul>
+</li>
+<li><p><strong>ParaSurf</strong>
+- <strong>Run ParaSurf Analysis</strong></p>
+<blockquote>
+<div><p><strong>Endpoint:</strong> <cite>/v1/api/parasurf/run_ps</cite>
+<strong>Description:</strong> Runs ParaSurf for protein surface prediction.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Check ParaSurf Status</strong>
+<strong>Endpoint:</strong> <cite>/v1/api/parasurf/check_status/&lt;task_id&gt;</cite>
+<strong>Description:</strong> Checks the processing status of ParaSurf.</p></li>
+</ul>
+</li>
+<li><p><strong>REINVENT</strong>
+- <strong>Run REINVENT</strong></p>
+<blockquote>
+<div><p><strong>Endpoint:</strong> <cite>/v1/api/reinvent/run_reinvent</cite>
+<strong>Description:</strong> Runs REINVENT for drug design and optimization.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Check REINVENT Status</strong>
+<strong>Endpoint:</strong> <cite>/v1/api/reinvent/check_status/&lt;task_id&gt;</cite>
+<strong>Description:</strong> Checks REINVENT task processing status.</p></li>
+</ul>
+</li>
+<li><p><strong>ThermoMPNN</strong>
+- <strong>Run ThermoMPNN</strong></p>
+<blockquote>
+<div><p><strong>Endpoint:</strong> <cite>/v1/api/thermomppn/run_tmppn</cite>
+<strong>Description:</strong> Runs ThermoMPNN for stability prediction.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Check ThermoMPNN Status</strong>
+<strong>Endpoint:</strong> <cite>/v1/api/thermomppn/check_status/&lt;task_id&gt;</cite>
+<strong>Description:</strong> Checks ThermoMPNN task processing status.</p></li>
+</ul>
+</li>
+<li><p><strong>ADMET AI</strong>
+- <strong>Run ADMET AI Prediction</strong></p>
+<blockquote>
+<div><p><strong>Endpoint:</strong> <cite>/v1/api/admet_ai/run_admet</cite>
+<strong>Description:</strong> Predicts ADMET properties using AI models.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Check ADMET AI Status</strong>
+<strong>Endpoint:</strong> <cite>/v1/api/admet_ai/check_status/&lt;task_id&gt;</cite>
+<strong>Description:</strong> Checks the status of ADMET AI prediction tasks.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="admet-ai-service">
+<h1>ADMET AI Service<a class="headerlink" href="#admet-ai-service" title="Link to this heading"></a></h1>
+<p><strong>Blueprint Name</strong>: <cite>admet_ai</cite></p>
+<p><strong>Base URL</strong>: <cite>/admet_ai</cite></p>
+<p>### Endpoints</p>
+<p>Predicts ADMET properties for a given SMILES file.</p>
+<ul class="simple">
+<li><p><strong>Request</strong>:
+- <strong>smiles_file</strong> (file): The SMILES file containing molecular data to be analyzed.</p></li>
+<li><p><strong>Response</strong>:
+- <strong>200 OK</strong>: Prediction results as JSON.
+- <strong>400 Bad Request</strong>: If no SMILES file is provided.
+- <strong>500 Internal Server Error</strong>: If an error occurs during prediction.</p></li>
+</ul>
+<p>Checks the status of an ADMET prediction task.</p>
+<ul class="simple">
+<li><p><strong>Parameters</strong>:
+- <strong>task_id</strong> (string): The unique task ID for the prediction.</p></li>
+<li><p><strong>Response</strong>:
+- <strong>200 OK</strong>: JSON response with logs and uploaded Azure files.
+- <strong>404 Not Found</strong>: If the task ID is not found.
+- <strong>500 Internal Server Error</strong>: If an error occurs while checking status.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="antifold-service">
+<h1>AntiFold Service<a class="headerlink" href="#antifold-service" title="Link to this heading"></a></h1>
+<p><strong>Blueprint Name</strong>: <cite>antifold</cite></p>
+<p><strong>Base URL</strong>: <cite>/antifold</cite></p>
+<p>### Endpoints</p>
+<p>Runs the AntiFold prediction for a given PDB file.</p>
+<ul class="simple">
+<li><p><strong>Request</strong>:
+- <strong>pdb_file</strong> (file) or <strong>pdb_url</strong> (string): The PDB file or URL pointing to the PDB file to be analyzed.
+- <strong>task_type</strong> (string): Type of the task to run.
+- <strong>heavy_chain</strong> (string): Heavy chain sequence (optional).
+- <strong>light_chain</strong> (string): Light chain sequence (optional).</p></li>
+<li><p><strong>Response</strong>:
+- <strong>200 OK</strong>: Prediction results as JSON.
+- <strong>400 Bad Request</strong>: If neither a PDB file nor URL is provided.
+- <strong>500 Internal Server Error</strong>: If an error occurs during prediction.</p></li>
+</ul>
+<p>Checks the status of an AntiFold task.</p>
+<ul class="simple">
+<li><p><strong>Parameters</strong>:
+- <strong>task_id</strong> (string): The unique task ID for the prediction.</p></li>
+<li><p><strong>Response</strong>:
+- <strong>200 OK</strong>: JSON response with logs and uploaded Azure files.
+- <strong>404 Not Found</strong>: If the task ID is not found.
+- <strong>500 Internal Server Error</strong>: If an error occurs while checking status.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="colabdock-service">
+<h1>ColabDock Service<a class="headerlink" href="#colabdock-service" title="Link to this heading"></a></h1>
+<p><strong>Blueprint Name</strong>: <cite>colabdock</cite></p>
+<p><strong>Base URL</strong>: <cite>/colabdock</cite></p>
+<p>### Endpoints</p>
+<p>Runs the ColabDock docking task.</p>
+<ul class="simple">
+<li><p><strong>Request</strong>:
+- <strong>pdb_file</strong> (file) or <strong>pdb_url</strong> (string): The PDB file or URL pointing to the PDB file to be docked.</p></li>
+<li><p><strong>Response</strong>:
+- <strong>200 OK</strong>: Docking results as JSON.
+- <strong>400 Bad Request</strong>: If neither a PDB file nor URL is provided.
+- <strong>500 Internal Server Error</strong>: If an error occurs during docking.</p></li>
+</ul>
+<p>Checks the status of a ColabDock docking task.</p>
+<ul class="simple">
+<li><p><strong>Parameters</strong>:
+- <strong>task_id</strong> (string): The unique task ID for the docking.</p></li>
+<li><p><strong>Response</strong>:
+- <strong>200 OK</strong>: JSON response with logs and uploaded Azure files.
+- <strong>404 Not Found</strong>: If the task ID is not found.
+- <strong>500 Internal Server Error</strong>: If an error occurs while checking status.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="free-wilson-service">
+<h1>Free-Wilson Service<a class="headerlink" href="#free-wilson-service" title="Link to this heading"></a></h1>
+<p><strong>Blueprint Name</strong>: <cite>freewilson</cite></p>
+<p><strong>Base URL</strong>: <cite>/freewilson</cite></p>
+<p>### Endpoints</p>
+<p>Runs the Free-Wilson analysis.</p>
+<ul class="simple">
+<li><p><strong>Request</strong>:
+- <strong>scaffold_file</strong> (file) or <strong>scaffold_url</strong> (string): The scaffold file or URL.
+- <strong>input_smiles_file</strong> (file) or <strong>input_smiles_url</strong> (string): The SMILES file or URL.
+- <strong>activity_file</strong> (file) or <strong>activity_url</strong> (string): The activity file or URL.
+- <strong>prefix</strong> (string): A unique task ID (optional).</p></li>
+<li><p><strong>Response</strong>:
+- <strong>200 OK</strong>: Analysis results as JSON.
+- <strong>400 Bad Request</strong>: If required files or URLs are missing.
+- <strong>500 Internal Server Error</strong>: If an error occurs during analysis.</p></li>
+</ul>
+<p>Checks the status of the Free-Wilson analysis task.</p>
+<ul class="simple">
+<li><p><strong>Parameters</strong>:
+- <strong>task_id</strong> (string): The unique task ID for the analysis.</p></li>
+<li><p><strong>Response</strong>:
+- <strong>200 OK</strong>: JSON response with logs and uploaded Azure files.
+- <strong>404 Not Found</strong>: If the task ID is not found.
+- <strong>500 Internal Server Error</strong>: If an error occurs while checking status.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="ligandmpnn-service">
+<h1>LigandMPNN Service<a class="headerlink" href="#ligandmpnn-service" title="Link to this heading"></a></h1>
+<p><strong>Blueprint Name</strong>: <cite>ligandmpnn</cite></p>
+<p><strong>Base URL</strong>: <cite>/ligandmpnn</cite></p>
+<p>### Endpoints</p>
+<p>Starts the LigandMPNN design task.</p>
+<ul class="simple">
+<li><p><strong>Request</strong>:
+- <strong>pdb_file</strong> (file) or <strong>pdb_file_url</strong> (string): The PDB file or URL pointing to the PDB file.
+- <strong>chains_to_design</strong> (string): The chains to design.
+- <strong>fixed_residues</strong> (string): Fixed residues (optional).
+- <strong>residues_to_design</strong> (string): Residues to design (optional).
+- <strong>temperature</strong> (float): The temperature parameter for the design.
+- <strong>number_of_batches</strong> (int): Number of batches to process.</p></li>
+<li><p><strong>Response</strong>:
+- <strong>200 OK</strong>: Design results as JSON.
+- <strong>400 Bad Request</strong>: If no PDB file is provided or if chains to design are missing.
+- <strong>500 Internal Server Error</strong>: If an error occurs during design.</p></li>
+</ul>
+<p>Checks the status of a LigandMPNN design task.</p>
+<ul class="simple">
+<li><p><strong>Parameters</strong>:
+- <strong>task_id</strong> (string): The unique task ID for the design.</p></li>
+<li><p><strong>Response</strong>:
+- <strong>200 OK</strong>: JSON response with logs and uploaded Azure files.
+- <strong>404 Not Found</strong>: If the task ID is not found.
+- <strong>500 Internal Server Error</strong>: If an error occurs while checking status.</p></li>
+</ul>
+<p>—</p>
+</section>
+<section id="localcolabfold-api">
+<h1>LocalColabFold API<a class="headerlink" href="#localcolabfold-api" title="Link to this heading"></a></h1>
+<p><strong>Blueprint Name</strong>: <cite>localcolabfold</cite></p>
+<p>This API allows users to predict protein structures using the LocalColabFold method.</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt><strong>POST /predict</strong></dt><dd><ul class="simple">
+<li><p><strong>Description</strong>: Accepts a FASTA file upload or URL and runs the LocalColabFold prediction.</p></li>
+<li><dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><ul>
+<li><p><cite>fasta_file</cite>: The protein sequence in FASTA format (file upload).</p></li>
+<li><p><cite>fasta_file_url</cite>: The URL of a FASTA file (optional if <cite>fasta_file</cite> is provided).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Response</strong>: Returns a JSON object containing the prediction results.</p></li>
+<li><dl class="simple">
+<dt><strong>Errors</strong>:</dt><dd><ul>
+<li><p>400: No FASTA file or URL provided.</p></li>
+<li><p>500: Internal server error.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>GET /check_status/&lt;task_id&gt;</strong></dt><dd><ul class="simple">
+<li><p><strong>Description</strong>: Checks the status of a task based on the task ID, and retrieves the log and Azure upload results.</p></li>
+<li><dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><ul>
+<li><p><cite>task_id</cite>: The ID of the task to check.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Response</strong>: Returns a JSON object containing the logs and any uploaded files to Azure.</p></li>
+<li><dl class="simple">
+<dt><strong>Errors</strong>:</dt><dd><ul>
+<li><p>404: Task ID not found.</p></li>
+<li><p>500: Internal server error.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+<section id="parasurf-api">
+<h1>ParaSurf API<a class="headerlink" href="#parasurf-api" title="Link to this heading"></a></h1>
+<p><strong>Blueprint Name</strong>: <cite>parasurf</cite></p>
+<p>This API allows users to predict protein surface properties using the ParaSurf tool.</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt><strong>POST /predict</strong></dt><dd><ul class="simple">
+<li><p><strong>Description</strong>: Accepts a PDB file upload or URL and runs the ParaSurf prediction.</p></li>
+<li><dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><ul>
+<li><p><cite>pdb_file</cite>: A PDB file containing the protein structure (file upload).</p></li>
+<li><p><cite>pdb_url</cite>: The URL of a PDB file (optional if <cite>pdb_file</cite> is provided).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Response</strong>: Returns a JSON object containing the prediction results.</p></li>
+<li><dl class="simple">
+<dt><strong>Errors</strong>:</dt><dd><ul>
+<li><p>400: No PDB file or URL provided.</p></li>
+<li><p>500: Internal server error.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>GET /check_status/&lt;task_id&gt;</strong></dt><dd><ul class="simple">
+<li><p><strong>Description</strong>: Checks the status of a task based on the task ID, and retrieves the log and Azure upload results.</p></li>
+<li><dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><ul>
+<li><p><cite>task_id</cite>: The ID of the task to check.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Response</strong>: Returns a JSON object containing the logs and any uploaded files to Azure.</p></li>
+<li><dl class="simple">
+<dt><strong>Errors</strong>:</dt><dd><ul>
+<li><p>404: Task ID not found.</p></li>
+<li><p>500: Internal server error.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+<section id="proteinmpnn-api">
+<h1>ProteinMPNN API<a class="headerlink" href="#proteinmpnn-api" title="Link to this heading"></a></h1>
+<p><strong>Blueprint Name</strong>: <cite>proteinmpnn</cite></p>
+<p>This API predicts the stability and mutation effects of proteins using ProteinMPNN.</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt><strong>POST /ddg</strong></dt><dd><ul class="simple">
+<li><p><strong>Description</strong>: Accepts a PDB file upload or URL and runs the ProteinMPNN prediction.</p></li>
+<li><dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><ul>
+<li><p><cite>pdb_file</cite>: A PDB file (file upload).</p></li>
+<li><p><cite>pdb_file_url</cite>: The URL of a PDB file (optional if <cite>pdb_file</cite> is provided).</p></li>
+<li><p><cite>chain</cite>: The chain identifier (optional, default is “A”).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Response</strong>: Returns a JSON object containing the prediction results.</p></li>
+<li><dl class="simple">
+<dt><strong>Errors</strong>:</dt><dd><ul>
+<li><p>400: No PDB file or URL provided.</p></li>
+<li><p>500: Internal server error.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>GET /check_status/&lt;task_id&gt;</strong></dt><dd><ul class="simple">
+<li><p><strong>Description</strong>: Checks the status of a task based on the task ID, and retrieves the log and Azure upload results.</p></li>
+<li><dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><ul>
+<li><p><cite>task_id</cite>: The ID of the task to check.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Response</strong>: Returns a JSON object containing the logs and any uploaded files to Azure.</p></li>
+<li><dl class="simple">
+<dt><strong>Errors</strong>:</dt><dd><ul>
+<li><p>404: Task ID not found.</p></li>
+<li><p>500: Internal server error.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+<section id="reinvent-api">
+<h1>REINVENT API<a class="headerlink" href="#reinvent-api" title="Link to this heading"></a></h1>
+<p><strong>Blueprint Name</strong>: <cite>reinvent</cite></p>
+<p>This API allows users to run REINVENT, a tool for molecular generation and optimization.</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt><strong>POST /predict</strong></dt><dd><ul class="simple">
+<li><p><strong>Description</strong>: Accepts a SMILES string and runs the REINVENT prediction.</p></li>
+<li><dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><ul>
+<li><p><cite>smiles</cite>: The SMILES representation of the molecule.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Response</strong>: Returns a JSON object containing the prediction results.</p></li>
+<li><dl class="simple">
+<dt><strong>Errors</strong>:</dt><dd><ul>
+<li><p>400: SMILES input is required.</p></li>
+<li><p>500: Internal server error.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>GET /check_status/&lt;task_id&gt;</strong></dt><dd><ul class="simple">
+<li><p><strong>Description</strong>: Checks the status of a task based on the task ID, and retrieves the log and Azure upload results.</p></li>
+<li><dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><ul>
+<li><p><cite>task_id</cite>: The ID of the task to check.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Response</strong>: Returns a JSON object containing the logs and any uploaded files to Azure.</p></li>
+<li><dl class="simple">
+<dt><strong>Errors</strong>:</dt><dd><ul>
+<li><p>404: Task ID not found.</p></li>
+<li><p>500: Internal server error.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+<section id="thermompnn-api">
+<h1>ThermoMPNN API<a class="headerlink" href="#thermompnn-api" title="Link to this heading"></a></h1>
+<p><strong>Blueprint Name</strong>: <cite>thermompnn</cite></p>
+<p>This API uses ThermoMPNN for predicting the stability of proteins based on mutations.</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt><strong>POST /predict</strong></dt><dd><ul class="simple">
+<li><p><strong>Description</strong>: Accepts a PDB file upload or URL and starts a ThermoMPNN prediction for stability or mutation effects.</p></li>
+<li><dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><ul>
+<li><p><cite>task_type</cite>: The type of task (‘single’, ‘epistatic’, or ‘double’).</p></li>
+<li><p><cite>pdb_file</cite>: A PDB file (file upload).</p></li>
+<li><p><cite>pdb_file_url</cite>: The URL of a PDB file (optional if <cite>pdb_file</cite> is provided).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Response</strong>: Returns a JSON object containing the prediction results.</p></li>
+<li><dl class="simple">
+<dt><strong>Errors</strong>:</dt><dd><ul>
+<li><p>400: No PDB file or URL provided.</p></li>
+<li><p>500: Internal server error.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>GET /check_status/&lt;task_id&gt;</strong></dt><dd><ul class="simple">
+<li><p><strong>Description</strong>: Checks the status of a task based on the task ID, and retrieves the log and Azure upload results.</p></li>
+<li><dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><ul>
+<li><p><cite>task_id</cite>: The ID of the task to check.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Response</strong>: Returns a JSON object containing the logs and any uploaded files to Azure.</p></li>
+<li><dl class="simple">
+<dt><strong>Errors</strong>:</dt><dd><ul>
+<li><p>404: Task ID not found.</p></li>
+<li><p>500: Internal server error.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+<section id="thompson-sampling-api">
+<h1>Thompson Sampling API<a class="headerlink" href="#thompson-sampling-api" title="Link to this heading"></a></h1>
+<p><strong>Blueprint Name</strong>: <cite>thompson_sampling</cite></p>
+<p>This API allows users to run the Thompson Sampling algorithm for molecular exploration.</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt><strong>POST /run_ts</strong></dt><dd><ul class="simple">
+<li><p><strong>Description</strong>: Starts a Thompson Sampling task and returns the task ID with Azure Blob Storage links.</p></li>
+<li><dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><ul>
+<li><p><cite>reaction_smarts</cite>: The SMARTS representation of the reaction.</p></li>
+<li><p><cite>num_warmup_trials</cite>: The number of warmup trials.</p></li>
+<li><p><cite>num_ts_iterations</cite>: The number of Thompson Sampling iterations.</p></li>
+<li><p><cite>evaluator</cite>: The evaluator method (options: “FPEvaluator”, “MLClassifierEvaluator”, “FredEvaluator”, “ROCSEvaluator”).</p></li>
+<li><p><cite>ts_mode</cite>: The Thompson Sampling mode.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Response</strong>: Returns a JSON object containing the task results.</p></li>
+<li><dl class="simple">
+<dt><strong>Errors</strong>:</dt><dd><ul>
+<li><p>400: Missing required parameters.</p></li>
+<li><p>500: Internal server error.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+<section id="general-information">
+<h1>General Information<a class="headerlink" href="#general-information" title="Link to this heading"></a></h1>
+<p>All services are hosted using Flask and accept file uploads via POST requests. Azure Blob Storage is used to store results, and task status can be checked via GET requests. Each service may include logging and file download functionality as part of the process.</p>
+<p>—</p>
+</section>
+<section id="last-updated">
+<h1>Last Updated<a class="headerlink" href="#last-updated" title="Link to this heading"></a></h1>
+<p>This list was last updated on :date:.</p>
+<p>—</p>
+</section>
+<section id="logging">
+<h1>Logging<a class="headerlink" href="#logging" title="Link to this heading"></a></h1>
+<p>The APIs log all interactions for debugging and monitoring. Logs are saved to local files and can be accessed as part of the task status.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Qubio documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Kalyani Patra.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
