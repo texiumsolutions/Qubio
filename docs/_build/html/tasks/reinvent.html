@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; Qubio 0.0.1 documentation</title>
+  <title>REINVENT &mdash; Qubio 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -18,7 +18,9 @@
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ADMET AI Prediction" href="admet_ai.html" />
+    <link rel="prev" title="LocalColabFold" href="localcolabfold.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,29 +42,34 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../structure_prediction.html">Protein Structure Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protein_design.html">Protein Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../characterization.html">Protein Characterization and Property Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../finetuning.html">Finetuning for Molecular Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docking.html">Molecular Docking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#api-documentation-for-all-tasks">API Documentation for all Tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html#available-tasks">Available Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#admet-ai-service">ADMET AI Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#antifold-service">AntiFold Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#colabdock-service">ColabDock Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#free-wilson-service">Free-Wilson Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#ligandmpnn-service">LigandMPNN Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#localcolabfold-api">LocalColabFold API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#parasurf-api">ParaSurf API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#proteinmpnn-api">ProteinMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#reinvent-api">REINVENT API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thermompnn-api">ThermoMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thompson-sampling-api">Thompson Sampling API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#general-information">General Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#last-updated">Last Updated</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#logging">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antifold.html">AntiFold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proteinmpnn.html">ProteinMPNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localcolabfold.html">LocalColabFold</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">REINVENT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scientific-motivation">Scientific Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#core-methodology">Core Methodology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#applications">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-requirements">Input Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-data">Output Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scientific-insights">Scientific Insights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#limitations-and-considerations">Limitations and Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-in-design-pipelines">Integration in Design Pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="admet_ai.html">ADMET AI Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colabdock.html">ColabDock</a></li>
 </ul>
 
         </div>
@@ -79,7 +86,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="breadcrumb-item active">REINVENT</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tasks/reinvent.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,11 +96,129 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="reinvent">
+<h1>REINVENT<a class="headerlink" href="#reinvent" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>REINVENT is a deep generative model for de novo molecular design. It uses reinforcement learning (RL) to guide the generation of novel chemical structures that fulfill predefined objectives, such as activity against a biological target, drug-likeness, or synthetic accessibility.</p>
+<p>This model represents a powerful approach in cheminformatics, enabling exploration of vast chemical space with control over desired molecular properties. Unlike classical virtual screening, which selects from existing libraries, REINVENT designs new molecules from scratch while adhering to medicinal chemistry constraints.</p>
+</section>
+<section id="scientific-motivation">
+<h2>Scientific Motivation<a class="headerlink" href="#scientific-motivation" title="Link to this heading"></a></h2>
+<p>The search for new small molecules with therapeutic potential is central to drug discovery. However, the number of possible drug-like molecules is estimated to be between 10²³ and 10⁶⁰ — far beyond what brute-force enumeration or screening can cover.</p>
+<p>REINVENT addresses this challenge by:</p>
+<ul class="simple">
+<li><p>Learning from known molecules to understand drug-like patterns.</p></li>
+<li><p>Sampling novel compounds from this learned chemical space.</p></li>
+<li><p>Guiding generation toward specific objectives via reinforcement learning.</p></li>
+</ul>
+<p>This combination of deep learning and reward-driven optimization enables generation of structurally novel, property-compliant molecules at scale.</p>
+</section>
+<section id="core-methodology">
+<h2>Core Methodology<a class="headerlink" href="#core-methodology" title="Link to this heading"></a></h2>
+<p>REINVENT is built on a recurrent neural network (RNN) trained on SMILES strings — textual representations of molecules. Its architecture and workflow include:</p>
+<ol class="arabic simple">
+<li><p>Prior Model:
+An RNN trained on a large chemical database (e.g., ChEMBL) to learn the grammar of valid SMILES strings and the distribution of drug-like molecules.</p></li>
+<li><p>Agent Model:
+A copy of the prior model that is fine-tuned via reinforcement learning to bias generation toward user-defined goals.</p></li>
+<li><p>Scoring Functions:
+External evaluators compute rewards for generated molecules. These can include:</p>
+<ul class="simple">
+<li><p>Docking score against a target protein.</p></li>
+<li><p>LogP (lipophilicity), TPSA (polarity), or QED (drug-likeness).</p></li>
+<li><p>Toxicity predictions or synthetic accessibility.</p></li>
+<li><p>Binary or regression models of biological activity.</p></li>
+</ul>
+</li>
+<li><p>Reinforcement Learning Loop:
+The agent generates SMILES strings, receives feedback via the scoring function, and updates its policy to maximize expected reward using policy gradient methods.</p></li>
+<li><p>Diversity Filters:
+Penalize repetitive or similar scaffolds to ensure chemical diversity.</p></li>
+</ol>
+</section>
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<p>REINVENT can be used for a wide range of drug discovery and design tasks:</p>
+<ul class="simple">
+<li><p>Hit generation: Finding novel scaffolds with predicted activity.</p></li>
+<li><p>Lead optimization: Modifying known actives to improve ADMET properties.</p></li>
+<li><p>Multi-objective optimization: Balancing potency, selectivity, solubility, and synthetic feasibility.</p></li>
+<li><p>Scaffold hopping: Discovering alternative cores with retained function.</p></li>
+</ul>
+</section>
+<section id="input-requirements">
+<h2>Input Requirements<a class="headerlink" href="#input-requirements" title="Link to this heading"></a></h2>
+<p>REINVENT typically requires the following:</p>
+<ul class="simple">
+<li><p>A pretrained prior model (available from public sources or trained in-house).</p></li>
+<li><p>A scoring script or API that evaluates the properties of generated molecules.</p></li>
+<li><p>(Optional) A starting set of known actives to guide early exploration.</p></li>
+<li><p>Configuration files defining optimization parameters (e.g., batch size, learning rate, reward functions).</p></li>
+</ul>
+<p>The model operates directly on SMILES strings, ensuring compatibility with most cheminformatics toolkits.</p>
+</section>
+<section id="output-data">
+<h2>Output Data<a class="headerlink" href="#output-data" title="Link to this heading"></a></h2>
+<p>REINVENT produces:</p>
+<ul class="simple">
+<li><p>Lists of novel SMILES strings ranked by total reward or individual objectives.</p></li>
+<li><p>Log files showing training progress, including average scores and diversity metrics.</p></li>
+<li><p>Optionally, decoded molecular graphs or 2D structures via RDKit or similar libraries.</p></li>
+</ul>
+</section>
+<section id="scientific-insights">
+<h2>Scientific Insights<a class="headerlink" href="#scientific-insights" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Exploration vs. Exploitation:
+REINVENT balances the tradeoff between generating novel molecules and exploiting known scoring patterns.</p></li>
+<li><p>Reward Shaping:
+Composite scoring functions allow nuanced objectives (e.g., low toxicity + high affinity + novel scaffold).</p></li>
+<li><p>Representation Power:
+The SMILES-based RNN can generate syntactically valid, chemically plausible molecules even after extensive training.</p></li>
+</ul>
+</section>
+<section id="limitations-and-considerations">
+<h2>Limitations and Considerations<a class="headerlink" href="#limitations-and-considerations" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Dependence on Scoring Function:
+The quality of generated molecules is limited by the accuracy of the scoring model or function used.</p></li>
+<li><p>Synthetic Feasibility:
+While REINVENT can bias toward easy-to-synthesize molecules, this is not guaranteed unless explicitly modeled.</p></li>
+<li><p>Lack of Structural Context:
+REINVENT operates on 1D representations (SMILES), not 3D protein-ligand interactions, unless docking is included in the reward.</p></li>
+</ul>
+</section>
+<section id="integration-in-design-pipelines">
+<h2>Integration in Design Pipelines<a class="headerlink" href="#integration-in-design-pipelines" title="Link to this heading"></a></h2>
+<p>REINVENT fits into the broader drug design workflow:</p>
+<ol class="arabic simple">
+<li><p>Define target profile (e.g., binding + solubility + low toxicity).</p></li>
+<li><p>Use REINVENT to generate molecules meeting multi-objective criteria.</p></li>
+<li><p>Dock top candidates to protein structure (e.g., with ColabDock).</p></li>
+<li><p>Filter with ADMET or ParaSurf tools for further selection.</p></li>
+<li><p>Synthesize and test top candidates experimentally.</p></li>
+</ol>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<p>REINVENT represents a shift from passive screening to active molecular design. Its reinforcement learning core makes it adaptive and target-aware, while its generative model ensures novelty. In Qubio, REINVENT is the principal module for drug-like molecule generation, enabling iterative, goal-driven chemical discovery.</p>
+<p>Related modules:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="colabdock.html"><span class="doc">ColabDock</span></a></p></li>
+<li><p><a class="reference internal" href="admet_ai.html"><span class="doc">ADMET AI Prediction</span></a></p></li>
+<li><p><a class="reference internal" href="ligandmpnn.html"><span class="doc">LigandMPNN</span></a></p></li>
+</ul>
+</section>
+</section>
+
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="localcolabfold.html" class="btn btn-neutral float-left" title="LocalColabFold" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="admet_ai.html" class="btn btn-neutral float-right" title="ADMET AI Prediction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

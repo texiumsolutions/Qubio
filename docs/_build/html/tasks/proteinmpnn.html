@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; Qubio 0.0.1 documentation</title>
+  <title>ProteinMPNN &mdash; Qubio 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -18,7 +18,9 @@
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="LocalColabFold" href="localcolabfold.html" />
+    <link rel="prev" title="AntiFold" href="antifold.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,29 +42,34 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../structure_prediction.html">Protein Structure Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protein_design.html">Protein Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../characterization.html">Protein Characterization and Property Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../finetuning.html">Finetuning for Molecular Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docking.html">Molecular Docking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#api-documentation-for-all-tasks">API Documentation for all Tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html#available-tasks">Available Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#admet-ai-service">ADMET AI Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#antifold-service">AntiFold Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#colabdock-service">ColabDock Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#free-wilson-service">Free-Wilson Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#ligandmpnn-service">LigandMPNN Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#localcolabfold-api">LocalColabFold API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#parasurf-api">ParaSurf API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#proteinmpnn-api">ProteinMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#reinvent-api">REINVENT API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thermompnn-api">ThermoMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thompson-sampling-api">Thompson Sampling API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#general-information">General Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#last-updated">Last Updated</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#logging">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antifold.html">AntiFold</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ProteinMPNN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scientific-motivation">Scientific Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#core-principles">Core Principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#applications">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-requirements">Input Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-data">Output Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scientific-insights">Scientific Insights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#limitations-and-considerations">Limitations and Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-in-design-pipelines">Integration in Design Pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="localcolabfold.html">LocalColabFold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinvent.html">REINVENT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admet_ai.html">ADMET AI Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colabdock.html">ColabDock</a></li>
 </ul>
 
         </div>
@@ -79,7 +86,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="breadcrumb-item active">ProteinMPNN</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tasks/proteinmpnn.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,11 +96,119 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="proteinmpnn">
+<h1>ProteinMPNN<a class="headerlink" href="#proteinmpnn" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>ProteinMPNN is a machine learning-based framework for sequence design — the process of predicting amino acid sequences that will fold into a given 3D protein structure. This is known as inverse folding. While traditional protein design approaches relied on physics-based modeling, ProteinMPNN uses deep learning to directly model the complex relationship between structure and sequence.</p>
+<p>The method is trained to understand how amino acid residues fit within a fixed structural context, enabling it to generate or optimize sequences that are compatible with a desired backbone conformation.</p>
+</section>
+<section id="scientific-motivation">
+<h2>Scientific Motivation<a class="headerlink" href="#scientific-motivation" title="Link to this heading"></a></h2>
+<p>The function of a protein is determined by its three-dimensional structure, which is, in turn, determined by its amino acid sequence. Inverse folding — predicting a sequence that will assume a particular structure — is a central problem in protein engineering. It allows:</p>
+<ul class="simple">
+<li><p>Rational design of protein sequences with desirable properties (e.g., solubility, stability, binding).</p></li>
+<li><p>Mutation tolerance analysis for therapeutic protein engineering.</p></li>
+<li><p>De novo protein design: constructing entirely new proteins from scratch.</p></li>
+</ul>
+<p>ProteinMPNN enables high-throughput, accurate, and structure-aware design with minimal reliance on template sequences or known motifs.</p>
+</section>
+<section id="core-principles">
+<h2>Core Principles<a class="headerlink" href="#core-principles" title="Link to this heading"></a></h2>
+<p>ProteinMPNN uses a graph-based deep neural network architecture designed to capture the geometric and chemical environment of protein residues. Its main components are:</p>
+<ul class="simple">
+<li><p>Structural Encoding:
+The input to ProteinMPNN is a 3D protein backbone (typically a PDB file). The model encodes geometric features such as distances, orientations, and angles between residues.</p></li>
+<li><p>Residue Graph Construction:
+The protein is modeled as a graph, where each node corresponds to an amino acid and edges encode spatial relationships. This graph represents the local environment of each residue.</p></li>
+<li><p>Sequence Prediction:
+A masked language modeling approach is applied, where the model predicts the most likely residue types given their spatial neighbors. It generates a probability distribution over 20 amino acids at each position.</p></li>
+<li><p>Energy Optimization:
+The network is trained to minimize loss functions that reflect sequence-structure compatibility, ensuring the designed sequences are likely to fold into the provided structure.</p></li>
+</ul>
+</section>
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<p>ProteinMPNN can be applied to a range of protein design challenges:</p>
+<ul class="simple">
+<li><p>Stabilizing mutations for therapeutic proteins and enzymes.</p></li>
+<li><p>Designing protein-protein interfaces or antibody-antigen interactions.</p></li>
+<li><p>Engineering scaffolds for molecular recognition or catalysis.</p></li>
+<li><p>Tuning binding specificity and affinity through targeted mutations.</p></li>
+</ul>
+<p>It can be used either for global redesign (entire sequence) or local design (specific regions such as loops or interfaces).</p>
+</section>
+<section id="input-requirements">
+<h2>Input Requirements<a class="headerlink" href="#input-requirements" title="Link to this heading"></a></h2>
+<p>ProteinMPNN typically requires:</p>
+<ul class="simple">
+<li><p>A 3D protein backbone structure in PDB format.</p></li>
+<li><p>Optionally, a mask indicating which residues are to be redesigned or kept fixed.</p></li>
+<li><p>(For ΔΔG evaluation) Mutant and wild-type structures or sequences for comparison.</p></li>
+</ul>
+<p>Side chain atoms are not needed — the backbone alone suffices, as the model focuses on sequence-to-backbone compatibility.</p>
+</section>
+<section id="output-data">
+<h2>Output Data<a class="headerlink" href="#output-data" title="Link to this heading"></a></h2>
+<p>ProteinMPNN produces:</p>
+<ul class="simple">
+<li><p>Amino acid sequences predicted to be compatible with the given backbone.</p></li>
+<li><p>Probabilistic outputs (e.g., per-position confidence or entropy).</p></li>
+<li><p>ΔΔG-like scores estimating the impact of mutations on structure or stability (in specific configurations).</p></li>
+</ul>
+</section>
+<section id="scientific-insights">
+<h2>Scientific Insights<a class="headerlink" href="#scientific-insights" title="Link to this heading"></a></h2>
+<p>ProteinMPNN reflects several important principles in protein design:</p>
+<ul class="simple">
+<li><p>Contextual Dependency:
+The identity of a residue is highly dependent on its spatial neighbors — particularly residues within 10 Å.</p></li>
+<li><p>Flexibility vs. Robustness:
+Some regions of proteins are tolerant to multiple amino acids (high entropy), while others are highly constrained.</p></li>
+<li><p>Energetic Plausibility:
+The model’s scores correlate well with experimentally determined metrics like thermodynamic stability and mutational tolerance.</p></li>
+</ul>
+</section>
+<section id="limitations-and-considerations">
+<h2>Limitations and Considerations<a class="headerlink" href="#limitations-and-considerations" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fixed Backbone:
+ProteinMPNN assumes a fixed backbone geometry. It does not account for conformational shifts that might accompany mutations.</p></li>
+<li><p>No Explicit Function Modeling:
+While the model optimizes for structural compatibility, it does not directly predict or optimize functional activity (e.g., catalytic rate or binding).</p></li>
+<li><p>Sequence Diversity:
+Output sequences tend to be deterministic unless sampling is explicitly enabled. For exploring sequence space, stochastic decoding should be used.</p></li>
+</ul>
+</section>
+<section id="integration-in-design-pipelines">
+<h2>Integration in Design Pipelines<a class="headerlink" href="#integration-in-design-pipelines" title="Link to this heading"></a></h2>
+<p>ProteinMPNN is often used in tandem with other tools:</p>
+<ol class="arabic simple">
+<li><p>Predict a structure using AntiFold or LocalColabFold.</p></li>
+<li><p>Design stable or functional sequences with ProteinMPNN.</p></li>
+<li><p>Evaluate thermodynamic properties with ThermoMPNN.</p></li>
+<li><p>Validate or refine designs through docking or wet-lab testing.</p></li>
+</ol>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<p>ProteinMPNN offers a fast, structure-aware, and data-driven approach to protein sequence design. It has reshaped the field of protein engineering by making inverse folding accessible and scalable. As part of the Qubio suite, it serves as a foundational component in designing novel proteins with structural fidelity and functional potential.</p>
+<p>For related modules, see:</p>
+<ul class="simple">
+<li><p><span class="xref std std-doc">thermompnn</span></p></li>
+<li><p><a class="reference internal" href="antifold.html"><span class="doc">AntiFold</span></a></p></li>
+<li><p><a class="reference internal" href="localcolabfold.html"><span class="doc">LocalColabFold</span></a></p></li>
+</ul>
+</section>
+</section>
+
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="antifold.html" class="btn btn-neutral float-left" title="AntiFold" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="localcolabfold.html" class="btn btn-neutral float-right" title="LocalColabFold" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

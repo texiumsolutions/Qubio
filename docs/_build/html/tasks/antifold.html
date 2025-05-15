@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; Qubio 0.0.1 documentation</title>
+  <title>AntiFold &mdash; Qubio 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -18,7 +18,9 @@
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ProteinMPNN" href="proteinmpnn.html" />
+    <link rel="prev" title="API Documentation" href="../api_reference.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,29 +42,31 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../structure_prediction.html">Protein Structure Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protein_design.html">Protein Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../characterization.html">Protein Characterization and Property Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../finetuning.html">Finetuning for Molecular Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docking.html">Molecular Docking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#api-documentation-for-all-tasks">API Documentation for all Tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html#available-tasks">Available Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#admet-ai-service">ADMET AI Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#antifold-service">AntiFold Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#colabdock-service">ColabDock Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#free-wilson-service">Free-Wilson Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#ligandmpnn-service">LigandMPNN Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#localcolabfold-api">LocalColabFold API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#parasurf-api">ParaSurf API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#proteinmpnn-api">ProteinMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#reinvent-api">REINVENT API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thermompnn-api">ThermoMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thompson-sampling-api">Thompson Sampling API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#general-information">General Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#last-updated">Last Updated</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#logging">Logging</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AntiFold</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#biological-motivation">Biological Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-antifold-works">How AntiFold Works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-it-matters">Why It Matters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#technical-considerations">Technical Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recommended-use-cases">Recommended Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="proteinmpnn.html">ProteinMPNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localcolabfold.html">LocalColabFold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinvent.html">REINVENT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admet_ai.html">ADMET AI Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colabdock.html">ColabDock</a></li>
 </ul>
 
         </div>
@@ -79,7 +83,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="breadcrumb-item active">AntiFold</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tasks/antifold.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,11 +93,84 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="antifold">
+<h1>AntiFold<a class="headerlink" href="#antifold" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>AntiFold is a computational tool designed to predict the three-dimensional (3D) structure of a protein from its amino acid sequence. Inspired by AlphaFold2, AntiFold leverages deep learning and evolutionary biology to approximate the native conformation of proteins with high accuracy, without requiring experimental data such as crystallography or NMR.</p>
+<p>Structure prediction is fundamental to molecular biology because the function of a protein is inherently linked to its 3D structure. AntiFold aims to provide a more accessible, modular alternative to AlphaFold2, allowing researchers to integrate structure prediction into custom pipelines or local computational environments.</p>
+</section>
+<section id="biological-motivation">
+<h2>Biological Motivation<a class="headerlink" href="#biological-motivation" title="Link to this heading"></a></h2>
+<p>The protein folding problem—determining how a linear amino acid sequence adopts a specific 3D structure—has been one of the central challenges in biology for decades. While the central dogma establishes that DNA encodes RNA which translates into protein sequences, it is the folded structure that determines biochemical function.</p>
+<p>AntiFold seeks to answer this fundamental question using data-driven approaches rather than physical simulations. It allows researchers to infer likely 3D structures based on patterns learned from vast databases of known protein structures.</p>
+</section>
+<section id="how-antifold-works">
+<h2>How AntiFold Works<a class="headerlink" href="#how-antifold-works" title="Link to this heading"></a></h2>
+<p>AntiFold operates through a series of computational stages that mirror modern deep learning-based structure prediction workflows:</p>
+<ol class="arabic simple">
+<li><p><strong>Sequence Representation</strong>:
+The input amino acid sequence is encoded into numerical features. This may include one-hot encoding, positional embeddings, and sequence-derived features such as secondary structure or solvent accessibility.</p></li>
+<li><p><strong>MSA and Template Encoding</strong>:
+AntiFold utilizes multiple sequence alignments (MSAs) to extract evolutionary signals. When templates are available, structural alignments contribute additional geometric priors. These representations help guide the network toward plausible folds.</p></li>
+<li><p><strong>Attention-Based Inference</strong>:
+AntiFold applies transformer-based architectures to model interactions between residues. Attention mechanisms allow the model to capture long-range dependencies, crucial for tertiary folding where distant residues come into contact.</p></li>
+<li><p><strong>Distance and Angle Prediction</strong>:
+The model predicts inter-residue distances, orientations, and torsion angles. These are encoded in 2D and 3D maps representing physical constraints of the folded protein.</p></li>
+<li><p><strong>Structure Assembly and Refinement</strong>:
+Using predicted geometric features, the backbone and side-chain atom positions are reconstructed in 3D space. A recycling loop iteratively refines the structure to improve consistency between predicted distances and realized coordinates.</p></li>
+<li><p><strong>Confidence Estimation</strong>:
+For each residue, AntiFold produces a confidence score, often reported as pLDDT (predicted Local Distance Difference Test), indicating the reliability of the predicted coordinates.</p></li>
+</ol>
+</section>
+<section id="why-it-matters">
+<h2>Why It Matters<a class="headerlink" href="#why-it-matters" title="Link to this heading"></a></h2>
+<p>AntiFold enables a range of downstream applications in biotechnology and molecular modeling:</p>
+<ul class="simple">
+<li><p>Understanding protein function and mechanism through structure visualization.</p></li>
+<li><p>Analyzing the structural impact of genetic mutations (e.g., in genetic disorders or viral evolution).</p></li>
+<li><p>Facilitating rational drug design via identification of active sites and ligand-binding pockets.</p></li>
+<li><p>Supporting protein engineering efforts, including design and optimization of enzymes, antibodies, or scaffolds.</p></li>
+</ul>
+<p>Unlike physical simulations, which require immense computational resources, AntiFold provides fast, scalable predictions that are accessible to a wider research community.</p>
+</section>
+<section id="technical-considerations">
+<h2>Technical Considerations<a class="headerlink" href="#technical-considerations" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>AntiFold assumes that the input sequence folds into a single, well-defined conformation.</p></li>
+<li><p>Structural ambiguity or intrinsic disorder in proteins may reduce prediction accuracy.</p></li>
+<li><p>The presence of homologs or structurally similar proteins in the MSA/template database greatly enhances prediction quality.</p></li>
+<li><p>Output structures may require energy minimization or molecular dynamics simulations for further refinement in some use cases.</p></li>
+</ul>
+</section>
+<section id="recommended-use-cases">
+<h2>Recommended Use Cases<a class="headerlink" href="#recommended-use-cases" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Predicting the structure of novel or hypothetical proteins.</p></li>
+<li><p>Modeling enzymes or receptors for structure-based drug discovery.</p></li>
+<li><p>Characterizing protein variants and their potential functional consequences.</p></li>
+<li><p>Providing structural input for other tools such as ProteinMPNN, ThermoMPNN, or molecular docking programs.</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<p>AntiFold represents a modern, learning-based approach to protein structure prediction, offering a practical solution to one of biology’s grand challenges. Its integration of machine learning with evolutionary and structural principles exemplifies the power of interdisciplinary approaches in the life sciences.</p>
+<p>For related concepts and downstream tasks, refer to the documentation on:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="localcolabfold.html"><span class="doc">LocalColabFold</span></a></p></li>
+<li><p><a class="reference internal" href="proteinmpnn.html"><span class="doc">ProteinMPNN</span></a></p></li>
+<li><p><span class="xref std std-doc">thermompnn</span></p></li>
+</ul>
+</section>
+</section>
+
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../api_reference.html" class="btn btn-neutral float-left" title="API Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="proteinmpnn.html" class="btn btn-neutral float-right" title="ProteinMPNN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

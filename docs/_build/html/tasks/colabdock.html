@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; Qubio 0.0.1 documentation</title>
+  <title>ColabDock &mdash; Qubio 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -18,7 +18,8 @@
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="ADMET AI Prediction" href="admet_ai.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,29 +41,31 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../structure_prediction.html">Protein Structure Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protein_design.html">Protein Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../characterization.html">Protein Characterization and Property Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../finetuning.html">Finetuning for Molecular Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docking.html">Molecular Docking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#api-documentation-for-all-tasks">API Documentation for all Tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html#available-tasks">Available Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#admet-ai-service">ADMET AI Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#antifold-service">AntiFold Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#colabdock-service">ColabDock Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#free-wilson-service">Free-Wilson Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#ligandmpnn-service">LigandMPNN Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#localcolabfold-api">LocalColabFold API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#parasurf-api">ParaSurf API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#proteinmpnn-api">ProteinMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#reinvent-api">REINVENT API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thermompnn-api">ThermoMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thompson-sampling-api">Thompson Sampling API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#general-information">General Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#last-updated">Last Updated</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#logging">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antifold.html">AntiFold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proteinmpnn.html">ProteinMPNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localcolabfold.html">LocalColabFold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinvent.html">REINVENT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admet_ai.html">ADMET AI Prediction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ColabDock</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scientific-background">Scientific Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-docking-works">How Docking Works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#applications-and-use-cases">Applications and Use Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scientific-considerations">Scientific Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#benefits-of-colabdock">Benefits of ColabDock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -79,7 +82,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="breadcrumb-item active">ColabDock</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tasks/colabdock.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,11 +92,89 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="colabdock">
+<h1>ColabDock<a class="headerlink" href="#colabdock" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>ColabDock is a molecular docking framework designed to predict how small molecules (ligands) interact with macromolecular targets such as proteins. It automates the process of docking, which simulates the binding of a ligand into the active or binding site of a receptor to estimate its affinity and orientation (pose).</p>
+<p>As an essential step in rational drug design, molecular docking enables researchers to virtually screen compounds, prioritize candidates, and understand the biochemical interactions that underlie molecular recognition. ColabDock integrates structure preparation, docking, and scoring into a reproducible pipeline that can be executed locally or in cloud environments.</p>
+</section>
+<section id="scientific-background">
+<h2>Scientific Background<a class="headerlink" href="#scientific-background" title="Link to this heading"></a></h2>
+<p>In biological systems, the function of a small molecule drug is typically mediated through its interaction with a specific protein target. These interactions are highly dependent on the 3D shape and chemical properties of both the ligand and the binding site. Docking methods attempt to model these interactions computationally by:</p>
+<ul class="simple">
+<li><p>Exploring possible orientations, conformations, and positions (poses) of the ligand.</p></li>
+<li><p>Evaluating each pose using a scoring function that estimates binding energy or complementarity.</p></li>
+</ul>
+<p>ColabDock approximates these processes through geometric sampling and empirical scoring, simulating both shape and chemical compatibility between ligand and receptor.</p>
+</section>
+<section id="how-docking-works">
+<h2>How Docking Works<a class="headerlink" href="#how-docking-works" title="Link to this heading"></a></h2>
+<p>ColabDock follows a multi-stage docking protocol:</p>
+<ol class="arabic simple">
+<li><p><strong>Structure Preparation</strong>:
+- The receptor structure (typically in PDB format) is cleaned, protonated, and optionally minimized.
+- The ligand is also prepared, with 3D coordinates generated from SMILES or SDF files, and its rotatable bonds identified.</p></li>
+<li><p><strong>Grid Generation</strong>:
+- A 3D grid is constructed around the binding site of the receptor. This grid defines the region where ligand poses will be sampled.
+- Binding site coordinates may be manually specified or automatically inferred from known ligands or pocket prediction algorithms.</p></li>
+<li><p><strong>Pose Sampling</strong>:
+- The ligand is flexibly docked into the grid using stochastic search algorithms, such as genetic algorithms or Monte Carlo sampling.
+- Multiple candidate poses are generated to explore different binding modes.</p></li>
+<li><p><strong>Scoring</strong>:
+- Each pose is evaluated using empirical or knowledge-based scoring functions that approximate binding affinity.
+- Common metrics include hydrogen bonding, hydrophobic interactions, electrostatics, and desolvation energy.</p></li>
+<li><p><strong>Pose Ranking and Output</strong>:
+- The best-scoring poses are retained and saved in formats such as PDBQT or SDF for visualization.
+- Docking scores and interaction maps may also be exported for analysis.</p></li>
+</ol>
+</section>
+<section id="applications-and-use-cases">
+<h2>Applications and Use Cases<a class="headerlink" href="#applications-and-use-cases" title="Link to this heading"></a></h2>
+<p>ColabDock supports a wide range of computational drug discovery tasks, including:</p>
+<ul class="simple">
+<li><p>Virtual screening of chemical libraries against a protein target.</p></li>
+<li><p>Predicting ligand binding modes for structure-based drug design.</p></li>
+<li><p>Evaluating effects of point mutations on ligand affinity.</p></li>
+<li><p>Re-docking known ligands to validate binding site hypotheses.</p></li>
+</ul>
+<p>It can also be used in conjunction with structure prediction tools like AntiFold or LocalColabFold to model targets for which no experimental structure exists.</p>
+</section>
+<section id="scientific-considerations">
+<h2>Scientific Considerations<a class="headerlink" href="#scientific-considerations" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Docking accuracy is influenced by the quality of input structures. Poorly resolved or homology-modeled receptors may reduce reliability.</p></li>
+<li><p>Scoring functions are approximate and may not fully capture entropic effects or solvent dynamics.</p></li>
+<li><p>Binding pocket flexibility is often limited; advanced protocols may incorporate receptor ensembles or induced fit adjustments.</p></li>
+<li><p>Post-docking analysis (e.g., molecular dynamics, binding free energy calculations) is often required for further validation.</p></li>
+</ul>
+</section>
+<section id="benefits-of-colabdock">
+<h2>Benefits of ColabDock<a class="headerlink" href="#benefits-of-colabdock" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Streamlined and reproducible: Designed for automated workflows and batch screening.</p></li>
+<li><p>Integrative: Can be linked with other Qubio tools for ligand generation (REINVENT), structure prediction (AntiFold), or property evaluation (ADMET AI).</p></li>
+<li><p>Accessible: Suitable for both high-throughput screening and small-scale binding studies.</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<p>ColabDock offers a practical gateway into molecular docking, making it easier for researchers to explore ligand-target interactions and prioritize compounds in silico. It encapsulates years of algorithmic progress in molecular recognition into an easy-to-use toolchain for modern drug discovery.</p>
+<p>For related tools and deeper exploration of small molecule design, refer to:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="reinvent.html"><span class="doc">REINVENT</span></a></p></li>
+<li><p><a class="reference internal" href="ligandmpnn.html"><span class="doc">LigandMPNN</span></a></p></li>
+<li><p><a class="reference internal" href="admet_ai.html"><span class="doc">ADMET AI Prediction</span></a></p></li>
+</ul>
+</section>
+</section>
+
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="admet_ai.html" class="btn btn-neutral float-left" title="ADMET AI Prediction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; Qubio 0.0.1 documentation</title>
+  <title>ParaSurf &mdash; Qubio 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -40,7 +40,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../structure_prediction.html">Protein Structure Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protein_design.html">Protein Design</a></li>
@@ -48,21 +48,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../finetuning.html">Finetuning for Molecular Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docking.html">Molecular Docking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#api-documentation-for-all-tasks">API Documentation for all Tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html#available-tasks">Available Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#admet-ai-service">ADMET AI Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#antifold-service">AntiFold Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#colabdock-service">ColabDock Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#free-wilson-service">Free-Wilson Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#ligandmpnn-service">LigandMPNN Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#localcolabfold-api">LocalColabFold API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#parasurf-api">ParaSurf API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#proteinmpnn-api">ProteinMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#reinvent-api">REINVENT API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thermompnn-api">ThermoMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thompson-sampling-api">Thompson Sampling API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#general-information">General Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#last-updated">Last Updated</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#logging">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antifold.html">AntiFold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proteinmpnn.html">ProteinMPNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localcolabfold.html">LocalColabFold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinvent.html">REINVENT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admet_ai.html">ADMET AI Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colabdock.html">ColabDock</a></li>
 </ul>
 
         </div>
@@ -79,7 +72,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="breadcrumb-item active">ParaSurf</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tasks/parasurf.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,7 +82,119 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="parasurf">
+<h1>ParaSurf<a class="headerlink" href="#parasurf" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>ParaSurf is a computational tool for predicting and analyzing the molecular surface and electrostatic properties of biomolecules, especially proteins and ligands. It uses quantum chemically-derived molecular surface descriptors to evaluate local surface features, which are critical for understanding molecular recognition, binding affinity, and druggability.</p>
+<p>ParaSurf is often used in cheminformatics and structure-based drug design (SBDD) workflows to quantitatively characterize interaction surfaces at atomic resolution.</p>
+</section>
+<section id="scientific-motivation">
+<h2>Scientific Motivation<a class="headerlink" href="#scientific-motivation" title="Link to this heading"></a></h2>
+<p>Molecular recognition between a protein and its ligand is governed not only by shape complementarity but also by the electrostatic and hydrophobic character of the interacting surfaces. Understanding these surface properties can guide:</p>
+<ul class="simple">
+<li><p>Rational drug design.</p></li>
+<li><p>Binding affinity optimization.</p></li>
+<li><p>Virtual screening of compound libraries.</p></li>
+<li><p>Selectivity profiling of protein-ligand interactions.</p></li>
+</ul>
+<p>While molecular mechanics-based methods provide approximate models, ParaSurf derives high-resolution electrostatic potentials using quantum chemical methods, offering better fidelity in complex binding contexts.</p>
+</section>
+<section id="theory-and-methodology">
+<h2>Theory and Methodology<a class="headerlink" href="#theory-and-methodology" title="Link to this heading"></a></h2>
+<p>ParaSurf operates on the basis of semi-empirical quantum mechanical calculations to generate a set of molecular surface properties. The core of the method includes:</p>
+<ul class="simple">
+<li><p>Electron Density Approximation:
+Semi-empirical wavefunctions (typically AM1 or PM3) are used to derive electronic structures efficiently.</p></li>
+<li><p>Molecular Surface Generation:
+Solvent-accessible and solvent-excluded surfaces are computed from atomic coordinates using grid-based triangulation methods.</p></li>
+<li><p>Surface Property Mapping:
+The following properties are computed and mapped onto the molecular surface:</p>
+<ul>
+<li><p>Electrostatic potential</p></li>
+<li><p>Hydrogen-bond donor/acceptor potential</p></li>
+<li><p>Hydrophobicity</p></li>
+<li><p>Polarizability</p></li>
+<li><p>Local softness/hardness</p></li>
+</ul>
+</li>
+</ul>
+<p>These descriptors are key to understanding binding interfaces, predicting hotspots, and quantifying complementarity.</p>
+</section>
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<p>ParaSurf is widely used in academic and industrial research for:</p>
+<ul class="simple">
+<li><p>Characterizing the binding pocket of proteins.</p></li>
+<li><p>Comparing the surface properties of small molecule analogs.</p></li>
+<li><p>Analyzing differences in mutant protein surfaces.</p></li>
+<li><p>Facilitating virtual screening through surface descriptor fingerprints.</p></li>
+</ul>
+<p>Surface descriptors generated by ParaSurf can be used as input to machine learning models, clustering algorithms, or docking simulations.</p>
+</section>
+<section id="input-requirements">
+<h2>Input Requirements<a class="headerlink" href="#input-requirements" title="Link to this heading"></a></h2>
+<p>ParaSurf requires:</p>
+<ul class="simple">
+<li><p>Atomic-level 3D structures of molecules in MOL2 format.</p></li>
+<li><p>Proper assignment of atom types, bond orders, and formal charges.</p></li>
+<li><p>Protonation states appropriate to physiological pH, typically adjusted using pre-processing tools like Open Babel or RDKit.</p></li>
+</ul>
+<p>The MOL2 format ensures retention of electronic and geometric information necessary for surface computation.</p>
+</section>
+<section id="output-data">
+<h2>Output Data<a class="headerlink" href="#output-data" title="Link to this heading"></a></h2>
+<p>Typical output files from ParaSurf include:</p>
+<ul class="simple">
+<li><p>Surface descriptor maps (in DX or grid format).</p></li>
+<li><p>CSV or tabulated summaries of surface property statistics.</p></li>
+<li><p>Visualization-ready molecular surface files with color-coded properties.</p></li>
+</ul>
+<p>These outputs can be loaded into molecular viewers such as PyMOL, UCSF ChimeraX, or VMD for interactive analysis.</p>
+</section>
+<section id="scientific-strengths">
+<h2>Scientific Strengths<a class="headerlink" href="#scientific-strengths" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Quantum-Informed Accuracy:
+By leveraging semi-empirical QM methods, ParaSurf provides more accurate surface descriptors than classical force fields.</p></li>
+<li><p>High Resolution:
+Grid-based surface triangulation ensures detailed property distribution over the entire molecular surface.</p></li>
+<li><p>Interpretability:
+Properties such as electrostatic potential and hydrophobicity are highly interpretable and correlate well with experimental binding data.</p></li>
+</ul>
+</section>
+<section id="integration-in-design-pipelines">
+<h2>Integration in Design Pipelines<a class="headerlink" href="#integration-in-design-pipelines" title="Link to this heading"></a></h2>
+<p>In modern bioinformatics and drug discovery workflows, ParaSurf is often used as:</p>
+<ol class="arabic simple">
+<li><p>A post-processing step after structure prediction or docking.</p></li>
+<li><p>A pre-screening filter for ligand libraries based on surface complementarity.</p></li>
+<li><p>A surface analysis tool for comparing protein mutants or analogs.</p></li>
+<li><p>A feature generator for QSAR and machine learning models.</p></li>
+</ol>
+</section>
+<section id="limitations-and-considerations">
+<h2>Limitations and Considerations<a class="headerlink" href="#limitations-and-considerations" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Input Quality:
+The reliability of ParaSurf outputs depends on the accuracy of the input 3D structure and the correct assignment of atomic charges and bonding.</p></li>
+<li><p>Computational Cost:
+Although faster than full quantum mechanical methods, surface property calculations can still be time-consuming for large molecules or batch processing.</p></li>
+<li><p>No Conformational Sampling:
+ParaSurf typically analyzes static structures, so flexibility and entropy effects are not captured directly.</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<p>ParaSurf bridges the gap between classical molecular modeling and quantum chemistry by offering fast, interpretable, and biologically relevant surface descriptors. Its use in structure-based drug design, protein engineering, and molecular recognition studies makes it a valuable asset in both academic and pharmaceutical settings.</p>
+<p>For complementary tools in molecular design and analysis, see:</p>
+<ul class="simple">
+<li><p><span class="xref std std-doc">thermompnn</span></p></li>
+<li><p><a class="reference internal" href="ligandmpnn.html"><span class="doc">LigandMPNN</span></a></p></li>
+</ul>
+</section>
+</section>
+
 
            </div>
           </div>

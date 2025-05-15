@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; Qubio 0.0.1 documentation</title>
+  <title>LocalColabFold &mdash; Qubio 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -18,7 +18,9 @@
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="REINVENT" href="reinvent.html" />
+    <link rel="prev" title="ProteinMPNN" href="proteinmpnn.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -40,29 +42,34 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../structure_prediction.html">Protein Structure Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protein_design.html">Protein Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../characterization.html">Protein Characterization and Property Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../finetuning.html">Finetuning for Molecular Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docking.html">Molecular Docking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#api-documentation-for-all-tasks">API Documentation for all Tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html#available-tasks">Available Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#admet-ai-service">ADMET AI Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#antifold-service">AntiFold Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#colabdock-service">ColabDock Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#free-wilson-service">Free-Wilson Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#ligandmpnn-service">LigandMPNN Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#localcolabfold-api">LocalColabFold API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#parasurf-api">ParaSurf API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#proteinmpnn-api">ProteinMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#reinvent-api">REINVENT API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thermompnn-api">ThermoMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thompson-sampling-api">Thompson Sampling API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#general-information">General Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#last-updated">Last Updated</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#logging">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antifold.html">AntiFold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proteinmpnn.html">ProteinMPNN</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">LocalColabFold</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#motivation">Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#theoretical-foundations">Theoretical Foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implementation-details">Implementation Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#applications">Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scientific-strengths">Scientific Strengths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#design-considerations">Design Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#typical-workflow">Typical Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-formats">Output Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reinvent.html">REINVENT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admet_ai.html">ADMET AI Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colabdock.html">ColabDock</a></li>
 </ul>
 
         </div>
@@ -79,7 +86,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="breadcrumb-item active">LocalColabFold</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tasks/localcolabfold.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,11 +96,117 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="localcolabfold">
+<h1>LocalColabFold<a class="headerlink" href="#localcolabfold" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>LocalColabFold is a high-efficiency implementation of AlphaFold2 designed to run locally on CPU or GPU machines without dependence on Google Colab. It allows users to predict the three-dimensional structures of proteins directly from their amino acid sequences, enabling fast and scalable structure modeling for both academic and industrial research.</p>
+<p>It serves as a convenient alternative to web-based AlphaFold deployments, making cutting-edge protein structure prediction accessible to a broader scientific community.</p>
+</section>
+<section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Link to this heading"></a></h2>
+<p>Protein function is fundamentally determined by its structure. While experimental structure determination methods are the gold standard, they are often resource-intensive and time-consuming. AlphaFold2 and its variants have revolutionized this field by demonstrating that deep learning can accurately predict protein 3D structures with near-experimental accuracy.</p>
+<p>LocalColabFold addresses several practical challenges:</p>
+<ul class="simple">
+<li><p>Reduces dependency on cloud infrastructure like Google Colab.</p></li>
+<li><p>Enables batch predictions on local servers or clusters.</p></li>
+<li><p>Allows integration with high-throughput protein engineering pipelines.</p></li>
+</ul>
+</section>
+<section id="theoretical-foundations">
+<h2>Theoretical Foundations<a class="headerlink" href="#theoretical-foundations" title="Link to this heading"></a></h2>
+<p>LocalColabFold inherits the architecture of AlphaFold2, which is based on advanced attention mechanisms and geometric deep learning. The model predicts inter-residue distances, orientations, and contact maps from multiple sequence alignments (MSAs), which are then assembled into a 3D atomic model through iterative optimization.</p>
+<p>Key components include:</p>
+<ul class="simple">
+<li><p>Evoformer:
+A deep transformer block that models long-range evolutionary couplings using MSAs and pairwise residue representations.</p></li>
+<li><p>Structure Module:
+Transforms pairwise features into atom coordinates using a recurrent geometry refinement process.</p></li>
+<li><p>Recycling:
+The predicted structure is passed back into the model multiple times to refine accuracy.</p></li>
+</ul>
+</section>
+<section id="implementation-details">
+<h2>Implementation Details<a class="headerlink" href="#implementation-details" title="Link to this heading"></a></h2>
+<p>While AlphaFold2 relies on complex and resource-heavy preprocessing pipelines, LocalColabFold simplifies and optimizes several stages:</p>
+<ul class="simple">
+<li><p>Fast MSA Generation:
+Uses MMseqs2 instead of traditional tools like JackHMMER to generate homologous sequences faster.</p></li>
+<li><p>Reduced Template Dependency:
+Runs structure prediction with or without templates, depending on user input or availability.</p></li>
+<li><p>Streamlined Installation:
+Packaged as a portable binary or conda environment, allowing local deployment without Docker or Colab.</p></li>
+</ul>
+</section>
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<p>LocalColabFold is used in a wide range of computational and experimental settings:</p>
+<ul class="simple">
+<li><p>De novo structure prediction from protein sequence.</p></li>
+<li><p>Structural modeling of mutants or variants.</p></li>
+<li><p>Homology-independent modeling for poorly characterized proteins.</p></li>
+<li><p>Input generation for downstream analysis, such as docking, stability prediction, or design.</p></li>
+</ul>
+</section>
+<section id="scientific-strengths">
+<h2>Scientific Strengths<a class="headerlink" href="#scientific-strengths" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Accessibility:
+Runs on local machines with CUDA-enabled GPUs or high-end CPUs.</p></li>
+<li><p>Speed:
+Optimized for quick turnaround with fast MSA and reduced I/O overhead.</p></li>
+<li><p>Integration:
+Ideal for use in automated workflows such as structure prediction + design + validation loops.</p></li>
+<li><p>Compatibility:
+Accepts raw amino acid sequences in FASTA format and outputs standard PDB files compatible with visualization and analysis tools.</p></li>
+</ul>
+</section>
+<section id="design-considerations">
+<h2>Design Considerations<a class="headerlink" href="#design-considerations" title="Link to this heading"></a></h2>
+<p>Protein folding is driven by non-covalent interactions and spatial constraints:</p>
+<ul class="simple">
+<li><p>Backbone torsion angles (ϕ, ψ, ω) define the polypeptide chain’s geometry.</p></li>
+<li><p>Side-chain packing and hydrophobic collapse contribute to stability.</p></li>
+<li><p>Evolutionary conservation suggests functionally or structurally important residues.</p></li>
+</ul>
+<p>By leveraging co-evolutionary signals from MSAs and modeling residue-residue distances, LocalColabFold reconstructs atomic-level conformations consistent with real proteins.</p>
+</section>
+<section id="typical-workflow">
+<h2>Typical Workflow<a class="headerlink" href="#typical-workflow" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Input a primary amino acid sequence in FASTA format.</p></li>
+<li><p>Generate MSA using MMseqs2.</p></li>
+<li><p>Run the folding model to produce 3D coordinates.</p></li>
+<li><p>Visualize results using tools like PyMOL, ChimeraX, or Mol* Viewer.</p></li>
+<li><p>Optionally feed results into downstream applications like ProteinMPNN or docking software.</p></li>
+</ol>
+</section>
+<section id="output-formats">
+<h2>Output Formats<a class="headerlink" href="#output-formats" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Predicted 3D structure in PDB format.</p></li>
+<li><p>Confidence metrics (pLDDT scores, PAE maps).</p></li>
+<li><p>MSA and residue-residue contact predictions (optional).</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<p>LocalColabFold democratizes protein structure prediction by combining the rigor of AlphaFold2 with the flexibility of local execution. It is particularly well-suited for researchers who require rapid, high-quality predictions without reliance on cloud-based environments.</p>
+<p>Whether for protein design, structure-based drug discovery, or mechanistic studies, LocalColabFold forms a cornerstone of modern structural bioinformatics pipelines.</p>
+<p>For related structure prediction tools, refer to:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="antifold.html"><span class="doc">AntiFold</span></a></p></li>
+</ul>
+</section>
+</section>
+
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="proteinmpnn.html" class="btn btn-neutral float-left" title="ProteinMPNN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="reinvent.html" class="btn btn-neutral float-right" title="REINVENT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

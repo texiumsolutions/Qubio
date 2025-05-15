@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; Qubio 0.0.1 documentation</title>
+  <title>LigandMPNN &mdash; Qubio 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -40,7 +40,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../structure_prediction.html">Protein Structure Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protein_design.html">Protein Design</a></li>
@@ -48,21 +48,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../finetuning.html">Finetuning for Molecular Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docking.html">Molecular Docking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#api-documentation-for-all-tasks">API Documentation for all Tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html#available-tasks">Available Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#admet-ai-service">ADMET AI Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#antifold-service">AntiFold Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#colabdock-service">ColabDock Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#free-wilson-service">Free-Wilson Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#ligandmpnn-service">LigandMPNN Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#localcolabfold-api">LocalColabFold API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#parasurf-api">ParaSurf API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#proteinmpnn-api">ProteinMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#reinvent-api">REINVENT API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thermompnn-api">ThermoMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thompson-sampling-api">Thompson Sampling API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#general-information">General Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#last-updated">Last Updated</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#logging">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antifold.html">AntiFold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proteinmpnn.html">ProteinMPNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localcolabfold.html">LocalColabFold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinvent.html">REINVENT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admet_ai.html">ADMET AI Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colabdock.html">ColabDock</a></li>
 </ul>
 
         </div>
@@ -79,7 +72,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="breadcrumb-item active">LigandMPNN</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tasks/ligandmpnn.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,7 +82,102 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="ligandmpnn">
+<h1>LigandMPNN<a class="headerlink" href="#ligandmpnn" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>LigandMPNN is a structure-aware generative model designed to optimize small molecules (ligands) for improved binding affinity and specificity to target proteins. Unlike traditional molecular design tools that operate solely in chemical space, LigandMPNN leverages the spatial and topological features of the protein-ligand interface to guide mutation and generation of ligands that are more likely to exhibit favorable interactions.</p>
+<p>This method is particularly powerful in lead optimization, where slight chemical modifications can significantly impact potency, selectivity, or ADMET (Absorption, Distribution, Metabolism, Excretion, and Toxicity) properties.</p>
+</section>
+<section id="scientific-motivation">
+<h2>Scientific Motivation<a class="headerlink" href="#scientific-motivation" title="Link to this heading"></a></h2>
+<p>Protein-ligand binding is governed by a complex interplay of shape complementarity, electrostatics, hydrophobic interactions, hydrogen bonding, and desolvation effects. Designing ligands to fit into a protein’s active site — while maintaining drug-like properties — is a multi-objective optimization problem.</p>
+<p>Traditional approaches like rule-based systems, docking, or virtual screening are either limited in scope or computationally expensive. LigandMPNN addresses these limitations using deep graph-based models that learn chemical and spatial principles directly from data.</p>
+</section>
+<section id="core-methodology">
+<h2>Core Methodology<a class="headerlink" href="#core-methodology" title="Link to this heading"></a></h2>
+<p>LigandMPNN is inspired by the ProteinMPNN architecture, adapting the concept of message-passing neural networks (MPNNs) to operate over ligand graphs in the context of their 3D binding environment.</p>
+<p>The process includes:</p>
+<ol class="arabic simple">
+<li><p>Graph Construction:
+- The ligand is represented as a molecular graph (nodes = atoms, edges = bonds).
+- The surrounding protein environment is encoded through a 3D grid or atom-neighbor graph localized around the binding pocket.</p></li>
+<li><p>Message Passing:
+- Atoms in the ligand exchange information with their neighbors through learned functions that model chemical interactions.
+- The message-passing mechanism captures both covalent structure and non-covalent interactions with protein residues.</p></li>
+<li><p>Mutation and Generation:
+- Conditioned on the spatial and chemical context, LigandMPNN proposes mutations to the ligand (e.g., functional group swaps, R-group alterations).
+- Generated ligands aim to preserve binding mode while improving specific properties such as binding energy or solubility.</p></li>
+</ol>
+</section>
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<p>LigandMPNN is best suited for:</p>
+<ul class="simple">
+<li><p>Structure-based lead optimization.</p></li>
+<li><p>Exploring SAR (Structure-Activity Relationships) around a known scaffold.</p></li>
+<li><p>Binding pose-aware compound generation.</p></li>
+<li><p>In silico compound library expansion guided by docking poses or crystallographic data.</p></li>
+</ul>
+</section>
+<section id="scientific-strengths">
+<h2>Scientific Strengths<a class="headerlink" href="#scientific-strengths" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Context-Aware Generation:
+Ligand mutations are not made blindly but are explicitly influenced by the shape and chemical profile of the protein’s binding site.</p></li>
+<li><p>Compatibility with Docking:
+Output ligands can be redocked into the protein to verify binding poses and scores, making the approach iterative and modular.</p></li>
+<li><p>Scaffold Hopping:
+Though primarily focused on R-group optimization, the model can explore novel bioisosteres and unconventional modifications.</p></li>
+<li><p>Learnable Interaction Patterns:
+The network can learn interaction motifs that recur across protein families, improving generalizability across targets.</p></li>
+</ul>
+</section>
+<section id="design-principles">
+<h2>Design Principles<a class="headerlink" href="#design-principles" title="Link to this heading"></a></h2>
+<p>LigandMPNN is built upon several key principles from medicinal and computational chemistry:</p>
+<ul class="simple">
+<li><p>Molecular Graphs:
+Encodes molecules as graphs to naturally represent their bonding and topologies.</p></li>
+<li><p>Geometric Learning:
+Incorporates 3D coordinates to model van der Waals surfaces and shape complementarity.</p></li>
+<li><p>Conditional Generation:
+Designs are generated in the presence of a binding pocket, guiding chemical synthesis toward biologically relevant structures.</p></li>
+<li><p>Multi-objective Scoring:
+Optionally incorporates scoring functions related to docking, ADMET, or synthetic accessibility to bias ligand proposals.</p></li>
+</ul>
+</section>
+<section id="typical-workflow">
+<h2>Typical Workflow<a class="headerlink" href="#typical-workflow" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Obtain a protein-ligand complex structure (e.g., from docking or crystallography).</p></li>
+<li><p>Extract the ligand and the local protein environment around the binding site.</p></li>
+<li><p>Run LigandMPNN to propose optimized ligand variants.</p></li>
+<li><p>Optionally filter and score variants using external tools (e.g., docking, ADMET AI).</p></li>
+<li><p>Select promising candidates for synthesis or further modeling.</p></li>
+</ol>
+</section>
+<section id="benefits-in-drug-discovery">
+<h2>Benefits in Drug Discovery<a class="headerlink" href="#benefits-in-drug-discovery" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Accelerates SAR exploration by generating optimized analogs.</p></li>
+<li><p>Reduces reliance on exhaustive enumeration and brute-force screening.</p></li>
+<li><p>Enables context-sensitive design, increasing chances of synthesizing bioactive compounds.</p></li>
+<li><p>Supports downstream integration with other Qubio tools such as Free-Wilson, ColabDock, or REINVENT.</p></li>
+</ul>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<p>LigandMPNN is a state-of-the-art tool for context-aware ligand generation and optimization. It bridges molecular graph modeling with 3D structural information to provide actionable insights for medicinal chemists. As part of the Qubio platform, LigandMPNN plays a pivotal role in rational, data-driven drug design by proposing ligands tailored to specific protein targets.</p>
+<p>To explore related workflows, see:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="colabdock.html"><span class="doc">ColabDock</span></a></p></li>
+<li><p><a class="reference internal" href="freewilson.html"><span class="doc">Free-Wilson Analysis</span></a></p></li>
+<li><p><a class="reference internal" href="reinvent.html"><span class="doc">REINVENT</span></a></p></li>
+</ul>
+</section>
+</section>
+
 
            </div>
           </div>

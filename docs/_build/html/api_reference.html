@@ -19,6 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="AntiFold" href="tasks/antifold.html" />
     <link rel="prev" title="Molecular Docking" href="docking.html" /> 
 </head>
 
@@ -41,32 +42,76 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="structure_prediction.html">Protein Structure Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="protein_design.html">Protein Design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="characterization.html">Protein Characterization and Property Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="finetuning.html">Finetuning for Molecular Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="docking.html">Molecular Docking</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#api-documentation-for-all-tasks">API Documentation for all Tasks</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#api-documentation-for-all-tasks">API Documentation for all Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#available-tasks">Available Tasks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#admet-ai-service">ADMET AI Service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#post-predict-admet"><strong>POST /predict_admet</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-check-admet-status-task-id"><strong>GET /check_admet_status/&lt;task_id&gt;</strong></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#available-tasks">Available Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#admet-ai-service">ADMET AI Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#antifold-service">AntiFold Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#colabdock-service">ColabDock Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#free-wilson-service">Free-Wilson Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#ligandmpnn-service">LigandMPNN Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#localcolabfold-api">LocalColabFold API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#parasurf-api">ParaSurf API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#proteinmpnn-api">ProteinMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#reinvent-api">REINVENT API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#thermompnn-api">ThermoMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#thompson-sampling-api">Thompson Sampling API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#general-information">General Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#last-updated">Last Updated</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#logging">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#antifold-service">AntiFold Service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#post-predict"><strong>POST /predict</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-check-status-task-id"><strong>GET /check_status/&lt;task_id&gt;</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#colabdock-service">ColabDock Service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#post-dock"><strong>POST /dock</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1"><strong>GET /check_status/&lt;task_id&gt;</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#free-wilson-service">Free-Wilson Service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#post-run-analysis"><strong>POST /run_analysis</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2"><strong>GET /check_status/&lt;task_id&gt;</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ligandmpnn-service">LigandMPNN Service</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#post-design"><strong>POST /design</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3"><strong>GET /check_status/&lt;task_id&gt;</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#localcolabfold-api">LocalColabFold API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#routes">Routes:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#parasurf-api">ParaSurf API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Routes:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#proteinmpnn-api">ProteinMPNN API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Routes:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#reinvent-api">REINVENT API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Routes:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#thermompnn-api">ThermoMPNN API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Routes:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#thompson-sampling-api">Thompson Sampling API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Routes:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#general-information">General Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#last-updated">Last Updated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logging">Logging</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tasks/antifold.html">AntiFold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks/proteinmpnn.html">ProteinMPNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks/localcolabfold.html">LocalColabFold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks/reinvent.html">REINVENT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks/admet_ai.html">ADMET AI Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tasks/colabdock.html">ColabDock</a></li>
 </ul>
 
         </div>
@@ -97,141 +142,124 @@
 <h1>API Documentation<a class="headerlink" href="#api-documentation" title="Link to this heading"></a></h1>
 <p>This document describes the API endpoints available for various services. Each service has its own set of routes, which allow users to upload files, run analysis, and check task statuses.</p>
 <p>—</p>
-<section id="api-documentation-for-all-tasks">
-<h2>API Documentation for all Tasks<a class="headerlink" href="#api-documentation-for-all-tasks" title="Link to this heading"></a></h2>
-<p>This section provides an overview of the available tasks and their API endpoints.</p>
 </section>
+<section id="api-documentation-for-all-tasks">
+<h1>API Documentation for all Tasks<a class="headerlink" href="#api-documentation-for-all-tasks" title="Link to this heading"></a></h1>
+<p>This section provides an overview of the available tasks and their API endpoints.</p>
+<p>—</p>
 </section>
 <section id="available-tasks">
 <h1>Available Tasks<a class="headerlink" href="#available-tasks" title="Link to this heading"></a></h1>
-<ol class="arabic">
-<li><p><strong>AntiFold</strong>
-- <strong>AntiFold Prediction</strong></p>
-<blockquote>
-<div><p><strong>Endpoint:</strong> <cite>/v1/api/antifold/predict</cite>
-<strong>Description:</strong> Predicts protein structures using AntiFold.</p>
-</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>AntiFold</strong></p>
 <ul class="simple">
+<li><p><strong>AntiFold Prediction</strong>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/antifold/predict</span></code>
+<strong>Description:</strong> Predicts protein structures using AntiFold.</p></li>
 <li><p><strong>Check AntiFold Status</strong>
-<strong>Endpoint:</strong> <cite>/v1/api/antifold/check_status/&lt;task_id&gt;</cite>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/antifold/check_status/&lt;task_id&gt;</span></code>
 <strong>Description:</strong> Checks the prediction status of AntiFold.</p></li>
 </ul>
 </li>
-<li><p><strong>ProteinMPNN</strong>
-- <strong>ProteinMPNN ddG Prediction</strong></p>
-<blockquote>
-<div><p><strong>Endpoint:</strong> <cite>/v1/api/proteinmpnn/ddg</cite>
-<strong>Description:</strong> Predicts stability or binding affinity changes for mutations.</p>
-</div></blockquote>
+<li><p><strong>ProteinMPNN</strong></p>
 <ul class="simple">
+<li><p><strong>ProteinMPNN ddG Prediction</strong>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/proteinmpnn/ddg</span></code>
+<strong>Description:</strong> Predicts stability or binding affinity changes for mutations.</p></li>
 <li><p><strong>Check ProteinMPNN Status</strong>
-<strong>Endpoint:</strong> <cite>/v1/api/proteinmpnn/check_status/&lt;task_id&gt;</cite>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/proteinmpnn/check_status/&lt;task_id&gt;</span></code>
 <strong>Description:</strong> Checks the processing status of ProteinMPNN.</p></li>
 </ul>
 </li>
-<li><p><strong>Thompson Sampling</strong>
-- <strong>Run Thompson Sampling</strong></p>
-<blockquote>
-<div><p><strong>Endpoint:</strong> <cite>/v1/api/thompson_sampling/run_ts</cite>
-<strong>Description:</strong> Performs Thompson Sampling for reaction optimization.</p>
-</div></blockquote>
+<li><p><strong>Thompson Sampling</strong></p>
 <ul class="simple">
+<li><p><strong>Run Thompson Sampling</strong>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/thompson_sampling/run_ts</span></code>
+<strong>Description:</strong> Performs Thompson Sampling for reaction optimization.</p></li>
 <li><p><strong>Check Thompson Sampling Status</strong>
-<strong>Endpoint:</strong> <cite>/v1/api/thompson_sampling/check_status/&lt;task_id&gt;</cite>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/thompson_sampling/check_status/&lt;task_id&gt;</span></code>
 <strong>Description:</strong> Checks the status of a Thompson Sampling task.</p></li>
 </ul>
 </li>
-<li><p><strong>Free-Wilson</strong>
-- <strong>Run Free-Wilson Analysis</strong></p>
-<blockquote>
-<div><p><strong>Endpoint:</strong> <cite>/v1/api/freewilson/run_fw</cite>
-<strong>Description:</strong> Runs Free-Wilson analysis for molecular property prediction.</p>
-</div></blockquote>
+<li><p><strong>Free-Wilson</strong></p>
 <ul class="simple">
+<li><p><strong>Run Free-Wilson Analysis</strong>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/freewilson/run_fw</span></code>
+<strong>Description:</strong> Runs Free-Wilson analysis for molecular property prediction.</p></li>
 <li><p><strong>Check Free-Wilson Status</strong>
-<strong>Endpoint:</strong> <cite>/v1/api/freewilson/check_status/&lt;task_id&gt;</cite>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/freewilson/check_status/&lt;task_id&gt;</span></code>
 <strong>Description:</strong> Checks Free-Wilson analysis task status.</p></li>
 </ul>
 </li>
-<li><p><strong>LigandMPNN</strong>
-- <strong>Run LigandMPNN</strong></p>
-<blockquote>
-<div><p><strong>Endpoint:</strong> <cite>/v1/api/ligandmpnn/run_lmpnn</cite>
-<strong>Description:</strong> Generates ligand mutations using LigandMPNN.</p>
-</div></blockquote>
+<li><p><strong>LigandMPNN</strong></p>
 <ul class="simple">
+<li><p><strong>Run LigandMPNN</strong>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/ligandmpnn/run_lmpnn</span></code>
+<strong>Description:</strong> Generates ligand mutations using LigandMPNN.</p></li>
 <li><p><strong>Check LigandMPNN Status</strong>
-<strong>Endpoint:</strong> <cite>/v1/api/ligandmpnn/check_status/&lt;task_id&gt;</cite>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/ligandmpnn/check_status/&lt;task_id&gt;</span></code>
 <strong>Description:</strong> Checks LigandMPNN task processing status.</p></li>
 </ul>
 </li>
-<li><p><strong>LocalColabFold</strong>
-- <strong>Run LocalColabFold</strong></p>
-<blockquote>
-<div><p><strong>Endpoint:</strong> <cite>/v1/api/localcolabfold/run_colabfold</cite>
-<strong>Description:</strong> Performs protein folding using LocalColabFold.</p>
-</div></blockquote>
+<li><p><strong>LocalColabFold</strong></p>
 <ul class="simple">
+<li><p><strong>Run LocalColabFold</strong>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/localcolabfold/run_colabfold</span></code>
+<strong>Description:</strong> Performs protein folding using LocalColabFold.</p></li>
 <li><p><strong>Check LocalColabFold Status</strong>
-<strong>Endpoint:</strong> <cite>/v1/api/localcolabfold/check_status/&lt;task_id&gt;</cite>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/localcolabfold/check_status/&lt;task_id&gt;</span></code>
 <strong>Description:</strong> Checks the status of LocalColabFold folding tasks.</p></li>
 </ul>
 </li>
-<li><p><strong>ParaSurf</strong>
-- <strong>Run ParaSurf Analysis</strong></p>
-<blockquote>
-<div><p><strong>Endpoint:</strong> <cite>/v1/api/parasurf/run_ps</cite>
-<strong>Description:</strong> Runs ParaSurf for protein surface prediction.</p>
-</div></blockquote>
+<li><p><strong>ParaSurf</strong></p>
 <ul class="simple">
+<li><p><strong>Run ParaSurf Analysis</strong>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/parasurf/run_ps</span></code>
+<strong>Description:</strong> Runs ParaSurf for protein surface prediction.</p></li>
 <li><p><strong>Check ParaSurf Status</strong>
-<strong>Endpoint:</strong> <cite>/v1/api/parasurf/check_status/&lt;task_id&gt;</cite>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/parasurf/check_status/&lt;task_id&gt;</span></code>
 <strong>Description:</strong> Checks the processing status of ParaSurf.</p></li>
 </ul>
 </li>
-<li><p><strong>REINVENT</strong>
-- <strong>Run REINVENT</strong></p>
-<blockquote>
-<div><p><strong>Endpoint:</strong> <cite>/v1/api/reinvent/run_reinvent</cite>
-<strong>Description:</strong> Runs REINVENT for drug design and optimization.</p>
-</div></blockquote>
+<li><p><strong>REINVENT</strong></p>
 <ul class="simple">
+<li><p><strong>Run REINVENT</strong>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/reinvent/run_reinvent</span></code>
+<strong>Description:</strong> Runs REINVENT for drug design and optimization.</p></li>
 <li><p><strong>Check REINVENT Status</strong>
-<strong>Endpoint:</strong> <cite>/v1/api/reinvent/check_status/&lt;task_id&gt;</cite>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/reinvent/check_status/&lt;task_id&gt;</span></code>
 <strong>Description:</strong> Checks REINVENT task processing status.</p></li>
 </ul>
 </li>
-<li><p><strong>ThermoMPNN</strong>
-- <strong>Run ThermoMPNN</strong></p>
-<blockquote>
-<div><p><strong>Endpoint:</strong> <cite>/v1/api/thermomppn/run_tmppn</cite>
-<strong>Description:</strong> Runs ThermoMPNN for stability prediction.</p>
-</div></blockquote>
+<li><p><strong>ThermoMPNN</strong></p>
 <ul class="simple">
+<li><p><strong>Run ThermoMPNN</strong>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/thermomppn/run_tmppn</span></code>
+<strong>Description:</strong> Runs ThermoMPNN for stability prediction.</p></li>
 <li><p><strong>Check ThermoMPNN Status</strong>
-<strong>Endpoint:</strong> <cite>/v1/api/thermomppn/check_status/&lt;task_id&gt;</cite>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/thermomppn/check_status/&lt;task_id&gt;</span></code>
 <strong>Description:</strong> Checks ThermoMPNN task processing status.</p></li>
 </ul>
 </li>
-<li><p><strong>ADMET AI</strong>
-- <strong>Run ADMET AI Prediction</strong></p>
-<blockquote>
-<div><p><strong>Endpoint:</strong> <cite>/v1/api/admet_ai/run_admet</cite>
-<strong>Description:</strong> Predicts ADMET properties using AI models.</p>
-</div></blockquote>
+<li><p><strong>ADMET AI</strong></p>
 <ul class="simple">
+<li><p><strong>Run ADMET AI Prediction</strong>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/admet_ai/run_admet</span></code>
+<strong>Description:</strong> Predicts ADMET properties using AI models.</p></li>
 <li><p><strong>Check ADMET AI Status</strong>
-<strong>Endpoint:</strong> <cite>/v1/api/admet_ai/check_status/&lt;task_id&gt;</cite>
+<strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/admet_ai/check_status/&lt;task_id&gt;</span></code>
 <strong>Description:</strong> Checks the status of ADMET AI prediction tasks.</p></li>
 </ul>
 </li>
 </ol>
-</section>
+<p>—</p>
 <section id="admet-ai-service">
-<h1>ADMET AI Service<a class="headerlink" href="#admet-ai-service" title="Link to this heading"></a></h1>
+<h2>ADMET AI Service<a class="headerlink" href="#admet-ai-service" title="Link to this heading"></a></h2>
 <p><strong>Blueprint Name</strong>: <cite>admet_ai</cite></p>
 <p><strong>Base URL</strong>: <cite>/admet_ai</cite></p>
 <p>### Endpoints</p>
+<section id="post-predict-admet">
+<h3><strong>POST /predict_admet</strong><a class="headerlink" href="#post-predict-admet" title="Link to this heading"></a></h3>
 <p>Predicts ADMET properties for a given SMILES file.</p>
 <ul class="simple">
 <li><p><strong>Request</strong>:
@@ -241,6 +269,9 @@
 - <strong>400 Bad Request</strong>: If no SMILES file is provided.
 - <strong>500 Internal Server Error</strong>: If an error occurs during prediction.</p></li>
 </ul>
+</section>
+<section id="get-check-admet-status-task-id">
+<h3><strong>GET /check_admet_status/&lt;task_id&gt;</strong><a class="headerlink" href="#get-check-admet-status-task-id" title="Link to this heading"></a></h3>
 <p>Checks the status of an ADMET prediction task.</p>
 <ul class="simple">
 <li><p><strong>Parameters</strong>:
@@ -252,11 +283,14 @@
 </ul>
 <p>—</p>
 </section>
+</section>
 <section id="antifold-service">
-<h1>AntiFold Service<a class="headerlink" href="#antifold-service" title="Link to this heading"></a></h1>
+<h2>AntiFold Service<a class="headerlink" href="#antifold-service" title="Link to this heading"></a></h2>
 <p><strong>Blueprint Name</strong>: <cite>antifold</cite></p>
 <p><strong>Base URL</strong>: <cite>/antifold</cite></p>
 <p>### Endpoints</p>
+<section id="post-predict">
+<h3><strong>POST /predict</strong><a class="headerlink" href="#post-predict" title="Link to this heading"></a></h3>
 <p>Runs the AntiFold prediction for a given PDB file.</p>
 <ul class="simple">
 <li><p><strong>Request</strong>:
@@ -269,6 +303,9 @@
 - <strong>400 Bad Request</strong>: If neither a PDB file nor URL is provided.
 - <strong>500 Internal Server Error</strong>: If an error occurs during prediction.</p></li>
 </ul>
+</section>
+<section id="get-check-status-task-id">
+<h3><strong>GET /check_status/&lt;task_id&gt;</strong><a class="headerlink" href="#get-check-status-task-id" title="Link to this heading"></a></h3>
 <p>Checks the status of an AntiFold task.</p>
 <ul class="simple">
 <li><p><strong>Parameters</strong>:
@@ -280,11 +317,14 @@
 </ul>
 <p>—</p>
 </section>
+</section>
 <section id="colabdock-service">
-<h1>ColabDock Service<a class="headerlink" href="#colabdock-service" title="Link to this heading"></a></h1>
+<h2>ColabDock Service<a class="headerlink" href="#colabdock-service" title="Link to this heading"></a></h2>
 <p><strong>Blueprint Name</strong>: <cite>colabdock</cite></p>
 <p><strong>Base URL</strong>: <cite>/colabdock</cite></p>
 <p>### Endpoints</p>
+<section id="post-dock">
+<h3><strong>POST /dock</strong><a class="headerlink" href="#post-dock" title="Link to this heading"></a></h3>
 <p>Runs the ColabDock docking task.</p>
 <ul class="simple">
 <li><p><strong>Request</strong>:
@@ -294,6 +334,9 @@
 - <strong>400 Bad Request</strong>: If neither a PDB file nor URL is provided.
 - <strong>500 Internal Server Error</strong>: If an error occurs during docking.</p></li>
 </ul>
+</section>
+<section id="id1">
+<h3><strong>GET /check_status/&lt;task_id&gt;</strong><a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <p>Checks the status of a ColabDock docking task.</p>
 <ul class="simple">
 <li><p><strong>Parameters</strong>:
@@ -305,11 +348,14 @@
 </ul>
 <p>—</p>
 </section>
+</section>
 <section id="free-wilson-service">
-<h1>Free-Wilson Service<a class="headerlink" href="#free-wilson-service" title="Link to this heading"></a></h1>
+<h2>Free-Wilson Service<a class="headerlink" href="#free-wilson-service" title="Link to this heading"></a></h2>
 <p><strong>Blueprint Name</strong>: <cite>freewilson</cite></p>
 <p><strong>Base URL</strong>: <cite>/freewilson</cite></p>
 <p>### Endpoints</p>
+<section id="post-run-analysis">
+<h3><strong>POST /run_analysis</strong><a class="headerlink" href="#post-run-analysis" title="Link to this heading"></a></h3>
 <p>Runs the Free-Wilson analysis.</p>
 <ul class="simple">
 <li><p><strong>Request</strong>:
@@ -322,6 +368,9 @@
 - <strong>400 Bad Request</strong>: If required files or URLs are missing.
 - <strong>500 Internal Server Error</strong>: If an error occurs during analysis.</p></li>
 </ul>
+</section>
+<section id="id2">
+<h3><strong>GET /check_status/&lt;task_id&gt;</strong><a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <p>Checks the status of the Free-Wilson analysis task.</p>
 <ul class="simple">
 <li><p><strong>Parameters</strong>:
@@ -333,11 +382,14 @@
 </ul>
 <p>—</p>
 </section>
+</section>
 <section id="ligandmpnn-service">
-<h1>LigandMPNN Service<a class="headerlink" href="#ligandmpnn-service" title="Link to this heading"></a></h1>
+<h2>LigandMPNN Service<a class="headerlink" href="#ligandmpnn-service" title="Link to this heading"></a></h2>
 <p><strong>Blueprint Name</strong>: <cite>ligandmpnn</cite></p>
 <p><strong>Base URL</strong>: <cite>/ligandmpnn</cite></p>
 <p>### Endpoints</p>
+<section id="post-design">
+<h3><strong>POST /design</strong><a class="headerlink" href="#post-design" title="Link to this heading"></a></h3>
 <p>Starts the LigandMPNN design task.</p>
 <ul class="simple">
 <li><p><strong>Request</strong>:
@@ -352,6 +404,9 @@
 - <strong>400 Bad Request</strong>: If no PDB file is provided or if chains to design are missing.
 - <strong>500 Internal Server Error</strong>: If an error occurs during design.</p></li>
 </ul>
+</section>
+<section id="id3">
+<h3><strong>GET /check_status/&lt;task_id&gt;</strong><a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <p>Checks the status of a LigandMPNN design task.</p>
 <ul class="simple">
 <li><p><strong>Parameters</strong>:
@@ -363,10 +418,13 @@
 </ul>
 <p>—</p>
 </section>
+</section>
 <section id="localcolabfold-api">
-<h1>LocalColabFold API<a class="headerlink" href="#localcolabfold-api" title="Link to this heading"></a></h1>
+<h2>LocalColabFold API<a class="headerlink" href="#localcolabfold-api" title="Link to this heading"></a></h2>
 <p><strong>Blueprint Name</strong>: <cite>localcolabfold</cite></p>
 <p>This API allows users to predict protein structures using the LocalColabFold method.</p>
+<section id="routes">
+<h3>Routes:<a class="headerlink" href="#routes" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
 <li><dl class="simple">
 <dt><strong>POST /predict</strong></dt><dd><ul class="simple">
@@ -416,11 +474,15 @@
 </dl>
 </li>
 </ol>
+<p>—</p>
+</section>
 </section>
 <section id="parasurf-api">
-<h1>ParaSurf API<a class="headerlink" href="#parasurf-api" title="Link to this heading"></a></h1>
+<h2>ParaSurf API<a class="headerlink" href="#parasurf-api" title="Link to this heading"></a></h2>
 <p><strong>Blueprint Name</strong>: <cite>parasurf</cite></p>
 <p>This API allows users to predict protein surface properties using the ParaSurf tool.</p>
+<section id="id4">
+<h3>Routes:<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
 <li><dl class="simple">
 <dt><strong>POST /predict</strong></dt><dd><ul class="simple">
@@ -470,11 +532,15 @@
 </dl>
 </li>
 </ol>
+<p>—</p>
+</section>
 </section>
 <section id="proteinmpnn-api">
-<h1>ProteinMPNN API<a class="headerlink" href="#proteinmpnn-api" title="Link to this heading"></a></h1>
+<h2>ProteinMPNN API<a class="headerlink" href="#proteinmpnn-api" title="Link to this heading"></a></h2>
 <p><strong>Blueprint Name</strong>: <cite>proteinmpnn</cite></p>
 <p>This API predicts the stability and mutation effects of proteins using ProteinMPNN.</p>
+<section id="id5">
+<h3>Routes:<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
 <li><dl class="simple">
 <dt><strong>POST /ddg</strong></dt><dd><ul class="simple">
@@ -525,11 +591,15 @@
 </dl>
 </li>
 </ol>
+<p>—</p>
+</section>
 </section>
 <section id="reinvent-api">
-<h1>REINVENT API<a class="headerlink" href="#reinvent-api" title="Link to this heading"></a></h1>
+<h2>REINVENT API<a class="headerlink" href="#reinvent-api" title="Link to this heading"></a></h2>
 <p><strong>Blueprint Name</strong>: <cite>reinvent</cite></p>
 <p>This API allows users to run REINVENT, a tool for molecular generation and optimization.</p>
+<section id="id6">
+<h3>Routes:<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
 <li><dl class="simple">
 <dt><strong>POST /predict</strong></dt><dd><ul class="simple">
@@ -578,11 +648,15 @@
 </dl>
 </li>
 </ol>
+<p>—</p>
+</section>
 </section>
 <section id="thermompnn-api">
-<h1>ThermoMPNN API<a class="headerlink" href="#thermompnn-api" title="Link to this heading"></a></h1>
+<h2>ThermoMPNN API<a class="headerlink" href="#thermompnn-api" title="Link to this heading"></a></h2>
 <p><strong>Blueprint Name</strong>: <cite>thermompnn</cite></p>
 <p>This API uses ThermoMPNN for predicting the stability of proteins based on mutations.</p>
+<section id="id7">
+<h3>Routes:<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
 <li><dl class="simple">
 <dt><strong>POST /predict</strong></dt><dd><ul class="simple">
@@ -633,11 +707,15 @@
 </dl>
 </li>
 </ol>
+<p>—</p>
+</section>
 </section>
 <section id="thompson-sampling-api">
-<h1>Thompson Sampling API<a class="headerlink" href="#thompson-sampling-api" title="Link to this heading"></a></h1>
+<h2>Thompson Sampling API<a class="headerlink" href="#thompson-sampling-api" title="Link to this heading"></a></h2>
 <p><strong>Blueprint Name</strong>: <cite>thompson_sampling</cite></p>
 <p>This API allows users to run the Thompson Sampling algorithm for molecular exploration.</p>
+<section id="id8">
+<h3>Routes:<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
 <li><dl class="simple">
 <dt><strong>POST /run_ts</strong></dt><dd><ul class="simple">
@@ -667,20 +745,23 @@
 </dl>
 </li>
 </ol>
+<p>—</p>
+</section>
 </section>
 <section id="general-information">
-<h1>General Information<a class="headerlink" href="#general-information" title="Link to this heading"></a></h1>
+<h2>General Information<a class="headerlink" href="#general-information" title="Link to this heading"></a></h2>
 <p>All services are hosted using Flask and accept file uploads via POST requests. Azure Blob Storage is used to store results, and task status can be checked via GET requests. Each service may include logging and file download functionality as part of the process.</p>
 <p>—</p>
 </section>
 <section id="last-updated">
-<h1>Last Updated<a class="headerlink" href="#last-updated" title="Link to this heading"></a></h1>
+<h2>Last Updated<a class="headerlink" href="#last-updated" title="Link to this heading"></a></h2>
 <p>This list was last updated on :date:.</p>
 <p>—</p>
 </section>
 <section id="logging">
-<h1>Logging<a class="headerlink" href="#logging" title="Link to this heading"></a></h1>
+<h2>Logging<a class="headerlink" href="#logging" title="Link to this heading"></a></h2>
 <p>The APIs log all interactions for debugging and monitoring. Logs are saved to local files and can be accessed as part of the task status.</p>
+</section>
 </section>
 
 
@@ -688,6 +769,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="docking.html" class="btn btn-neutral float-left" title="Molecular Docking" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tasks/antifold.html" class="btn btn-neutral float-right" title="AntiFold" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

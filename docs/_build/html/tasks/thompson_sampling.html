@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; Qubio 0.0.1 documentation</title>
+  <title>ThermoSMP (Thermostability Sampling) &mdash; Qubio 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -40,7 +40,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../structure_prediction.html">Protein Structure Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protein_design.html">Protein Design</a></li>
@@ -48,21 +48,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../finetuning.html">Finetuning for Molecular Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docking.html">Molecular Docking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#api-documentation-for-all-tasks">API Documentation for all Tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html#available-tasks">Available Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#admet-ai-service">ADMET AI Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#antifold-service">AntiFold Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#colabdock-service">ColabDock Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#free-wilson-service">Free-Wilson Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#ligandmpnn-service">LigandMPNN Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#localcolabfold-api">LocalColabFold API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#parasurf-api">ParaSurf API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#proteinmpnn-api">ProteinMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#reinvent-api">REINVENT API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thermompnn-api">ThermoMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thompson-sampling-api">Thompson Sampling API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#general-information">General Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#last-updated">Last Updated</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#logging">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antifold.html">AntiFold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proteinmpnn.html">ProteinMPNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localcolabfold.html">LocalColabFold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinvent.html">REINVENT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admet_ai.html">ADMET AI Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colabdock.html">ColabDock</a></li>
 </ul>
 
         </div>
@@ -79,7 +72,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="breadcrumb-item active">ThermoSMP (Thermostability Sampling)</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tasks/thompson_sampling.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,7 +82,113 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="thermosmp-thermostability-sampling">
+<h1>ThermoSMP (Thermostability Sampling)<a class="headerlink" href="#thermosmp-thermostability-sampling" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>ThermoSMP (Thermostability Sampling) is a computational method designed to explore the sequence space around a given protein structure with a focus on enhancing thermal stability. It integrates sampling strategies with stability prediction models to identify promising mutations or variants that improve protein robustness under elevated temperatures.</p>
+<p>ThermoSMP is particularly useful for navigating the combinatorial explosion of possible mutations by efficiently sampling variants predicted to be more thermostable.</p>
+</section>
+<section id="scientific-motivation">
+<h2>Scientific Motivation<a class="headerlink" href="#scientific-motivation" title="Link to this heading"></a></h2>
+<p>Protein thermostability is crucial for numerous applications such as industrial enzymes, biosensors, and therapeutic proteins that must retain function under harsh conditions. However, exhaustive experimental mutagenesis is unfeasible due to the vast mutation space.</p>
+<p>ThermoSMP employs informed sampling guided by stability predictors (e.g., ThermoMPNN) and structural context to prioritize mutants likely to increase melting temperature (Tm) or folding free energy (ΔG).</p>
+<p>By combining stochastic sampling with machine learning predictions, ThermoSMP offers:</p>
+<ul class="simple">
+<li><p>Efficient exploration of mutational landscapes.</p></li>
+<li><p>Identification of combinatorial mutations with additive or synergistic effects.</p></li>
+<li><p>Guidance for experimental mutagenesis campaigns.</p></li>
+</ul>
+</section>
+<section id="methodology">
+<h2>Methodology<a class="headerlink" href="#methodology" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Initial Setup:
+- Input a high-quality protein structure (PDB format).
+- Define regions or residues of interest (e.g., active site, surface, core).</p></li>
+<li><p>Sampling Strategy:
+- Use Markov Chain Monte Carlo (MCMC), Metropolis-Hastings, or other probabilistic algorithms to propose mutations.
+- Mutations are proposed based on residue-specific probabilities or biochemical constraints (e.g., hydrophobicity, charge).</p></li>
+<li><p>Stability Evaluation:
+- Each sampled mutant is evaluated using a stability predictor such as ThermoMPNN.
+- Acceptance or rejection of proposed mutations follows criteria based on predicted ΔΔG or ΔTm.</p></li>
+<li><p>Iterative Refinement:
+- Sampling iterates to converge on sequences predicted to have higher stability.
+- Sampling can include single or multiple mutations per iteration.</p></li>
+<li><p>Output:
+- Ranked list of mutations or variants with predicted thermostability scores.
+- Optionally, structural models of the top variants for further analysis.</p></li>
+</ol>
+</section>
+<section id="applications">
+<h2>Applications<a class="headerlink" href="#applications" title="Link to this heading"></a></h2>
+<p>ThermoSMP supports diverse protein engineering tasks, including:</p>
+<ul class="simple">
+<li><p>Directed evolution in silico for thermostabilization.</p></li>
+<li><p>Design of stable variants for industrial catalysts.</p></li>
+<li><p>Exploration of mutational effects beyond single-point changes.</p></li>
+<li><p>Integration with downstream design tools for multi-objective optimization.</p></li>
+</ul>
+</section>
+<section id="advantages">
+<h2>Advantages<a class="headerlink" href="#advantages" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Efficient exploration without exhaustive enumeration.</p></li>
+<li><p>Integration of biochemical knowledge with data-driven predictions.</p></li>
+<li><p>Flexibility to incorporate various stability models or scoring functions.</p></li>
+<li><p>Ability to model epistatic effects through multi-mutation sampling.</p></li>
+</ul>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Quality of stability predictions directly impacts sampling efficiency.</p></li>
+<li><p>Sampling algorithms may get trapped in local minima without sufficient exploration.</p></li>
+<li><p>Computational cost can rise with increasing mutation numbers and protein size.</p></li>
+<li><p>Assumes the input structure is an accurate representation of the native fold.</p></li>
+</ul>
+</section>
+<section id="input-and-output">
+<h2>Input and Output<a class="headerlink" href="#input-and-output" title="Link to this heading"></a></h2>
+<p>Input:</p>
+<ul class="simple">
+<li><p>Protein structure file (PDB).</p></li>
+<li><p>Mutation target sites or entire sequence.</p></li>
+<li><p>Sampling parameters (number of iterations, mutation rates, acceptance thresholds).</p></li>
+</ul>
+<p>Output:</p>
+<ul class="simple">
+<li><p>List of sampled sequences ranked by predicted stability.</p></li>
+<li><p>Predicted stability metrics (ΔΔG, ΔTm).</p></li>
+<li><p>Optional mutant structural models (PDB files).</p></li>
+</ul>
+</section>
+<section id="integration-with-qubio">
+<h2>Integration with Qubio<a class="headerlink" href="#integration-with-qubio" title="Link to this heading"></a></h2>
+<p>ThermoSMP complements ThermoMPNN and ProteinMPNN by providing a sampling framework to generate and evaluate mutations in a thermostability-driven manner.</p>
+<p>Typical pipeline:</p>
+<ol class="arabic simple">
+<li><p>Obtain or predict protein structure (AntiFold, LocalColabFold).</p></li>
+<li><p>Use ThermoSMP to sample stable mutations guided by ThermoMPNN.</p></li>
+<li><p>Select top candidates for further characterization or experimental validation.</p></li>
+</ol>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<p>ThermoSMP offers a powerful computational approach for exploring protein sequence space with a focus on enhancing thermostability. By marrying stochastic sampling algorithms with advanced stability predictors, it accelerates the design of robust proteins fit for challenging environments.</p>
+<p>It serves as a key module in Qubio’s protein property characterization and optimization toolkit.</p>
+</section>
+<section id="related-tools">
+<h2>Related Tools<a class="headerlink" href="#related-tools" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><span class="xref std std-doc">thermompnn</span></p></li>
+<li><p><a class="reference internal" href="proteinmpnn.html"><span class="doc">ProteinMPNN</span></a></p></li>
+<li><p><a class="reference internal" href="antifold.html"><span class="doc">AntiFold</span></a></p></li>
+<li><p><a class="reference internal" href="localcolabfold.html"><span class="doc">LocalColabFold</span></a></p></li>
+</ul>
+</section>
+</section>
+
 
            </div>
           </div>

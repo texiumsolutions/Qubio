@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; Qubio 0.0.1 documentation</title>
+  <title>ThermoMPNN &mdash; Qubio 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -40,7 +40,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../structure_prediction.html">Protein Structure Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protein_design.html">Protein Design</a></li>
@@ -48,21 +48,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../finetuning.html">Finetuning for Molecular Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docking.html">Molecular Docking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#api-documentation-for-all-tasks">API Documentation for all Tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html#available-tasks">Available Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#admet-ai-service">ADMET AI Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#antifold-service">AntiFold Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#colabdock-service">ColabDock Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#free-wilson-service">Free-Wilson Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#ligandmpnn-service">LigandMPNN Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#localcolabfold-api">LocalColabFold API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#parasurf-api">ParaSurf API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#proteinmpnn-api">ProteinMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#reinvent-api">REINVENT API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thermompnn-api">ThermoMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thompson-sampling-api">Thompson Sampling API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#general-information">General Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#last-updated">Last Updated</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#logging">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antifold.html">AntiFold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proteinmpnn.html">ProteinMPNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localcolabfold.html">LocalColabFold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinvent.html">REINVENT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admet_ai.html">ADMET AI Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colabdock.html">ColabDock</a></li>
 </ul>
 
         </div>
@@ -79,7 +72,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="breadcrumb-item active">ThermoMPNN</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tasks/thermomppn.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,7 +82,131 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="thermompnn">
+<h1>ThermoMPNN<a class="headerlink" href="#thermompnn" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>ThermoMPNN is a deep learning framework designed to predict and optimize the thermal stability of proteins. Built upon the foundational ProteinMPNN architecture, ThermoMPNN introduces supervised learning mechanisms to capture the thermodynamic effects of point mutations or sequence changes, specifically with respect to protein melting temperature (Tm) or Gibbs free energy of unfolding (ΔG).</p>
+<p>This tool is critical for engineering proteins that function in extreme conditions, stabilizing therapeutic proteins, and exploring the relationship between sequence, structure, and stability.</p>
+</section>
+<section id="scientific-motivation">
+<h2>Scientific Motivation<a class="headerlink" href="#scientific-motivation" title="Link to this heading"></a></h2>
+<p>Protein stability is a major determinant of:</p>
+<ul class="simple">
+<li><p>Foldability and expression yield.</p></li>
+<li><p>Functional longevity (especially in industrial or therapeutic contexts).</p></li>
+<li><p>Resistance to denaturation or aggregation.</p></li>
+</ul>
+<p>However, experimental approaches like thermal shift assays or calorimetry are labor-intensive. ThermoMPNN addresses this bottleneck using graph-based neural networks trained on experimental ΔΔG and Tm data.</p>
+<p>By learning the nuanced sequence-structure-stability relationships, ThermoMPNN enables:</p>
+<ul class="simple">
+<li><p>Prioritization of stabilizing mutations.</p></li>
+<li><p>Computational saturation mutagenesis.</p></li>
+<li><p>Thermostability optimization during protein design.</p></li>
+</ul>
+</section>
+<section id="methodology">
+<h2>Methodology<a class="headerlink" href="#methodology" title="Link to this heading"></a></h2>
+<p>ThermoMPNN uses a message-passing neural network (MPNN) that operates on residue-level graphs derived from 3D protein structures.</p>
+<p>Key steps include:</p>
+<ol class="arabic simple">
+<li><p>Graph Construction:
+- Nodes represent amino acid residues.
+- Edges encode spatial proximity, orientation, and chemical context.</p></li>
+<li><p>Input Representation:
+- The protein structure is parsed from PDB files.
+- Atomic coordinates are converted into geometric and chemical features.
+- Mutations are introduced in silico for stability scanning.</p></li>
+<li><p>Model Architecture:
+- A graph neural network encodes the local environment of each residue.
+- The model is trained on curated datasets of single-point mutations with known ΔΔG (e.g., from ProTherm, FireProtDB).
+- Outputs include a scalar stability prediction for each variant.</p></li>
+<li><p>Stability Prediction:
+- ΔΔG or ΔTm values are predicted for single mutants or multiple mutants.
+- Results can be filtered based on position, distance to active sites, or disulfide constraints.</p></li>
+</ol>
+</section>
+<section id="use-cases">
+<h2>Use Cases<a class="headerlink" href="#use-cases" title="Link to this heading"></a></h2>
+<p>ThermoMPNN is suitable for:</p>
+<ul class="simple">
+<li><p>Rational thermostabilization of enzymes.</p></li>
+<li><p>Improving biotherapeutic shelf-life.</p></li>
+<li><p>Screening stabilizing vs. destabilizing mutations.</p></li>
+<li><p>Coupling with generative design models like ProteinMPNN to select stable variants.</p></li>
+</ul>
+</section>
+<section id="stability-types">
+<h2>Stability Types<a class="headerlink" href="#stability-types" title="Link to this heading"></a></h2>
+<p>ThermoMPNN can evaluate:</p>
+<ul class="simple">
+<li><p>ΔΔG of folding: Change in free energy upon mutation.</p></li>
+<li><p>ΔTm: Shift in melting temperature.</p></li>
+<li><p>Both metrics are proxies for thermodynamic stability, depending on the training regime.</p></li>
+</ul>
+</section>
+<section id="input-requirements">
+<h2>Input Requirements<a class="headerlink" href="#input-requirements" title="Link to this heading"></a></h2>
+<p>ThermoMPNN accepts:</p>
+<ul class="simple">
+<li><p>A protein structure in PDB format (wild-type).</p></li>
+<li><p>A list of mutations (e.g., A123V, T56K).</p></li>
+<li><p>Optional filtering parameters:
+- Residue type (polar/non-polar).
+- Distance constraints (e.g., surface or core).
+- Contact with catalytic or ligand-binding residues.</p></li>
+</ul>
+</section>
+<section id="output-formats">
+<h2>Output Formats<a class="headerlink" href="#output-formats" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>CSV or JSON with:
+- Mutation identifiers.
+- Predicted ΔΔG or ΔTm.
+- Rank or score confidence.</p></li>
+<li><p>(Optional) Mutant structure files if modeling mutations structurally.</p></li>
+</ul>
+</section>
+<section id="scientific-insights">
+<h2>Scientific Insights<a class="headerlink" href="#scientific-insights" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Stability prediction is highly dependent on local structural context.</p></li>
+<li><p>Destabilizing mutations often introduce voids, charge clashes, or break hydrogen bonds.</p></li>
+<li><p>ThermoMPNN can learn compensatory effects of buried residues, surface entropy, or secondary structure positioning.</p></li>
+</ul>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Predictions assume correct wild-type structure — quality of input PDB is critical.</p></li>
+<li><p>Highly flexible or disordered regions may reduce accuracy.</p></li>
+<li><p>Multi-mutant effects (epistasis) are only partially captured unless explicitly modeled.</p></li>
+</ul>
+</section>
+<section id="design-integration">
+<h2>Design Integration<a class="headerlink" href="#design-integration" title="Link to this heading"></a></h2>
+<p>ThermoMPNN works seamlessly within Qubio’s protein engineering pipeline:</p>
+<ol class="arabic simple">
+<li><p>Predict structure using AntiFold or LocalColabFold.</p></li>
+<li><p>Design sequences with ProteinMPNN.</p></li>
+<li><p>Score variants for thermostability using ThermoMPNN.</p></li>
+<li><p>Filter or re-rank based on stability, function, or solubility.</p></li>
+<li><p>Advance top variants to in vitro testing.</p></li>
+</ol>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<p>ThermoMPNN empowers protein engineers to explore the stability landscape of proteins with unprecedented resolution. By coupling structure-based modeling with supervised learning, it provides a practical, interpretable, and scalable method for designing thermodynamically robust proteins.</p>
+<p>For stability-constrained design, ThermoMPNN is the backbone tool in Qubio’s property characterization module.</p>
+<p>Related tools:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="proteinmpnn.html"><span class="doc">ProteinMPNN</span></a></p></li>
+<li><p><a class="reference internal" href="antifold.html"><span class="doc">AntiFold</span></a></p></li>
+<li><p><a class="reference internal" href="parasurf.html"><span class="doc">ParaSurf</span></a></p></li>
+</ul>
+</section>
+</section>
+
 
            </div>
           </div>

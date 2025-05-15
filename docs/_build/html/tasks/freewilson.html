@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>&lt;no title&gt; &mdash; Qubio 0.0.1 documentation</title>
+  <title>Free-Wilson Analysis &mdash; Qubio 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -16,6 +16,7 @@
       <script src="../_static/documentation_options.js?v=d45e8c67"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -40,7 +41,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../structure_prediction.html">Protein Structure Prediction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../protein_design.html">Protein Design</a></li>
@@ -48,21 +49,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../finetuning.html">Finetuning for Molecular Optimization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../docking.html">Molecular Docking</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#api-documentation-for-all-tasks">API Documentation for all Tasks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api_reference.html#available-tasks">Available Tasks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#admet-ai-service">ADMET AI Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#antifold-service">AntiFold Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#colabdock-service">ColabDock Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#free-wilson-service">Free-Wilson Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#ligandmpnn-service">LigandMPNN Service</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#localcolabfold-api">LocalColabFold API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#parasurf-api">ParaSurf API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#proteinmpnn-api">ProteinMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#reinvent-api">REINVENT API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thermompnn-api">ThermoMPNN API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thompson-sampling-api">Thompson Sampling API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#general-information">General Information</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#last-updated">Last Updated</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#logging">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="antifold.html">AntiFold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proteinmpnn.html">ProteinMPNN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localcolabfold.html">LocalColabFold</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reinvent.html">REINVENT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admet_ai.html">ADMET AI Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colabdock.html">ColabDock</a></li>
 </ul>
 
         </div>
@@ -79,7 +73,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="breadcrumb-item active">Free-Wilson Analysis</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tasks/freewilson.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,7 +83,90 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
+  <section id="free-wilson-analysis">
+<h1>Free-Wilson Analysis<a class="headerlink" href="#free-wilson-analysis" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Free-Wilson analysis is a classical quantitative structure-activity relationship (QSAR) method used to dissect the contributions of individual substituents or chemical fragments to the overall biological activity of a compound. Introduced in the 1960s by Free and Wilson, this additive model assumes that the activity of a molecule can be decomposed into the sum of its structural features’ contributions.</p>
+<p>This approach is particularly useful in lead optimization phases of drug discovery, where small changes to a chemical scaffold can dramatically influence potency, selectivity, or pharmacokinetics.</p>
+</section>
+<section id="scientific-basis">
+<h2>Scientific Basis<a class="headerlink" href="#scientific-basis" title="Link to this heading"></a></h2>
+<p>The core hypothesis of Free-Wilson analysis is the additivity principle:</p>
+<div class="math notranslate nohighlight">
+\[\log(\text{Activity}) = \sum_{i} c_i x_i + \epsilon\]</div>
+<p>Where:
+- <span class="math notranslate nohighlight">\(x_i\)</span> represents the presence or absence (typically binary) of a specific substituent at a given position,
+- <span class="math notranslate nohighlight">\(c_i\)</span> is the contribution coefficient of that substituent,
+- <span class="math notranslate nohighlight">\(\epsilon\)</span> is the error term.</p>
+<p>The model relies on having a consistent molecular scaffold, where variations in activity are attributed to the substitution patterns at defined positions. Each substituent’s contribution can be estimated using regression techniques, most commonly ordinary least squares.</p>
+</section>
+<section id="how-it-works">
+<h2>How It Works<a class="headerlink" href="#how-it-works" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Define a Core Scaffold</strong>:
+A series of compounds sharing the same molecular backbone is selected. Variations among them occur at specific substitution points (e.g., R-groups).</p></li>
+<li><p><strong>Substituent Encoding</strong>:
+Each substituent is represented using binary indicator variables. For instance, R1=OH becomes a feature <cite>R1_OH=1</cite> and all other R1 options are set to 0.</p></li>
+<li><p><strong>Activity Regression</strong>:
+The experimental activity values (e.g., pIC50) are regressed onto the binary matrix to determine the relative contribution of each substituent.</p></li>
+<li><p><strong>Interpretation</strong>:
+Coefficients with positive values indicate substituents that enhance activity, while negative coefficients suggest unfavorable modifications. The intercept corresponds to the baseline activity of the core scaffold.</p></li>
+</ol>
+</section>
+<section id="applications-and-use-cases">
+<h2>Applications and Use Cases<a class="headerlink" href="#applications-and-use-cases" title="Link to this heading"></a></h2>
+<p>Free-Wilson analysis is primarily used in:</p>
+<ul class="simple">
+<li><p>Lead optimization: guiding chemists on which substituents are most beneficial.</p></li>
+<li><p>SAR interpretation: quantifying the effect of structural changes.</p></li>
+<li><p>Series expansion: predicting activity of hypothetical compounds before synthesis.</p></li>
+<li><p>Prioritization of analogs for synthesis or testing.</p></li>
+</ul>
+</section>
+<section id="scientific-considerations">
+<h2>Scientific Considerations<a class="headerlink" href="#scientific-considerations" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The assumption of additivity may not hold in cases where significant steric clashes or conformational changes occur.</p></li>
+<li><p>Activity cliffs—where small changes result in large differences in activity—are not well modeled.</p></li>
+<li><p>Requires a reasonably sized and diverse training set with consistent experimental data.</p></li>
+<li><p>Works best with congeneric series and should not be applied across structurally diverse datasets.</p></li>
+</ul>
+</section>
+<section id="benefits-of-free-wilson-models">
+<h2>Benefits of Free-Wilson Models<a class="headerlink" href="#benefits-of-free-wilson-models" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Fast and interpretable: results are directly actionable by medicinal chemists.</p></li>
+<li><p>Requires no 3D structures or docking: purely based on 2D structure and bioactivity data.</p></li>
+<li><p>Complements machine learning approaches by offering mechanistic insights.</p></li>
+<li><p>Can highlight non-obvious trends in structure-activity data.</p></li>
+</ul>
+</section>
+<section id="integration-in-qubio">
+<h2>Integration in Qubio<a class="headerlink" href="#integration-in-qubio" title="Link to this heading"></a></h2>
+<p>In Qubio, Free-Wilson analysis acts as a lightweight interpretability and predictive tool for ligand optimization pipelines. When used alongside generative tools (e.g., REINVENT, LigandMPNN), it helps validate and rank proposed modifications to a known scaffold series.</p>
+</section>
+<section id="workflow-integration">
+<h2>Workflow Integration<a class="headerlink" href="#workflow-integration" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Curate a set of ligands with a common scaffold and associated activity data.</p></li>
+<li><p>Run Free-Wilson regression to compute fragment contributions.</p></li>
+<li><p>Analyze coefficients and visualize favorable vs unfavorable R-groups.</p></li>
+<li><p>Use insights to design or prioritize the next generation of analogs.</p></li>
+</ol>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<p>Free-Wilson analysis remains a foundational method in medicinal chemistry for rationalizing SAR and predicting ligand activity based on structural substitutions. It excels in contexts where interpretability, speed, and ease of use are valued. As part of Qubio’s ligand-centric design suite, Free-Wilson analysis provides a transparent and efficient path toward data-driven decision-making in early drug discovery.</p>
+<p>For complementary approaches, see:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="reinvent.html"><span class="doc">REINVENT</span></a></p></li>
+<li><p><a class="reference internal" href="ligandmpnn.html"><span class="doc">LigandMPNN</span></a></p></li>
+<li><p><a class="reference internal" href="admet_ai.html"><span class="doc">ADMET AI Prediction</span></a></p></li>
+</ul>
+</section>
+</section>
+
 
            </div>
           </div>

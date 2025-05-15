@@ -1,117 +1,125 @@
 API Documentation
-==================
+=================
 
 This document describes the API endpoints available for various services. Each service has its own set of routes, which allow users to upload files, run analysis, and check task statuses.
 
 ---
 
-==============================
 API Documentation for all Tasks
-==============================
+===============================
 
 This section provides an overview of the available tasks and their API endpoints.
 
 ---
 
-==============================
 Available Tasks
-==============================
+==============
 
 1. **AntiFold**
+
    - **AntiFold Prediction**  
-     **Endpoint:** `/v1/api/antifold/predict`  
+     **Endpoint:** ``/v1/api/antifold/predict``  
      **Description:** Predicts protein structures using AntiFold.
-   
+
    - **Check AntiFold Status**  
-     **Endpoint:** `/v1/api/antifold/check_status/<task_id>`  
+     **Endpoint:** ``/v1/api/antifold/check_status/<task_id>``  
      **Description:** Checks the prediction status of AntiFold.
 
 2. **ProteinMPNN**
+
    - **ProteinMPNN ddG Prediction**  
-     **Endpoint:** `/v1/api/proteinmpnn/ddg`  
+     **Endpoint:** ``/v1/api/proteinmpnn/ddg``  
      **Description:** Predicts stability or binding affinity changes for mutations.
-   
+
    - **Check ProteinMPNN Status**  
-     **Endpoint:** `/v1/api/proteinmpnn/check_status/<task_id>`  
+     **Endpoint:** ``/v1/api/proteinmpnn/check_status/<task_id>``  
      **Description:** Checks the processing status of ProteinMPNN.
 
 3. **Thompson Sampling**
+
    - **Run Thompson Sampling**  
-     **Endpoint:** `/v1/api/thompson_sampling/run_ts`  
+     **Endpoint:** ``/v1/api/thompson_sampling/run_ts``  
      **Description:** Performs Thompson Sampling for reaction optimization.
-   
+
    - **Check Thompson Sampling Status**  
-     **Endpoint:** `/v1/api/thompson_sampling/check_status/<task_id>`  
+     **Endpoint:** ``/v1/api/thompson_sampling/check_status/<task_id>``  
      **Description:** Checks the status of a Thompson Sampling task.
 
 4. **Free-Wilson**
+
    - **Run Free-Wilson Analysis**  
-     **Endpoint:** `/v1/api/freewilson/run_fw`  
+     **Endpoint:** ``/v1/api/freewilson/run_fw``  
      **Description:** Runs Free-Wilson analysis for molecular property prediction.
-   
+
    - **Check Free-Wilson Status**  
-     **Endpoint:** `/v1/api/freewilson/check_status/<task_id>`  
+     **Endpoint:** ``/v1/api/freewilson/check_status/<task_id>``  
      **Description:** Checks Free-Wilson analysis task status.
 
 5. **LigandMPNN**
+
    - **Run LigandMPNN**  
-     **Endpoint:** `/v1/api/ligandmpnn/run_lmpnn`  
+     **Endpoint:** ``/v1/api/ligandmpnn/run_lmpnn``  
      **Description:** Generates ligand mutations using LigandMPNN.
-   
+
    - **Check LigandMPNN Status**  
-     **Endpoint:** `/v1/api/ligandmpnn/check_status/<task_id>`  
+     **Endpoint:** ``/v1/api/ligandmpnn/check_status/<task_id>``  
      **Description:** Checks LigandMPNN task processing status.
 
 6. **LocalColabFold**
+
    - **Run LocalColabFold**  
-     **Endpoint:** `/v1/api/localcolabfold/run_colabfold`  
+     **Endpoint:** ``/v1/api/localcolabfold/run_colabfold``  
      **Description:** Performs protein folding using LocalColabFold.
-   
+
    - **Check LocalColabFold Status**  
-     **Endpoint:** `/v1/api/localcolabfold/check_status/<task_id>`  
+     **Endpoint:** ``/v1/api/localcolabfold/check_status/<task_id>``  
      **Description:** Checks the status of LocalColabFold folding tasks.
 
 7. **ParaSurf**
+
    - **Run ParaSurf Analysis**  
-     **Endpoint:** `/v1/api/parasurf/run_ps`  
+     **Endpoint:** ``/v1/api/parasurf/run_ps``  
      **Description:** Runs ParaSurf for protein surface prediction.
-   
+
    - **Check ParaSurf Status**  
-     **Endpoint:** `/v1/api/parasurf/check_status/<task_id>`  
+     **Endpoint:** ``/v1/api/parasurf/check_status/<task_id>``  
      **Description:** Checks the processing status of ParaSurf.
 
 8. **REINVENT**
+
    - **Run REINVENT**  
-     **Endpoint:** `/v1/api/reinvent/run_reinvent`  
+     **Endpoint:** ``/v1/api/reinvent/run_reinvent``  
      **Description:** Runs REINVENT for drug design and optimization.
-   
+
    - **Check REINVENT Status**  
-     **Endpoint:** `/v1/api/reinvent/check_status/<task_id>`  
+     **Endpoint:** ``/v1/api/reinvent/check_status/<task_id>``  
      **Description:** Checks REINVENT task processing status.
 
 9. **ThermoMPNN**
+
    - **Run ThermoMPNN**  
-     **Endpoint:** `/v1/api/thermomppn/run_tmppn`  
+     **Endpoint:** ``/v1/api/thermomppn/run_tmppn``  
      **Description:** Runs ThermoMPNN for stability prediction.
-   
+
    - **Check ThermoMPNN Status**  
-     **Endpoint:** `/v1/api/thermomppn/check_status/<task_id>`  
+     **Endpoint:** ``/v1/api/thermomppn/check_status/<task_id>``  
      **Description:** Checks ThermoMPNN task processing status.
 
 10. **ADMET AI**
+
     - **Run ADMET AI Prediction**  
-      **Endpoint:** `/v1/api/admet_ai/run_admet`  
+      **Endpoint:** ``/v1/api/admet_ai/run_admet``  
       **Description:** Predicts ADMET properties using AI models.
-    
+
     - **Check ADMET AI Status**  
-      **Endpoint:** `/v1/api/admet_ai/check_status/<task_id>`  
+      **Endpoint:** ``/v1/api/admet_ai/check_status/<task_id>``  
       **Description:** Checks the status of ADMET AI prediction tasks.
 
 ---
 
-==============================
+================
 ADMET AI Service
-==============================
+================
 
 **Blueprint Name**: `admet_ai`
 
