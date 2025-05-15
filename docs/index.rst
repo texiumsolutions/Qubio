@@ -18,4 +18,3 @@ Welcome to Qubio! This documentation provides reference for APIs and tools used 
    finetuning
    docking
    api_reference
-   tasks

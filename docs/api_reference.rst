@@ -11,8 +11,9 @@ API Documentation for all Tasks
 
 This section provides an overview of the available tasks and their API endpoints.
 
+==============================
 Available Tasks
-===============
+==============================
 
 1. **AntiFold**
    - **AntiFold Prediction**  
@@ -104,8 +105,10 @@ Available Tasks
       **Endpoint:** `/v1/api/admet_ai/check_status/<task_id>`  
       **Description:** Checks the status of ADMET AI prediction tasks.
 
+
+==============================
 ADMET AI Service
-================
+==============================
 
 **Blueprint Name**: `admet_ai`
 
@@ -139,8 +142,10 @@ Checks the status of an ADMET prediction task.
 
 ---
 
+
+==============================
 AntiFold Service
-================
+==============================
 
 **Blueprint Name**: `antifold`
 
@@ -177,8 +182,10 @@ Checks the status of an AntiFold task.
 
 ---
 
+
+==============================
 ColabDock Service
-=================
+==============================
 
 **Blueprint Name**: `colabdock`
 
@@ -212,8 +219,10 @@ Checks the status of a ColabDock docking task.
 
 ---
 
+
+==============================
 Free-Wilson Service
-===================
+==============================
 
 **Blueprint Name**: `freewilson`
 
@@ -250,8 +259,10 @@ Checks the status of the Free-Wilson analysis task.
 
 ---
 
+
+==============================
 LigandMPNN Service
-==================
+==============================
 
 **Blueprint Name**: `ligandmpnn`
 
@@ -290,8 +301,10 @@ Checks the status of a LigandMPNN design task.
 
 ---
 
+
+==============================
 LocalColabFold API
-==================
+==============================
 
 **Blueprint Name**: `localcolabfold`
 
@@ -319,8 +332,10 @@ Routes:
         - 404: Task ID not found.
         - 500: Internal server error.
 
+
+==============================
 ParaSurf API
-============
+==============================
 
 **Blueprint Name**: `parasurf`
 
@@ -348,8 +363,10 @@ Routes:
         - 404: Task ID not found.
         - 500: Internal server error.
 
+
+==============================
 ProteinMPNN API
-===============
+==============================
 
 **Blueprint Name**: `proteinmpnn`
 
@@ -378,8 +395,10 @@ Routes:
         - 404: Task ID not found.
         - 500: Internal server error.
 
+
+==============================
 REINVENT API
-============
+==============================
 
 **Blueprint Name**: `reinvent`
 
@@ -406,8 +425,10 @@ Routes:
         - 404: Task ID not found.
         - 500: Internal server error.
 
+
+==============================
 ThermoMPNN API
-==============
+==============================
 
 **Blueprint Name**: `thermompnn`
 
@@ -436,8 +457,10 @@ Routes:
         - 404: Task ID not found.
         - 500: Internal server error.
 
+
+==============================
 Thompson Sampling API
-=====================
+==============================
 
 **Blueprint Name**: `thompson_sampling`
 
@@ -460,22 +483,25 @@ Routes:
         - 500: Internal server error.
 
 
+==============================
 General Information
-===================
+==============================
 
 All services are hosted using Flask and accept file uploads via POST requests. Azure Blob Storage is used to store results, and task status can be checked via GET requests. Each service may include logging and file download functionality as part of the process.
 
 ---
 
+==============================
 Last Updated
-============
+==============================
 
 This list was last updated on :date:.
 
 ---
 
+==============================
 Logging
-========
+==============================
 
 The APIs log all interactions for debugging and monitoring. Logs are saved to local files and can be accessed as part of the task status.
 
