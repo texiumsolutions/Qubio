@@ -1,0 +1,98 @@
+
+# Protein Design
+
+## Overview
+
+Protein design is the computational and biochemical process of creating novel proteins or modifying existing ones to achieve desired structural or functional properties. Unlike traditional structural biology that focuses on studying naturally occurring proteins, protein design allows scientists to engineer proteins with new capabilities — such as improved stability, altered binding affinity, or entirely novel functions.
+
+This field is critical in biotechnology, medicine, and synthetic biology. It underpins the creation of better enzymes, therapeutic proteins, biosensors, and even new materials.
+
+## Why Protein Design Matters
+
+* 🧬 Therapeutic Innovation: Designing proteins can help develop biologics such as antibodies, vaccines, and peptide-based drugs.
+* 🔬 Industrial Enzymes: Tailor enzymes to work in extreme environments (e.g., heat-tolerant enzymes for biofuels).
+* 🧫 Synthetic Biology: Build artificial organisms or pathways using de novo proteins.
+* 💡 Functional Reprogramming: Redesign existing proteins to gain new functionalities (e.g., switch a binding target).
+
+## Design Approaches
+
+There are generally three levels of protein design:
+
+1. Sequence Design (Forward Design):
+   Given a fixed backbone or structure, find sequences that will likely fold into the desired structure or optimize some property (e.g., stability, binding).
+
+2. Structure-Based Design:
+   Make mutations to improve stability, affinity, or specificity, guided by 3D structure data.
+
+3. De Novo Protein Design:
+   Designing both the backbone and sequence from scratch to perform a new function.
+
+## Tools in Qubio for Protein Design
+
+Qubio provides multiple tools that contribute to different aspects of protein and ligand design.
+
+1. ProteinMPNN
+   ^^^^^^^^^^^^^^
+
+* Endpoint: `/v1/api/proteinmpnn/ddg`
+* Description: Predicts stability and binding energy changes upon mutation (ΔΔG).
+* Use Case: Useful for identifying mutations that increase protein stability or affinity toward a target.
+* Technical Insight: It uses a masked language model trained on protein structure-sequence pairs. It predicts sequences compatible with a given backbone, optimizing for energy and interface design.
+
+2. LigandMPNN
+   ^^^^^^^^^^^^^
+
+* Endpoint: `/v1/api/ligandmpnn/run_lmpnn`
+* Description: Mutates ligands to enhance their binding properties to proteins.
+* Use Case: Ideal for small molecule optimization, especially in drug discovery.
+* Technical Insight: Uses graph neural networks to understand ligand-protein interaction topologies, generating ligand mutations that preserve or enhance binding.
+
+3. REINVENT
+   ^^^^^^^^^^^
+
+* Endpoint: `/v1/api/reinvent/run_reinvent`
+* Description: Uses reinforcement learning to generate novel molecules with desired properties.
+* Use Case: Drug-like molecule generation with constraints such as target binding, ADMET, and novelty.
+* Technical Insight: REINVENT uses a recurrent neural network (RNN) to represent chemical space and reinforce generations that meet scoring functions like docking score, logP, or toxicity filters.
+
+## Biochemical Foundations
+
+Protein design requires an understanding of the fundamental forces that govern protein folding and function:
+
+* Hydrogen Bonding: Stabilizes α-helices and β-sheets.
+* Hydrophobic Effect: Drives core packing in globular proteins.
+* Electrostatics: Salt bridges and dipole-dipole interactions affect surface and binding.
+* van der Waals Interactions: Fine-tune packing between side chains.
+* Disulfide Bonds: Help stabilize extracellular proteins.
+
+At the atomic level, design algorithms consider:
+
+* Side Chain Rotamers: The conformational space of amino acid side chains.
+* Backbone Flexibility: Though most tools assume fixed backbones, advanced methods may incorporate flexibility.
+* Surface Complementarity: Important in ligand and interface design (e.g., antibody-antigen).
+* Binding Site Constraints: In ligand design, the active pocket’s shape and physicochemical profile must be respected.
+
+## File Inputs and Outputs
+
+* Input: Typically, a PDB file for structure-based design or a SMILES string/MOL2 for ligand input.
+* Output: Modified sequences (FASTA), predicted structures (PDB), ΔΔG scores (CSV or JSON), or novel ligand structures.
+
+## Example Workflow
+
+1. Start with a protein structure (from AlphaFold, AntiFold, or LocalColabFold).
+2. Use ProteinMPNN to suggest stable mutations on key residues.
+3. If targeting a small molecule, generate ligand variants using LigandMPNN.
+4. Score and optimize generated molecules with REINVENT.
+5. Optionally, validate using ThermoMPNN or ADMET AI for property screening.
+
+## Conclusion
+
+Protein design is a rapidly advancing field empowered by machine learning, quantum modeling, and structural biology. The tools provided in Qubio allow users to approach design in a modular fashion — from sequence mutation and stability scoring to ligand generation and multi-objective optimization.
+
+For hands-on usage of each tool, refer to the respective documentation pages:
+
+* \:doc:`tasks/proteinmpnn`
+* \:doc:`tasks/ligandmpnn`
+* \:doc:`tasks/reinvent`
+
+Would you like a zipped folder or rendered output of this documentation as well?
