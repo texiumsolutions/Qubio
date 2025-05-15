@@ -1,0 +1,240 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Protein Design &mdash; Qubio 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Protein Characterization and Property Prediction" href="characterization.html" />
+    <link rel="prev" title="Protein Structure Prediction" href="structure_prediction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Qubio
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="structure_prediction.html">Protein Structure Prediction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Protein Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-protein-design-matters">Why Protein Design Matters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#design-approaches">Design Approaches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tools-in-qubio-for-protein-design">Tools in Qubio for Protein Design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#biochemical-foundations">Biochemical Foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#file-inputs-and-outputs">File Inputs and Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-workflow">Example Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="characterization.html">Protein Characterization and Property Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finetuning.html">Finetuning for Molecular Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docking.html">Molecular Docking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#available-tasks">Available Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#admet-ai-service">ADMET AI Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#antifold-service">AntiFold Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#colabdock-service">ColabDock Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#free-wilson-service">Free-Wilson Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#ligandmpnn-service">LigandMPNN Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#localcolabfold-api">LocalColabFold API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#parasurf-api">ParaSurf API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#proteinmpnn-api">ProteinMPNN API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#reinvent-api">REINVENT API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#thermompnn-api">ThermoMPNN API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#thompson-sampling-api">Thompson Sampling API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#general-information">General Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#last-updated">Last Updated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#logging">Logging</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qubio</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Protein Design</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/protein_design.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="protein-design">
+<h1>Protein Design<a class="headerlink" href="#protein-design" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Protein design is the computational and biochemical process of creating novel proteins or modifying existing ones to achieve desired structural or functional properties. Unlike traditional structural biology that focuses on studying naturally occurring proteins, protein design allows scientists to engineer proteins with new capabilities — such as improved stability, altered binding affinity, or entirely novel functions.</p>
+<p>This field is critical in biotechnology, medicine, and synthetic biology. It underpins the creation of better enzymes, therapeutic proteins, biosensors, and even new materials.</p>
+</section>
+<section id="why-protein-design-matters">
+<h2>Why Protein Design Matters<a class="headerlink" href="#why-protein-design-matters" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>🧬 Therapeutic Innovation: Designing proteins can help develop biologics such as antibodies, vaccines, and peptide-based drugs.</p></li>
+<li><p>🔬 Industrial Enzymes: Tailor enzymes to work in extreme environments (e.g., heat-tolerant enzymes for biofuels).</p></li>
+<li><p>🧫 Synthetic Biology: Build artificial organisms or pathways using de novo proteins.</p></li>
+<li><p>💡 Functional Reprogramming: Redesign existing proteins to gain new functionalities (e.g., switch a binding target).</p></li>
+</ul>
+</section>
+<section id="design-approaches">
+<h2>Design Approaches<a class="headerlink" href="#design-approaches" title="Link to this heading"></a></h2>
+<p>There are generally three levels of protein design:</p>
+<ol class="arabic">
+<li><p>Sequence Design (Forward Design):</p>
+<p>Given a fixed backbone or structure, find sequences that will likely fold into the desired structure or optimize some property (e.g., stability, binding).</p>
+</li>
+<li><p>Structure-Based Design:</p>
+<p>Make mutations to improve stability, affinity, or specificity, guided by 3D structure data.</p>
+</li>
+<li><p>De Novo Protein Design:</p>
+<p>Designing both the backbone and sequence from scratch to perform a new function.</p>
+</li>
+</ol>
+</section>
+<section id="tools-in-qubio-for-protein-design">
+<h2>Tools in Qubio for Protein Design<a class="headerlink" href="#tools-in-qubio-for-protein-design" title="Link to this heading"></a></h2>
+<p>Qubio provides multiple tools that contribute to different aspects of protein and ligand design.</p>
+<ol class="arabic simple">
+<li><ul class="simple">
+<li><p><strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/proteinmpnn/ddg</span></code></p></li>
+<li><p><strong>Description:</strong> Predicts stability and binding energy changes upon mutation (ΔΔG).</p></li>
+<li><p><strong>Use Case:</strong> Useful for identifying mutations that increase protein stability or affinity toward a target.</p></li>
+<li><p><strong>Technical Insight:</strong> It uses a masked language model trained on protein structure-sequence pairs. It predicts sequences compatible with a given backbone, optimizing for energy and interface design.</p></li>
+</ul>
+</li>
+<li><ul class="simple">
+<li><p><strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/ligandmpnn/run_lmpnn</span></code></p></li>
+<li><p><strong>Description:</strong> Mutates ligands to enhance their binding properties to proteins.</p></li>
+<li><p><strong>Use Case:</strong> Ideal for small molecule optimization, especially in drug discovery.</p></li>
+<li><p><strong>Technical Insight:</strong> Uses graph neural networks to understand ligand-protein interaction topologies, generating ligand mutations that preserve or enhance binding.</p></li>
+</ul>
+</li>
+<li><ul class="simple">
+<li><p><strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/reinvent/run_reinvent</span></code></p></li>
+<li><p><strong>Description:</strong> Uses reinforcement learning to generate novel molecules with desired properties.</p></li>
+<li><p><strong>Use Case:</strong> Drug-like molecule generation with constraints such as target binding, ADMET, and novelty.</p></li>
+<li><p><strong>Technical Insight:</strong> REINVENT uses a recurrent neural network (RNN) to represent chemical space and reinforce generations that meet scoring functions like docking score, logP, or toxicity filters.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="biochemical-foundations">
+<h2>Biochemical Foundations<a class="headerlink" href="#biochemical-foundations" title="Link to this heading"></a></h2>
+<p>Protein design requires an understanding of the fundamental forces that govern protein folding and function:</p>
+<ul class="simple">
+<li><p>Hydrogen Bonding: Stabilizes α-helices and β-sheets.</p></li>
+<li><p>Hydrophobic Effect: Drives core packing in globular proteins.</p></li>
+<li><p>Electrostatics: Salt bridges and dipole-dipole interactions affect surface and binding.</p></li>
+<li><p>van der Waals Interactions: Fine-tune packing between side chains.</p></li>
+<li><p>Disulfide Bonds: Help stabilize extracellular proteins.</p></li>
+</ul>
+<p>At the atomic level, design algorithms consider:</p>
+<ul class="simple">
+<li><p>Side Chain Rotamers: The conformational space of amino acid side chains.</p></li>
+<li><p>Backbone Flexibility: Though most tools assume fixed backbones, advanced methods may incorporate flexibility.</p></li>
+<li><p>Surface Complementarity: Important in ligand and interface design (e.g., antibody-antigen).</p></li>
+<li><p>Binding Site Constraints: In ligand design, the active pocket’s shape and physicochemical profile must be respected.</p></li>
+</ul>
+</section>
+<section id="file-inputs-and-outputs">
+<h2>File Inputs and Outputs<a class="headerlink" href="#file-inputs-and-outputs" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Input: Typically, a PDB file for structure-based design or a SMILES string/MOL2 for ligand input.</p></li>
+<li><p>Output: Modified sequences (FASTA), predicted structures (PDB), ΔΔG scores (CSV or JSON), or novel ligand structures.</p></li>
+</ul>
+</section>
+<section id="example-workflow">
+<h2>Example Workflow<a class="headerlink" href="#example-workflow" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Start with a protein structure (from AlphaFold, AntiFold, or LocalColabFold).</p></li>
+<li><p>Use ProteinMPNN to suggest stable mutations on key residues.</p></li>
+<li><p>If targeting a small molecule, generate ligand variants using LigandMPNN.</p></li>
+<li><p>Score and optimize generated molecules with REINVENT.</p></li>
+<li><p>Optionally, validate using ThermoMPNN or ADMET AI for property screening.</p></li>
+</ol>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading"></a></h2>
+<p>Protein design is a rapidly advancing field empowered by machine learning, quantum modeling, and structural biology. The tools provided in Qubio allow users to approach design in a modular fashion — from sequence mutation and stability scoring to ligand generation and multi-objective optimization.</p>
+<p>For hands-on usage of each tool, refer to the respective documentation pages:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="tasks/proteinmpnn.html"><span class="doc">&lt;no title&gt;</span></a></p></li>
+<li><p><a class="reference internal" href="tasks/ligandmpnn.html"><span class="doc">&lt;no title&gt;</span></a></p></li>
+<li><p><a class="reference internal" href="tasks/reinvent.html"><span class="doc">&lt;no title&gt;</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="structure_prediction.html" class="btn btn-neutral float-left" title="Protein Structure Prediction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="characterization.html" class="btn btn-neutral float-right" title="Protein Characterization and Property Prediction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Kalyani Patra.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

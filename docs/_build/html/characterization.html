@@ -1,0 +1,231 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Protein Characterization and Property Prediction &mdash; Qubio 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Finetuning for Molecular Optimization" href="finetuning.html" />
+    <link rel="prev" title="Protein Design" href="protein_design.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Qubio
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="structure_prediction.html">Protein Structure Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="protein_design.html">Protein Design</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Protein Characterization and Property Prediction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-characterization-matters">Why Characterization Matters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#characterization-tools-in-qubio">Characterization Tools in Qubio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-use-computational-characterization">Why Use Computational Characterization?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-and-output-formats">Input and Output Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="finetuning.html">Finetuning for Molecular Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docking.html">Molecular Docking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#available-tasks">Available Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#admet-ai-service">ADMET AI Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#antifold-service">AntiFold Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#colabdock-service">ColabDock Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#free-wilson-service">Free-Wilson Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#ligandmpnn-service">LigandMPNN Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#localcolabfold-api">LocalColabFold API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#parasurf-api">ParaSurf API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#proteinmpnn-api">ProteinMPNN API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#reinvent-api">REINVENT API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#thermompnn-api">ThermoMPNN API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#thompson-sampling-api">Thompson Sampling API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#general-information">General Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#last-updated">Last Updated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#logging">Logging</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qubio</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Protein Characterization and Property Prediction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/characterization.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="protein-characterization-and-property-prediction">
+<h1>Protein Characterization and Property Prediction<a class="headerlink" href="#protein-characterization-and-property-prediction" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Protein characterization involves the computational and experimental determination of various physicochemical, biochemical, and biological properties of proteins. Understanding these properties is essential for insights into protein stability, function, interaction potential, and suitability for therapeutic or industrial applications.</p>
+</section>
+<section id="why-characterization-matters">
+<h2>Why Characterization Matters<a class="headerlink" href="#why-characterization-matters" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>🔬 <strong>Stability Assessment:</strong> Predicts thermal stability, solubility, and aggregation propensity which impact protein formulation and shelf-life.</p></li>
+<li><p>🧪 <strong>Functionality Insight:</strong> Helps infer enzymatic activity, binding affinities, and structural dynamics.</p></li>
+<li><p>🧬 <strong>Mutational Effects:</strong> Evaluates how amino acid substitutions alter protein behavior and stability.</p></li>
+<li><p>💊 <strong>Drug Design Support:</strong> Guides selection of druggable targets and design of stable therapeutic proteins or antibodies.</p></li>
+</ul>
+<p>Qubio integrates several advanced tools that analyze protein properties computationally, enabling rapid screening and prioritization before wet-lab experiments.</p>
+</section>
+<section id="characterization-tools-in-qubio">
+<h2>Characterization Tools in Qubio<a class="headerlink" href="#characterization-tools-in-qubio" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><ul class="simple">
+<li><p><strong>Endpoint:</strong> <cite>/v1/api/thermomppn/run_tmppn</cite></p></li>
+<li><p><strong>Description:</strong> Predicts protein thermostability and stability changes upon single or multiple mutations.</p></li>
+<li><p><strong>Input:</strong> Protein structure files and mutation lists.</p></li>
+<li><p><strong>Output:</strong> Predicted stability metrics such as ΔΔG values and melting temperature changes.</p></li>
+</ul>
+<p>Technical Details:</p>
+<ul class="simple">
+<li><p>Uses a machine learning model trained on mutation-stability datasets.</p></li>
+<li><p>Employs graph neural networks to incorporate atomic-level structural context.</p></li>
+<li><p>Useful for guiding protein engineering efforts toward more stable variants.</p></li>
+</ul>
+</li>
+<li><ul class="simple">
+<li><p><strong>Endpoint:</strong> <cite>/v1/api/parasurf/run_ps</cite></p></li>
+<li><p><strong>Description:</strong> Predicts and analyzes protein surface properties such as electrostatic potential and solvent accessibility.</p></li>
+<li><p><strong>Input:</strong> Protein 3D structure files (e.g., PDB).</p></li>
+<li><p><strong>Output:</strong> Surface maps, property scores, and visualizable data.</p></li>
+</ul>
+<p>Technical Details:</p>
+<ul class="simple">
+<li><p>Computes physicochemical surface features relevant for protein-protein and protein-ligand interactions.</p></li>
+<li><p>Assists in epitope mapping and binding site identification.</p></li>
+</ul>
+</li>
+<li><ul class="simple">
+<li><p><strong>Endpoint:</strong> <cite>/v1/api/admet_ai/run_admet</cite></p></li>
+<li><p><strong>Description:</strong> Predicts Absorption, Distribution, Metabolism, Excretion, and Toxicity (ADMET) properties of compounds.</p></li>
+<li><p><strong>Input:</strong> Molecular structures (SMILES or SDF).</p></li>
+<li><p><strong>Output:</strong> Predicted ADMET profiles to prioritize drug candidates.</p></li>
+</ul>
+<p>Technical Details:</p>
+<ul class="simple">
+<li><p>Combines multiple AI models trained on pharmacokinetic and toxicological data.</p></li>
+<li><p>Facilitates early identification of potential liabilities in drug design.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="why-use-computational-characterization">
+<h2>Why Use Computational Characterization?<a class="headerlink" href="#why-use-computational-characterization" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Rapid screening of protein variants or compounds without costly lab experiments.</p></li>
+<li><p>Early detection of problematic mutations or molecular features.</p></li>
+<li><p>Complementary insights to experimental data.</p></li>
+<li><p>Integration into automated pipelines for high-throughput screening.</p></li>
+</ul>
+</section>
+<section id="input-and-output-formats">
+<h2>Input and Output Formats<a class="headerlink" href="#input-and-output-formats" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Protein structures in PDB or mmCIF format.</p></li>
+<li><p>Mutation files as plain text or CSV listing substitutions.</p></li>
+<li><p>Compound structures in SMILES, SDF, or MOL2 formats.</p></li>
+<li><p>Outputs as CSV reports, 3D structure annotations, or interactive visualization files.</p></li>
+</ul>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Validate input structures for completeness and quality before analysis.</p></li>
+<li><p>Combine multiple property predictions for a comprehensive view.</p></li>
+<li><p>Use predictions to guide experimental design and mutation prioritization.</p></li>
+<li><p>Interpret results in the context of biological function and experimental conditions.</p></li>
+</ul>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<p>Protein characterization tools in Qubio enable detailed in silico evaluation of protein properties critical for engineering, drug discovery, and functional studies. By leveraging state-of-the-art AI and physics-based methods, these tools accelerate the molecular design cycle with greater confidence.</p>
+<p>For detailed usage, refer to individual tool documentation:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="tasks/thermomppn.html"><span class="doc">&lt;no title&gt;</span></a></p></li>
+<li><p><a class="reference internal" href="tasks/parasurf.html"><span class="doc">&lt;no title&gt;</span></a></p></li>
+<li><p><a class="reference internal" href="tasks/admet_ai.html"><span class="doc">ADMET AI Prediction</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="protein_design.html" class="btn btn-neutral float-left" title="Protein Design" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="finetuning.html" class="btn btn-neutral float-right" title="Finetuning for Molecular Optimization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Kalyani Patra.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

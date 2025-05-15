@@ -6,13 +6,16 @@
 Qubio documentation
 ===================
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
-
+Welcome to Qubio! This documentation provides reference for APIs and tools used in structure prediction, protein design, property characterization, optimization and docking.
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   structure_prediction
+   protein_design
+   characterization
+   finetuning
+   docking
    api_reference
+   tasks

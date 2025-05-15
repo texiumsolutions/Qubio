@@ -1,0 +1,195 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ADMET AI Prediction &mdash; Qubio 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Qubio
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../structure_prediction.html">Protein Structure Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protein_design.html">Protein Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../characterization.html">Protein Characterization and Property Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../finetuning.html">Finetuning for Molecular Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docking.html">Molecular Docking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#available-tasks">Available Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#admet-ai-service">ADMET AI Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#antifold-service">AntiFold Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#colabdock-service">ColabDock Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#free-wilson-service">Free-Wilson Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#ligandmpnn-service">LigandMPNN Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#localcolabfold-api">LocalColabFold API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#parasurf-api">ParaSurf API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#proteinmpnn-api">ProteinMPNN API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#reinvent-api">REINVENT API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thermompnn-api">ThermoMPNN API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#thompson-sampling-api">Thompson Sampling API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#general-information">General Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#last-updated">Last Updated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html#logging">Logging</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Qubio</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ADMET AI Prediction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tasks/admet_ai.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="admet-ai-prediction">
+<h1>ADMET AI Prediction<a class="headerlink" href="#admet-ai-prediction" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>ADMET stands for Absorption, Distribution, Metabolism, Excretion, and Toxicity — the key pharmacokinetic and safety properties that determine a drug candidate’s success in development. Accurate ADMET prediction is critical in drug discovery pipelines to reduce costly late-stage failures.</p>
+<p>The ADMET AI tool in Qubio leverages advanced artificial intelligence and machine learning models trained on extensive experimental and clinical datasets to predict these properties from molecular structures, helping prioritize compounds with favorable profiles early.</p>
+</section>
+<section id="why-admet-prediction-matters">
+<h2>Why ADMET Prediction Matters<a class="headerlink" href="#why-admet-prediction-matters" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>🧪 <strong>Absorption:</strong> Predicts how well a drug is absorbed into the bloodstream after administration (e.g., oral bioavailability).</p></li>
+<li><p>🚚 <strong>Distribution:</strong> Assesses how the compound distributes throughout the body and crosses biological membranes, including blood-brain barrier permeability.</p></li>
+<li><p>⚙️ <strong>Metabolism:</strong> Estimates the compound’s metabolic stability and likely sites of biotransformation by enzymes like cytochrome P450s.</p></li>
+<li><p>🚮 <strong>Excretion:</strong> Predicts elimination pathways and half-life, which influence dosing frequency.</p></li>
+<li><p>☠️ <strong>Toxicity:</strong> Identifies potential toxic effects, including mutagenicity, cardiotoxicity, hepatotoxicity, and off-target interactions.</p></li>
+</ul>
+<p>Early ADMET screening reduces attrition rates, saves resources, and guides medicinal chemistry optimization.</p>
+</section>
+<section id="biological-and-chemical-foundations">
+<h2>Biological and Chemical Foundations<a class="headerlink" href="#biological-and-chemical-foundations" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Molecular Descriptors:</strong> ADMET models use calculated features representing physicochemical properties such as molecular weight, logP (hydrophobicity), hydrogen bond donors/acceptors, topological polar surface area (TPSA), and rotatable bonds.</p></li>
+<li><p><strong>Pharmacokinetic Models:</strong> Combine descriptors with biological pathway information to simulate drug absorption and clearance.</p></li>
+<li><p><strong>Toxicological Models:</strong> Use structure-activity relationships (SAR) and known toxicophores to flag liabilities.</p></li>
+<li><p><strong>Data Sources:</strong> Training data originates from in vitro assays, in vivo studies, and clinical trial databases, ensuring broad chemical space coverage.</p></li>
+</ul>
+</section>
+<section id="technical-implementation">
+<h2>Technical Implementation<a class="headerlink" href="#technical-implementation" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Utilizes multiple AI/ML architectures including Random Forests, Gradient Boosting, and Deep Neural Networks trained on curated public and proprietary ADMET datasets.</p></li>
+<li><p>Employs consensus modeling and ensemble learning to improve prediction robustness.</p></li>
+<li><p>Input compounds can be provided as SMILES strings or standard molecular file formats (SDF, MOL2).</p></li>
+<li><p>Generates quantitative predictions (e.g., permeability coefficients, clearance rates) and qualitative flags (e.g., toxic/not toxic).</p></li>
+<li><p>Integrated into the Qubio backend with RESTful API endpoints for easy access and batch processing.</p></li>
+</ul>
+</section>
+<section id="usage-and-integration">
+<h2>Usage and Integration<a class="headerlink" href="#usage-and-integration" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Supports early-stage virtual screening to filter large compound libraries.</p></li>
+<li><p>Assists medicinal chemists in designing molecules with optimized pharmacokinetic and safety profiles.</p></li>
+<li><p>Complements docking and protein design tools by evaluating compound behavior in biological systems.</p></li>
+<li><p>Outputs can be combined with experimental data for hybrid decision-making workflows.</p></li>
+</ul>
+</section>
+<section id="input-and-output">
+<h2>Input and Output<a class="headerlink" href="#input-and-output" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Input:</strong>
+- Molecular structures as SMILES, SDF, or MOL2 files.
+- Optional parameters to specify prediction targets or thresholds.</p></li>
+<li><p><strong>Output:</strong>
+- Tabular reports with predicted ADMET properties.
+- Confidence scores and toxicity flags.
+- JSON or CSV formats compatible with downstream analysis.</p></li>
+</ul>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Always verify input molecule structures for correctness and standardization.</p></li>
+<li><p>Use ADMET predictions as guidance alongside biological assays.</p></li>
+<li><p>Interpret toxicity flags cautiously, considering model limitations and chemical novelty.</p></li>
+<li><p>Continuously update models with new experimental data to improve accuracy.</p></li>
+</ul>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<p>The ADMET AI tool in Qubio empowers drug discovery projects by providing rapid, accurate in silico predictions of crucial pharmacokinetic and toxicological properties. Integrating AI-driven insights early accelerates candidate selection, reduces costs, and enhances safety.</p>
+<p>For API usage details, see the <span class="xref std std-doc">../api_reference#admet_ai</span> page.</p>
+<p>—</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Kalyani Patra.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

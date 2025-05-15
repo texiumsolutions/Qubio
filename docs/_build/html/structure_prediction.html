@@ -1,0 +1,240 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Protein Structure Prediction &mdash; Qubio 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Protein Design" href="protein_design.html" />
+    <link rel="prev" title="Qubio documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Qubio
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Protein Structure Prediction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-it-matters">Why It Matters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#structure-prediction-methods">Structure Prediction Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tools-in-qubio-for-structure-prediction">Tools in Qubio for Structure Prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#technical-foundations">Technical Foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-and-output-formats">Input and Output Formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sample-workflow">Sample Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="protein_design.html">Protein Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="characterization.html">Protein Characterization and Property Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="finetuning.html">Finetuning for Molecular Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docking.html">Molecular Docking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#available-tasks">Available Tasks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#admet-ai-service">ADMET AI Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#antifold-service">AntiFold Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#colabdock-service">ColabDock Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#free-wilson-service">Free-Wilson Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#ligandmpnn-service">LigandMPNN Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#localcolabfold-api">LocalColabFold API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#parasurf-api">ParaSurf API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#proteinmpnn-api">ProteinMPNN API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#reinvent-api">REINVENT API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#thermompnn-api">ThermoMPNN API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#thompson-sampling-api">Thompson Sampling API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#general-information">General Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#last-updated">Last Updated</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html#logging">Logging</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Qubio</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Protein Structure Prediction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/structure_prediction.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="protein-structure-prediction">
+<h1>Protein Structure Prediction<a class="headerlink" href="#protein-structure-prediction" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Protein structure prediction refers to the computational process of determining a protein’s three-dimensional (3D) conformation from its amino acid sequence. Since protein function is intricately linked to structure, predicting structure is a foundational task in molecular biology, bioinformatics, and drug discovery.</p>
+<p>Traditionally, determining protein structure required experimental techniques like:</p>
+<ul class="simple">
+<li><p>X-ray crystallography</p></li>
+<li><p>NMR spectroscopy</p></li>
+<li><p>Cryo-electron microscopy (cryo-EM)</p></li>
+</ul>
+<p>However, these are time-consuming and costly. Recent advances in machine learning have enabled rapid and accurate structure prediction using only sequence information.</p>
+</section>
+<section id="why-it-matters">
+<h2>Why It Matters<a class="headerlink" href="#why-it-matters" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>🧬 Understanding Function: Structure reveals how a protein performs its biological role.</p></li>
+<li><p>🧪 Drug Design: Enables structure-based drug design (SBDD) by identifying binding pockets.</p></li>
+<li><p>🔬 Mutational Analysis: Helps assess the impact of mutations on stability and function.</p></li>
+<li><p>🧫 Synthetic Biology: Facilitates the design of new proteins by modeling their folds before synthesis.</p></li>
+</ul>
+<p>Structure prediction is also crucial for downstream applications such as molecular docking, stability prediction, or ligand binding.</p>
+</section>
+<section id="structure-prediction-methods">
+<h2>Structure Prediction Methods<a class="headerlink" href="#structure-prediction-methods" title="Link to this heading"></a></h2>
+<p>There are three main types of structure prediction:</p>
+<ol class="arabic">
+<li><p>Homology Modeling:</p>
+<p>Based on similarity to known structures (templates).</p>
+</li>
+<li><p>Threading (Fold Recognition):</p>
+<p>Fits a sequence into a structural framework, even without close homologs.</p>
+</li>
+<li><p>Ab Initio / de novo Prediction:</p>
+<p>Predicts structure from scratch using physical principles and/or deep learning.</p>
+</li>
+</ol>
+</section>
+<section id="tools-in-qubio-for-structure-prediction">
+<h2>Tools in Qubio for Structure Prediction<a class="headerlink" href="#tools-in-qubio-for-structure-prediction" title="Link to this heading"></a></h2>
+<p>Qubio provides the following tools that contribute to accurate structure prediction:</p>
+<ol class="arabic simple">
+<li><ul class="simple">
+<li><p><strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/antifold/predict</span></code></p></li>
+<li><p><strong>Description:</strong> Predicts protein structures using an open-source implementation inspired by AlphaFold2.</p></li>
+<li><p><strong>Input:</strong> FASTA-formatted sequence.</p></li>
+<li><p><strong>Output:</strong> 3D structure in PDB format.</p></li>
+<li><p><strong>Technical Insight:</strong> Uses deep learning on evolutionary, structural, and positional features derived from multiple sequence alignments (MSAs) and templates (if provided). Incorporates attention-based networks to predict inter-residue distances and angles, folding them into a 3D structure.</p></li>
+</ul>
+</li>
+<li><ul class="simple">
+<li><p><strong>Endpoint:</strong> <code class="docutils literal notranslate"><span class="pre">/v1/api/localcolabfold/run_colabfold</span></code></p></li>
+<li><p><strong>Description:</strong> Predicts structures locally using ColabFold, a faster and more accessible implementation of AlphaFold2.</p></li>
+<li><p><strong>Input:</strong> Amino acid sequence.</p></li>
+<li><p><strong>Output:</strong> Predicted 3D structure (.pdb) and confidence scores.</p></li>
+<li><p><strong>Technical Insight:</strong> LocalColabFold speeds up MSA generation using MMseqs2 and avoids reliance on Google Colab. Predicts backbone and side-chain atom positions using end-to-end neural networks trained on experimentally solved structures.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="technical-foundations">
+<h2>Technical Foundations<a class="headerlink" href="#technical-foundations" title="Link to this heading"></a></h2>
+<p>Protein folding is governed by several atomic-scale forces and geometric constraints:</p>
+<ul class="simple">
+<li><p>Backbone Geometry: φ (phi), ψ (psi), and ω (omega) torsion angles define peptide chain conformation.</p></li>
+<li><p>Hydrogen Bonding: Stabilizes secondary structures like α-helices and β-sheets.</p></li>
+<li><p>Hydrophobic Collapse: Drives non-polar residues into the core of globular proteins.</p></li>
+<li><p>Side Chain Packing: Influences steric compatibility and van der Waals interactions.</p></li>
+<li><p>Solvent Accessibility: Determines whether residues are buried or exposed.</p></li>
+</ul>
+<p>Deep learning models predict residue-residue distance maps, contact maps, and torsion angles, then reconstruct 3D coordinates using gradient descent or attention-guided folding algorithms.</p>
+</section>
+<section id="input-and-output-formats">
+<h2>Input and Output Formats<a class="headerlink" href="#input-and-output-formats" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Input: Protein sequence in FASTA format or a plain string.</p></li>
+<li><p>Output:</p>
+<ul>
+<li><p>PDB structure files.</p></li>
+<li><p>Predicted alignment error (PAE) maps.</p></li>
+<li><p>Confidence metrics (pLDDT scores).</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="sample-workflow">
+<h2>Sample Workflow<a class="headerlink" href="#sample-workflow" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Start with a novel protein sequence.</p></li>
+<li><p>Use AntiFold or LocalColabFold to predict the 3D structure.</p></li>
+<li><p>Visualize the output in PyMOL, ChimeraX, or web tools like 3Dmol.js.</p></li>
+<li><p>(Optional) Pass the predicted structure into ProteinMPNN, ThermoMPNN, or ParaSurf for further analysis or design.</p></li>
+</ol>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<p>Protein structure prediction is foundational to modern biology and drug discovery. The tools provided in Qubio abstract away the complexities of deep learning models and make accurate structure prediction accessible via simple APIs.</p>
+<p>For deeper integration, refer to individual tool documentation:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="tasks/antifold.html"><span class="doc">&lt;no title&gt;</span></a></p></li>
+<li><p><a class="reference internal" href="tasks/localcolabfold.html"><span class="doc">&lt;no title&gt;</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Qubio documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="protein_design.html" class="btn btn-neutral float-right" title="Protein Design" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Kalyani Patra.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
