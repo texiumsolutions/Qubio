@@ -24,5 +24,8 @@ Welcome to Qubio! This documentation provides reference for APIs and tools used 
    tasks/thermomnn
    tasks/reinvent
    tasks/admet_ai
-   tasks/proteinglym
    tasks/colabdock
+   tasks/freewilson
+   tasks/ligandmpnn
+   tasks/parasurf
+   tasks/thompson_sampling
