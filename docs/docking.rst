@@ -1,0 +1,108 @@
+
+# Molecular Docking
+
+## Overview
+
+Molecular docking is a fundamental technique in computer-aided drug discovery that predicts how a small molecule (ligand) binds to a target protein (receptor). It estimates the preferred orientation and binding affinity of the ligand to the protein's active site. Docking is pivotal for understanding molecular interactions, ranking drug candidates, and guiding lead optimization.
+
+## Why Docking Matters
+
+* 🔬 Structure-Based Drug Design: Enables the identification of compounds with high binding potential.
+* 💊 Cost-Effective Screening: Replaces large-scale wet-lab screening with virtual analysis.
+* 🧠 Interaction Insights: Reveals atomic-level interactions like hydrogen bonding, hydrophobic effects, and π-π stacking.
+* ⚡ Lead Optimization: Helps guide modifications to improve potency, selectivity, and pharmacokinetics.
+
+In Qubio, docking helps bridge structure prediction and molecular design, enabling a holistic AI-driven drug discovery pipeline.
+
+## Docking Tools in Qubio
+
+Currently, Qubio supports the following tool in the molecular docking domain:
+
+1. ColabDock (LocalColabFold-Compatible)
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Endpoint: /v1/api/colabdock/run\_colabdock
+* Description: ColabDock is a GPU-accelerated molecular docking pipeline that supports protein-ligand docking with structural compatibility to LocalColabFold and AlphaFold outputs.
+* Input:
+
+  * Protein structure (PDB format, from AntiFold or LocalColabFold)
+  * Ligand structure (SDF, MOL2, or PDBQT)
+* Output:
+
+  * Ranked docking poses
+  * Binding affinity scores (e.g., Vina scores or custom scoring functions)
+  * Interaction diagrams
+
+Technical Insight:
+
+* Utilizes AutoDock Vina or similar docking engines under the hood.
+* Supports flexible ligand docking and semi-flexible receptor side-chain movement.
+* Can integrate with predicted structures from AntiFold or LocalColabFold.
+* Outputs binding energy predictions in kcal/mol and generates pose rankings.
+
+Use Cases:
+
+* Binding site evaluation for known or predicted protein structures.
+* Virtual screening of compound libraries against a target.
+* Post-structure-prediction validation of ligand accessibility and binding strength.
+
+## Docking Process
+
+1. Receptor Preparation:
+
+   * Load or predict a protein structure using AntiFold or LocalColabFold.
+   * Remove water molecules, add hydrogen atoms, assign partial charges.
+
+2. Ligand Preparation:
+
+   * Convert molecule to docking-ready format (e.g., PDBQT).
+   * Perform energy minimization (e.g., MMFF94) to optimize geometry.
+
+3. Docking Execution:
+
+   * Define search space or binding pocket (box size, coordinates).
+   * Run docking simulation via ColabDock.
+   * Retrieve poses sorted by binding score.
+
+4. Post-Docking Analysis:
+
+   * Analyze hydrogen bonds, hydrophobic contacts, salt bridges.
+   * Visualize poses using tools like PyMOL or UCSF Chimera.
+
+## Input & Output Formats
+
+* Inputs:
+
+  * Protein: .pdb (structure), .pdbqt (AutoDock format)
+  * Ligand: .sdf, .mol2, .pdbqt
+  * Docking box configuration (optional JSON/YAML)
+
+* Outputs:
+
+  * Docked poses (.pdbqt or .mol2)
+  * Log files with scoring metrics
+  * Visual overlays (optional)
+
+## Scoring Functions
+
+* Default: Vina scoring function (empirical-based)
+* Optional: Custom scoring metrics via plugins (ML-based, MM-GBSA)
+* Output: Binding free energy estimates (ΔG, kcal/mol)
+
+## Best Practices
+
+* Ensure correct protonation states at physiological pH.
+* Avoid docking to highly disordered regions; use LocalColabFold-refined models.
+* Validate top docking poses with molecular dynamics or experimental data.
+* Use ensemble docking (multiple receptor conformations) to increase reliability.
+
+## Summary
+
+Docking is a critical step in rational drug discovery pipelines. With ColabDock in Qubio, users can perform fast and reliable docking simulations integrated with protein structure prediction outputs. It helps prioritize ligands for synthesis and provides mechanistic insight into protein-ligand interactions.
+
+Relevant Links:
+
+* \:doc:`tasks/localcolabfold`
+* \:doc:`tasks/colabdock`
+
+Would you like to proceed with characterization.rst next?
