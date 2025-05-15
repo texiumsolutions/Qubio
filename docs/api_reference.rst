@@ -11,6 +11,8 @@ API Documentation for all Tasks
 
 This section provides an overview of the available tasks and their API endpoints.
 
+---
+
 ==============================
 Available Tasks
 ==============================
@@ -105,7 +107,7 @@ Available Tasks
       **Endpoint:** `/v1/api/admet_ai/check_status/<task_id>`  
       **Description:** Checks the status of ADMET AI prediction tasks.
 
-
+---
 ==============================
 ADMET AI Service
 ==============================
@@ -331,7 +333,7 @@ Routes:
     - **Errors**:
         - 404: Task ID not found.
         - 500: Internal server error.
-
+---
 
 ==============================
 ParaSurf API
@@ -362,7 +364,7 @@ Routes:
     - **Errors**:
         - 404: Task ID not found.
         - 500: Internal server error.
-
+---
 
 ==============================
 ProteinMPNN API
@@ -394,7 +396,7 @@ Routes:
     - **Errors**:
         - 404: Task ID not found.
         - 500: Internal server error.
-
+---
 
 ==============================
 REINVENT API
@@ -424,7 +426,7 @@ Routes:
     - **Errors**:
         - 404: Task ID not found.
         - 500: Internal server error.
-
+---
 
 ==============================
 ThermoMPNN API
@@ -456,7 +458,7 @@ Routes:
     - **Errors**:
         - 404: Task ID not found.
         - 500: Internal server error.
-
+---
 
 ==============================
 Thompson Sampling API
@@ -481,7 +483,7 @@ Routes:
     - **Errors**:
         - 400: Missing required parameters.
         - 500: Internal server error.
-
+---
 
 ==============================
 General Information
