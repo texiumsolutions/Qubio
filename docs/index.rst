@@ -10,7 +10,7 @@ Welcome to Qubio! This documentation provides reference for APIs and tools used 
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Contents
 
    structure_prediction
    protein_design
@@ -18,3 +18,11 @@ Welcome to Qubio! This documentation provides reference for APIs and tools used 
    finetuning
    docking
    api_reference
+   tasks/antifold
+   tasks/proteinmpnn
+   tasks/localcolabfold
+   tasks/thermomnn
+   tasks/reinvent
+   tasks/admet_ai
+   tasks/proteinglym
+   tasks/colabdock
