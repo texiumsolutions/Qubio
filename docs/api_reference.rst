@@ -3,516 +3,328 @@ API Documentation
 
 This document describes the API endpoints available for various services. Each service has its own set of routes, which allow users to upload files, run analysis, and check task statuses.
 
----
-
 API Documentation for all Tasks
 ===============================
 
 This section provides an overview of the available tasks and their API endpoints.
 
----
-
 Available Tasks
-==============
+===============
 
 1. **AntiFold**
-
-   - **AntiFold Prediction**  
-     **Endpoint:** ``/v1/api/antifold/predict``  
-     **Description:** Predicts protein structures using AntiFold.
-
-   - **Check AntiFold Status**  
-     **Endpoint:** ``/v1/api/antifold/check_status/<task_id>``  
-     **Description:** Checks the prediction status of AntiFold.
+   - **Prediction**: ``/v1/api/antifold/predict``  
+     Predicts protein structures using AntiFold.
+   - **Check Status**: ``/v1/api/antifold/check_status/<task_id>``  
+     Checks the prediction status of AntiFold.
 
 2. **ProteinMPNN**
-
-   - **ProteinMPNN ddG Prediction**  
-     **Endpoint:** ``/v1/api/proteinmpnn/ddg``  
-     **Description:** Predicts stability or binding affinity changes for mutations.
-
-   - **Check ProteinMPNN Status**  
-     **Endpoint:** ``/v1/api/proteinmpnn/check_status/<task_id>``  
-     **Description:** Checks the processing status of ProteinMPNN.
+   - **ddG Prediction**: ``/v1/api/proteinmpnn/ddg``  
+     Predicts stability or binding affinity changes for mutations.
+   - **Check Status**: ``/v1/api/proteinmpnn/check_status/<task_id>``  
+     Checks the processing status of ProteinMPNN.
 
 3. **Thompson Sampling**
-
-   - **Run Thompson Sampling**  
-     **Endpoint:** ``/v1/api/thompson_sampling/run_ts``  
-     **Description:** Performs Thompson Sampling for reaction optimization.
-
-   - **Check Thompson Sampling Status**  
-     **Endpoint:** ``/v1/api/thompson_sampling/check_status/<task_id>``  
-     **Description:** Checks the status of a Thompson Sampling task.
+   - **Run**: ``/v1/api/thompson_sampling/run_ts``  
+     Performs Thompson Sampling for reaction optimization.
+   - **Check Status**: ``/v1/api/thompson_sampling/check_status/<task_id>``  
+     Checks the status of a Thompson Sampling task.
 
 4. **Free-Wilson**
-
-   - **Run Free-Wilson Analysis**  
-     **Endpoint:** ``/v1/api/freewilson/run_fw``  
-     **Description:** Runs Free-Wilson analysis for molecular property prediction.
-
-   - **Check Free-Wilson Status**  
-     **Endpoint:** ``/v1/api/freewilson/check_status/<task_id>``  
-     **Description:** Checks Free-Wilson analysis task status.
+   - **Run Analysis**: ``/v1/api/freewilson/run_fw``  
+     Runs Free-Wilson analysis for molecular property prediction.
+   - **Check Status**: ``/v1/api/freewilson/check_status/<task_id>``  
+     Checks Free-Wilson analysis task status.
 
 5. **LigandMPNN**
-
-   - **Run LigandMPNN**  
-     **Endpoint:** ``/v1/api/ligandmpnn/run_lmpnn``  
-     **Description:** Generates ligand mutations using LigandMPNN.
-
-   - **Check LigandMPNN Status**  
-     **Endpoint:** ``/v1/api/ligandmpnn/check_status/<task_id>``  
-     **Description:** Checks LigandMPNN task processing status.
+   - **Run Design**: ``/v1/api/ligandmpnn/run_lmpnn``  
+     Generates ligand mutations using LigandMPNN.
+   - **Check Status**: ``/v1/api/ligandmpnn/check_status/<task_id>``  
+     Checks LigandMPNN task processing status.
 
 6. **LocalColabFold**
-
-   - **Run LocalColabFold**  
-     **Endpoint:** ``/v1/api/localcolabfold/run_colabfold``  
-     **Description:** Performs protein folding using LocalColabFold.
-
-   - **Check LocalColabFold Status**  
-     **Endpoint:** ``/v1/api/localcolabfold/check_status/<task_id>``  
-     **Description:** Checks the status of LocalColabFold folding tasks.
+   - **Run**: ``/v1/api/localcolabfold/run_colabfold``  
+     Performs protein folding using LocalColabFold.
+   - **Check Status**: ``/v1/api/localcolabfold/check_status/<task_id>``  
+     Checks the status of LocalColabFold folding tasks.
 
 7. **ParaSurf**
-
-   - **Run ParaSurf Analysis**  
-     **Endpoint:** ``/v1/api/parasurf/run_ps``  
-     **Description:** Runs ParaSurf for protein surface prediction.
-
-   - **Check ParaSurf Status**  
-     **Endpoint:** ``/v1/api/parasurf/check_status/<task_id>``  
-     **Description:** Checks the processing status of ParaSurf.
+   - **Run**: ``/v1/api/parasurf/run_ps``  
+     Runs ParaSurf for protein surface prediction.
+   - **Check Status**: ``/v1/api/parasurf/check_status/<task_id>``  
+     Checks the processing status of ParaSurf.
 
 8. **REINVENT**
-
-   - **Run REINVENT**  
-     **Endpoint:** ``/v1/api/reinvent/run_reinvent``  
-     **Description:** Runs REINVENT for drug design and optimization.
-
-   - **Check REINVENT Status**  
-     **Endpoint:** ``/v1/api/reinvent/check_status/<task_id>``  
-     **Description:** Checks REINVENT task processing status.
+   - **Run**: ``/v1/api/reinvent/run_reinvent``  
+     Runs REINVENT for drug design and optimization.
+   - **Check Status**: ``/v1/api/reinvent/check_status/<task_id>``  
+     Checks REINVENT task processing status.
 
 9. **ThermoMPNN**
-
-   - **Run ThermoMPNN**  
-     **Endpoint:** ``/v1/api/thermomppn/run_tmppn``  
-     **Description:** Runs ThermoMPNN for stability prediction.
-
-   - **Check ThermoMPNN Status**  
-     **Endpoint:** ``/v1/api/thermomppn/check_status/<task_id>``  
-     **Description:** Checks ThermoMPNN task processing status.
+   - **Run**: ``/v1/api/thermomppn/run_tmppn``  
+     Runs ThermoMPNN for stability prediction.
+   - **Check Status**: ``/v1/api/thermomppn/check_status/<task_id>``  
+     Checks ThermoMPNN task processing status.
 
 10. **ADMET AI**
+    - **Run Prediction**: ``/v1/api/admet_ai/run_admet``  
+      Predicts ADMET properties using AI models.
+    - **Check Status**: ``/v1/api/admet_ai/check_status/<task_id>``  
+      Checks the status of ADMET AI prediction tasks.
 
-    - **Run ADMET AI Prediction**  
-      **Endpoint:** ``/v1/api/admet_ai/run_admet``  
-      **Description:** Predicts ADMET properties using AI models.
-
-    - **Check ADMET AI Status**  
-      **Endpoint:** ``/v1/api/admet_ai/check_status/<task_id>``  
-      **Description:** Checks the status of ADMET AI prediction tasks.
-
----
-
-================
 ADMET AI Service
 ================
 
-**Blueprint Name**: `admet_ai`
+**Blueprint Name**: ``admet_ai``  
+**Base URL**: ``/admet_ai``
 
-**Base URL**: `/admet_ai`
-
-### Endpoints
-
-**POST /predict_admet**
-------------------------
+**POST /predict_admet**  
 Predicts ADMET properties for a given SMILES file.
 
 - **Request**:
-  - **smiles_file** (file): The SMILES file containing molecular data to be analyzed.
-  
+  - `smiles_file` (file): The SMILES file containing molecular data.
 - **Response**:
-  - **200 OK**: Prediction results as JSON.
-  - **400 Bad Request**: If no SMILES file is provided.
-  - **500 Internal Server Error**: If an error occurs during prediction.
+  - `200 OK`: JSON result of prediction.
+  - `400 Bad Request`: No file provided.
+  - `500 Internal Server Error`: Prediction failure.
 
-**GET /check_admet_status/<task_id>**
--------------------------------------
-Checks the status of an ADMET prediction task.
+**GET /check_admet_status/<task_id>**  
+Checks the status of an ADMET task.
 
 - **Parameters**:
-  - **task_id** (string): The unique task ID for the prediction.
-  
+  - `task_id` (string): Unique task identifier.
 - **Response**:
-  - **200 OK**: JSON response with logs and uploaded Azure files.
-  - **404 Not Found**: If the task ID is not found.
-  - **500 Internal Server Error**: If an error occurs while checking status.
+  - `200 OK`: Log and file upload summary.
+  - `404 Not Found`: Invalid task ID.
+  - `500 Internal Server Error`: Internal failure.
 
----
-
-
-==============================
 AntiFold Service
-==============================
+================
 
-**Blueprint Name**: `antifold`
+**Blueprint Name**: ``antifold``  
+**Base URL**: ``/antifold``
 
-**Base URL**: `/antifold`
-
-### Endpoints
-
-**POST /predict**
------------------
-Runs the AntiFold prediction for a given PDB file.
+**POST /predict**  
+Runs AntiFold prediction.
 
 - **Request**:
-  - **pdb_file** (file) or **pdb_url** (string): The PDB file or URL pointing to the PDB file to be analyzed.
-  - **task_type** (string): Type of the task to run.
-  - **heavy_chain** (string): Heavy chain sequence (optional).
-  - **light_chain** (string): Light chain sequence (optional).
-
+  - `pdb_file` (file) or `pdb_url` (string)
+  - `task_type` (string)
+  - `heavy_chain`, `light_chain` (optional)
 - **Response**:
-  - **200 OK**: Prediction results as JSON.
-  - **400 Bad Request**: If neither a PDB file nor URL is provided.
-  - **500 Internal Server Error**: If an error occurs during prediction.
+  - `200 OK`: JSON result.
+  - `400 Bad Request`: No file/URL.
+  - `500 Internal Server Error`: Processing error.
 
-**GET /check_status/<task_id>**
-------------------------------
-Checks the status of an AntiFold task.
+**GET /check_status/<task_id>**  
+Check AntiFold task status.
 
 - **Parameters**:
-  - **task_id** (string): The unique task ID for the prediction.
-  
+  - `task_id` (string)
 - **Response**:
-  - **200 OK**: JSON response with logs and uploaded Azure files.
-  - **404 Not Found**: If the task ID is not found.
-  - **500 Internal Server Error**: If an error occurs while checking status.
+  - `200 OK`: Logs and upload info.
+  - `404 Not Found`: Task missing.
+  - `500 Internal Server Error`: Failure.
 
----
-
-
-==============================
 ColabDock Service
-==============================
+=================
 
-**Blueprint Name**: `colabdock`
+**Blueprint Name**: ``colabdock``  
+**Base URL**: ``/colabdock``
 
-**Base URL**: `/colabdock`
-
-### Endpoints
-
-**POST /dock**
---------------
-Runs the ColabDock docking task.
+**POST /dock**  
+Run docking task.
 
 - **Request**:
-  - **pdb_file** (file) or **pdb_url** (string): The PDB file or URL pointing to the PDB file to be docked.
-
+  - `pdb_file` (file) or `pdb_url` (string)
 - **Response**:
-  - **200 OK**: Docking results as JSON.
-  - **400 Bad Request**: If neither a PDB file nor URL is provided.
-  - **500 Internal Server Error**: If an error occurs during docking.
+  - `200 OK`: Docking results.
+  - `400 Bad Request`: Input missing.
+  - `500 Internal Server Error`: Docking failed.
 
-**GET /check_status/<task_id>**
-------------------------------
-Checks the status of a ColabDock docking task.
+**GET /check_status/<task_id>**  
+Check docking task status.
 
 - **Parameters**:
-  - **task_id** (string): The unique task ID for the docking.
-
+  - `task_id` (string)
 - **Response**:
-  - **200 OK**: JSON response with logs and uploaded Azure files.
-  - **404 Not Found**: If the task ID is not found.
-  - **500 Internal Server Error**: If an error occurs while checking status.
+  - `200 OK`: Logs and files.
+  - `404 Not Found`: Task not found.
+  - `500 Internal Server Error`: Internal error.
 
----
-
-
-==============================
 Free-Wilson Service
-==============================
+===================
 
-**Blueprint Name**: `freewilson`
+**Blueprint Name**: ``freewilson``  
+**Base URL**: ``/freewilson``
 
-**Base URL**: `/freewilson`
-
-### Endpoints
-
-**POST /run_analysis**
------------------------
-Runs the Free-Wilson analysis.
+**POST /run_analysis**  
+Runs Free-Wilson analysis.
 
 - **Request**:
-  - **scaffold_file** (file) or **scaffold_url** (string): The scaffold file or URL.
-  - **input_smiles_file** (file) or **input_smiles_url** (string): The SMILES file or URL.
-  - **activity_file** (file) or **activity_url** (string): The activity file or URL.
-  - **prefix** (string): A unique task ID (optional).
-  
+  - `scaffold_file` / `scaffold_url`
+  - `input_smiles_file` / `input_smiles_url`
+  - `activity_file` / `activity_url`
+  - `prefix` (optional)
 - **Response**:
-  - **200 OK**: Analysis results as JSON.
-  - **400 Bad Request**: If required files or URLs are missing.
-  - **500 Internal Server Error**: If an error occurs during analysis.
+  - `200 OK`: JSON results.
+  - `400 Bad Request`: Inputs missing.
+  - `500 Internal Server Error`: Analysis failed.
 
 **GET /check_status/<task_id>**
-------------------------------
-Checks the status of the Free-Wilson analysis task.
 
 - **Parameters**:
-  - **task_id** (string): The unique task ID for the analysis.
-  
+  - `task_id` (string)
 - **Response**:
-  - **200 OK**: JSON response with logs and uploaded Azure files.
-  - **404 Not Found**: If the task ID is not found.
-  - **500 Internal Server Error**: If an error occurs while checking status.
+  - `200 OK`: Logs and uploads.
+  - `404 Not Found`: Task ID invalid.
+  - `500 Internal Server Error`: Check failed.
 
----
-
-
-==============================
 LigandMPNN Service
-==============================
+==================
 
-**Blueprint Name**: `ligandmpnn`
+**Blueprint Name**: ``ligandmpnn``  
+**Base URL**: ``/ligandmpnn``
 
-**Base URL**: `/ligandmpnn`
-
-### Endpoints
-
-**POST /design**
------------------
-Starts the LigandMPNN design task.
+**POST /design**  
+Starts LigandMPNN design.
 
 - **Request**:
-  - **pdb_file** (file) or **pdb_file_url** (string): The PDB file or URL pointing to the PDB file.
-  - **chains_to_design** (string): The chains to design.
-  - **fixed_residues** (string): Fixed residues (optional).
-  - **residues_to_design** (string): Residues to design (optional).
-  - **temperature** (float): The temperature parameter for the design.
-  - **number_of_batches** (int): Number of batches to process.
-
+  - `pdb_file` / `pdb_file_url`
+  - `chains_to_design` (string)
+  - `fixed_residues`, `residues_to_design` (optional)
+  - `temperature` (float), `number_of_batches` (int)
 - **Response**:
-  - **200 OK**: Design results as JSON.
-  - **400 Bad Request**: If no PDB file is provided or if chains to design are missing.
-  - **500 Internal Server Error**: If an error occurs during design.
+  - `200 OK`: Design output.
+  - `400 Bad Request`: Input issues.
+  - `500 Internal Server Error`: Internal error.
 
 **GET /check_status/<task_id>**
-------------------------------
-Checks the status of a LigandMPNN design task.
 
 - **Parameters**:
-  - **task_id** (string): The unique task ID for the design.
-
+  - `task_id` (string)
 - **Response**:
-  - **200 OK**: JSON response with logs and uploaded Azure files.
-  - **404 Not Found**: If the task ID is not found.
-  - **500 Internal Server Error**: If an error occurs while checking status.
+  - `200 OK`: Logs and files.
+  - `404 Not Found`: Task missing.
+  - `500 Internal Server Error`: Check failed.
 
----
-
-
-==============================
 LocalColabFold API
-==============================
+==================
 
-**Blueprint Name**: `localcolabfold`
+**Blueprint Name**: ``localcolabfold``
 
-This API allows users to predict protein structures using the LocalColabFold method.
+**POST /predict**  
+Runs structure prediction.
 
-Routes:
--------
+- **Request**:
+  - `fasta_file` or `fasta_file_url`
+- **Response**:
+  - `200 OK`: Structure output.
+  - `400 Bad Request`: Missing input.
+  - `500 Internal Server Error`: Error occurred.
 
-1. **POST /predict**
-    - **Description**: Accepts a FASTA file upload or URL and runs the LocalColabFold prediction.
-    - **Parameters**:
-        - `fasta_file`: The protein sequence in FASTA format (file upload).
-        - `fasta_file_url`: The URL of a FASTA file (optional if `fasta_file` is provided).
-    - **Response**: Returns a JSON object containing the prediction results.
-    - **Errors**:
-        - 400: No FASTA file or URL provided.
-        - 500: Internal server error.
+**GET /check_status/<task_id>**
 
-2. **GET /check_status/<task_id>**
-    - **Description**: Checks the status of a task based on the task ID, and retrieves the log and Azure upload results.
-    - **Parameters**:
-        - `task_id`: The ID of the task to check.
-    - **Response**: Returns a JSON object containing the logs and any uploaded files to Azure.
-    - **Errors**:
-        - 404: Task ID not found.
-        - 500: Internal server error.
----
+- **Parameters**:
+  - `task_id` (string)
+- **Response**:
+  - `200 OK`: Logs and Azure files.
+  - `404 Not Found`: Task invalid.
+  - `500 Internal Server Error`: Status error.
 
-==============================
 ParaSurf API
-==============================
+============
 
-**Blueprint Name**: `parasurf`
+**Blueprint Name**: ``parasurf``
 
-This API allows users to predict protein surface properties using the ParaSurf tool.
+**POST /predict**  
+Run ParaSurf prediction.
 
-Routes:
--------
+- **Request**:
+  - `pdb_file` or `pdb_url`
+- **Response**:
+  - `200 OK`: Surface output.
+  - `400 Bad Request`: Missing input.
+  - `500 Internal Server Error`: Internal failure.
 
-1. **POST /predict**
-    - **Description**: Accepts a PDB file upload or URL and runs the ParaSurf prediction.
-    - **Parameters**:
-        - `pdb_file`: A PDB file containing the protein structure (file upload).
-        - `pdb_url`: The URL of a PDB file (optional if `pdb_file` is provided).
-    - **Response**: Returns a JSON object containing the prediction results.
-    - **Errors**:
-        - 400: No PDB file or URL provided.
-        - 500: Internal server error.
+**GET /check_status/<task_id>**
 
-2. **GET /check_status/<task_id>**
-    - **Description**: Checks the status of a task based on the task ID, and retrieves the log and Azure upload results.
-    - **Parameters**:
-        - `task_id`: The ID of the task to check.
-    - **Response**: Returns a JSON object containing the logs and any uploaded files to Azure.
-    - **Errors**:
-        - 404: Task ID not found.
-        - 500: Internal server error.
----
+- **Parameters**:
+  - `task_id` (string)
+- **Response**:
+  - `200 OK`: Logs and uploads.
+  - `404 Not Found`: Task not found.
+  - `500 Internal Server Error`: Status failure.
 
-==============================
 ProteinMPNN API
-==============================
+===============
 
-**Blueprint Name**: `proteinmpnn`
+**Blueprint Name**: ``proteinmpnn``
 
-This API predicts the stability and mutation effects of proteins using ProteinMPNN.
+**POST /ddg**  
+Run ddG prediction.
 
-Routes:
--------
+- **Request**:
+  - `pdb_file` / `pdb_file_url`
+  - `chain` (default "A")
+- **Response**:
+  - `200 OK`: ddG results.
+  - `400 Bad Request`: Input missing.
+  - `500 Internal Server Error`: Prediction failure.
 
-1. **POST /ddg**
-    - **Description**: Accepts a PDB file upload or URL and runs the ProteinMPNN prediction.
-    - **Parameters**:
-        - `pdb_file`: A PDB file (file upload).
-        - `pdb_file_url`: The URL of a PDB file (optional if `pdb_file` is provided).
-        - `chain`: The chain identifier (optional, default is "A").
-    - **Response**: Returns a JSON object containing the prediction results.
-    - **Errors**:
-        - 400: No PDB file or URL provided.
-        - 500: Internal server error.
+**GET /check_status/<task_id>**
 
-2. **GET /check_status/<task_id>**
-    - **Description**: Checks the status of a task based on the task ID, and retrieves the log and Azure upload results.
-    - **Parameters**:
-        - `task_id`: The ID of the task to check.
-    - **Response**: Returns a JSON object containing the logs and any uploaded files to Azure.
-    - **Errors**:
-        - 404: Task ID not found.
-        - 500: Internal server error.
----
+- **Parameters**:
+  - `task_id` (string)
+- **Response**:
+  - `200 OK`: Logs and files.
+  - `404 Not Found`: Task ID missing.
+  - `500 Internal Server Error`: Failure occurred.
 
-==============================
 REINVENT API
-==============================
+============
 
-**Blueprint Name**: `reinvent`
+**Blueprint Name**: ``reinvent``
 
-This API allows users to run REINVENT, a tool for molecular generation and optimization.
+**POST /predict**  
+Runs REINVENT for generation.
 
-Routes:
--------
+- **Request**:
+  - `smiles` (string)
+- **Response**:
+  - `200 OK`: Molecule data.
+  - `400 Bad Request`: Missing SMILES.
+  - `500 Internal Server Error`: Failure.
 
-1. **POST /predict**
-    - **Description**: Accepts a SMILES string and runs the REINVENT prediction.
-    - **Parameters**:
-        - `smiles`: The SMILES representation of the molecule.
-    - **Response**: Returns a JSON object containing the prediction results.
-    - **Errors**:
-        - 400: SMILES input is required.
-        - 500: Internal server error.
+**GET /check_status/<task_id>**
 
-2. **GET /check_status/<task_id>**
-    - **Description**: Checks the status of a task based on the task ID, and retrieves the log and Azure upload results.
-    - **Parameters**:
-        - `task_id`: The ID of the task to check.
-    - **Response**: Returns a JSON object containing the logs and any uploaded files to Azure.
-    - **Errors**:
-        - 404: Task ID not found.
-        - 500: Internal server error.
----
+- **Parameters**:
+  - `task_id` (string)
+- **Response**:
+  - `200 OK`: Logs and files.
+  - `404 Not Found`: Task invalid.
+  - `500 Internal Server Error`: Check error.
 
-==============================
 ThermoMPNN API
-==============================
+==============
 
-**Blueprint Name**: `thermompnn`
+**Blueprint Name**: ``thermompnn``
 
-This API uses ThermoMPNN for predicting the stability of proteins based on mutations.
+**POST /predict**  
+Runs ThermoMPNN prediction.
 
-Routes:
--------
+- **Request**:
+  - `task_type` (single, double, epistatic)
+  - `pdb_file` or `pdb_file_url`
+- **Response**:
+  - `200 OK`: Prediction results.
+  - `400 Bad Request`: Invalid input.
+  - `500 Internal Server Error`: Prediction error.
 
-1. **POST /predict**
-    - **Description**: Accepts a PDB file upload or URL and starts a ThermoMPNN prediction for stability or mutation effects.
-    - **Parameters**:
-        - `task_type`: The type of task ('single', 'epistatic', or 'double').
-        - `pdb_file`: A PDB file (file upload).
-        - `pdb_file_url`: The URL of a PDB file (optional if `pdb_file` is provided).
-    - **Response**: Returns a JSON object containing the prediction results.
-    - **Errors**:
-        - 400: No PDB file or URL provided.
-        - 500: Internal server error.
+**GET /check_status/<task_id>**
 
-2. **GET /check_status/<task_id>**
-    - **Description**: Checks the status of a task based on the task ID, and retrieves the log and Azure upload results.
-    - **Parameters**:
-        - `task_id`: The ID of the task to check.
-    - **Response**: Returns a JSON object containing the logs and any uploaded files to Azure.
-    - **Errors**:
-        - 404: Task ID not found.
-        - 500: Internal server error.
----
-
-==============================
-Thompson Sampling API
-==============================
-
-**Blueprint Name**: `thompson_sampling`
-
-This API allows users to run the Thompson Sampling algorithm for molecular exploration.
-
-Routes:
--------
-
-1. **POST /run_ts**
-    - **Description**: Starts a Thompson Sampling task and returns the task ID with Azure Blob Storage links.
-    - **Parameters**:
-        - `reaction_smarts`: The SMARTS representation of the reaction.
-        - `num_warmup_trials`: The number of warmup trials.
-        - `num_ts_iterations`: The number of Thompson Sampling iterations.
-        - `evaluator`: The evaluator method (options: "FPEvaluator", "MLClassifierEvaluator", "FredEvaluator", "ROCSEvaluator").
-        - `ts_mode`: The Thompson Sampling mode.
-    - **Response**: Returns a JSON object containing the task results.
-    - **Errors**:
-        - 400: Missing required parameters.
-        - 500: Internal server error.
----
-
-==============================
-General Information
-==============================
-
-All services are hosted using Flask and accept file uploads via POST requests. Azure Blob Storage is used to store results, and task status can be checked via GET requests. Each service may include logging and file download functionality as part of the process.
-
----
-
-==============================
-Last Updated
-==============================
-
-This list was last updated on :date:.
-
----
-
-==============================
-Logging
-==============================
-
-The APIs log all interactions for debugging and monitoring. Logs are saved to local files and can be accessed as part of the task status.
-
+- **Parameters**:
+  - `task_id` (string)
+- **Response**:
+  - `200 OK`: Logs and Azure outputs.
+  - `404 Not Found`: Task not found.
+  - `500 Internal Server Error`: Check failure.
