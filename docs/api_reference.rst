@@ -3,13 +3,8 @@ API Documentation
 
 This document describes the API endpoints available for various services. Each service has its own set of routes, which allow users to upload files, run analysis, and check task statuses.
 
-API Documentation for all Tasks
-===============================
-
-This section provides an overview of the available tasks and their API endpoints.
-
 Available Tasks
-===============
+---------------
 
 1. **AntiFold**
    - **Prediction**: ``/v1/api/antifold/predict``  
@@ -72,7 +67,7 @@ Available Tasks
       Checks the status of ADMET AI prediction tasks.
 
 ADMET AI Service
-================
+----------------
 
 **Blueprint Name**: ``admet_ai``  
 **Base URL**: ``/admet_ai``
@@ -98,7 +93,7 @@ Checks the status of an ADMET task.
   - `500 Internal Server Error`: Internal failure.
 
 AntiFold Service
-================
+----------------
 
 **Blueprint Name**: ``antifold``  
 **Base URL**: ``/antifold``
@@ -126,7 +121,7 @@ Check AntiFold task status.
   - `500 Internal Server Error`: Failure.
 
 ColabDock Service
-=================
+-----------------
 
 **Blueprint Name**: ``colabdock``  
 **Base URL**: ``/colabdock``
@@ -152,7 +147,7 @@ Check docking task status.
   - `500 Internal Server Error`: Internal error.
 
 Free-Wilson Service
-===================
+-------------------
 
 **Blueprint Name**: ``freewilson``  
 **Base URL**: ``/freewilson``
@@ -180,7 +175,7 @@ Runs Free-Wilson analysis.
   - `500 Internal Server Error`: Check failed.
 
 LigandMPNN Service
-==================
+------------------
 
 **Blueprint Name**: ``ligandmpnn``  
 **Base URL**: ``/ligandmpnn``
@@ -208,7 +203,7 @@ Starts LigandMPNN design.
   - `500 Internal Server Error`: Check failed.
 
 LocalColabFold API
-==================
+------------------
 
 **Blueprint Name**: ``localcolabfold``
 
@@ -232,7 +227,7 @@ Runs structure prediction.
   - `500 Internal Server Error`: Status error.
 
 ParaSurf API
-============
+------------
 
 **Blueprint Name**: ``parasurf``
 
@@ -256,7 +251,7 @@ Run ParaSurf prediction.
   - `500 Internal Server Error`: Status failure.
 
 ProteinMPNN API
-===============
+---------------
 
 **Blueprint Name**: ``proteinmpnn``
 
@@ -281,7 +276,7 @@ Run ddG prediction.
   - `500 Internal Server Error`: Failure occurred.
 
 REINVENT API
-============
+------------
 
 **Blueprint Name**: ``reinvent``
 
@@ -305,7 +300,7 @@ Runs REINVENT for generation.
   - `500 Internal Server Error`: Check error.
 
 ThermoMPNN API
-==============
+--------------
 
 **Blueprint Name**: ``thermompnn``
 
