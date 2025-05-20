@@ -35,7 +35,7 @@ def download_file(url, save_path):
 def predict():
     try:
         pdb_file = request.files.get("pdb_file")
-        pdb_url = request.form.get("pdb_url")
+        pdb_url = request.form.get("pdb_file_url")
 
         if not pdb_file and not pdb_url:
             logging.error("No PDB file or PDB URL provided")

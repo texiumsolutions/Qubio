@@ -3,21 +3,31 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Qubio documentation
+Qubio Documentation
 ===================
 
-Welcome to Qubio! This documentation provides reference for APIs and tools used in structure prediction, protein design, property characterization, optimization and docking.
+Welcome to Qubio! This documentation provides reference for APIs and tools used in structure prediction, protein design, property characterization, optimization, and docking.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents
+   :caption: General
 
    structure_prediction
    protein_design
    characterization
    finetuning
    docking
+
+.. toctree::
+   :maxdepth: 2
+   :caption: API
+
    api_reference
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Bioinformatics Tasks
+
    tasks/antifold
    tasks/proteinmpnn
    tasks/localcolabfold
